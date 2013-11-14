@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Passing Variables with Get Method</title>
+<script type="text/javascript" 
+         src="Library.js" >//Get Function
+</script>
+</head>
+
+<body>
+<script type="text/javascript">
+    //Grab the URL
+	document.write("Display the URL </br>");
+	document.write(location.href+"</br>");
+	//Place into the $_GET object
+    var $_GET=getFormInfo(location.href);
+	//Print the $_GET object
+	document.write("</br>Display the $_GET Object </br>");
+	for(var name in $_GET){
+		document.write(name+"="+$_GET[name]+"<br/>");
+	}
+	//Use the Get object to calculate the savings over time
+	var save=savings($_GET['principle'],
+	                 $_GET['interest'],
+					 $_GET['periods']);
+					 document.write("</br> Display the Savings </br>");
+	document.write("Savings=$"+save+"</br>");
+	//Test JSON to stringify and parse back
+	var str=JSON.stringify($_GET);
+	document.write("</br> Display the JSON String </br>");
+	document.write("The $_GET Object in a string = "+str+"</br>");
+	var obj=JSON.parse(str);
+	//Print the new object
+	document.write("</br> Display the JSON Object </br>");
+	for(var name in obj){
+		document.write(name+"="+obj[name]+"<br/>");
+	}
+	//Testing Local Storage
+	var lsObj=localStorage;
+	document.write("</br> Display all the local storage before setting </br>");
+	for(var name in lsObj){
+		document.write(name+"="+lsObj[name]+"<br/>");
+	}
+	//Set a property in local storage
+	//With the api
+	lsObj.setItem("WithAnAPI", str);
+	document.write("</br> Display all the local storage after setting </br>");
+	for(var name in lsObj){
+		document.write(name+"="+lsObj[name]+"<br/>");
+	}
+</script>
+</body>
+</html>
