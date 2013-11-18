@@ -3,6 +3,7 @@
  * CookieStorage.js
  * This class implements the Storage API that localStorage and sessionStorage
  * do, but implements it on top of HTTP Cookies.
+ Testing
  */
 function CookieStorage(maxage, path) {  // Arguments specify lifetime and scope
 
