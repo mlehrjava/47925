@@ -96,63 +96,6 @@ setCookie(Name, "Hello", "", "");
 
 document.write(document.cookie);*/
 
-/*FROM OTHER START
-			 function getFormCookies () {
-				//create empty object to store cookie name/value pairs and to return
-				var cookies = {};
-				//get all cookies from submitted form
-				var formCookies = document.cookie;
-				//take into account that user may not have cookies if first visit, will need to return an empty cookies object
-				if (formCookies === ""){
-					return cookies;
-				}
-				//cookies stored as one large string in array
-				//separate each set of name value pairs from each other to create separate cookies rather than one giant cookie
-				var separateCookies = formCookies.split("; ");
-				//when split, returns an array, want to loop through each array and separate the name from its value and assign to appropriate variables
-				//array now holds [name=value, name=value, name=value]
-				for (var i = 0; i < separateCookies.length; i ++){
-					var singleCookie = separateCookies[i];
-					//assign variable to =, get range of characters for name and assign to corresponding var, same for value
-					var position = singleCookie.indexOf("=");
-					var name = singleCookie.substring(0, position);
-					var value = singleCookie.substring (position+1);
-					//use decodeURIComponent
-					value = decodeURIComponent(value);
-					//assign separated name value pairs to the cookies object
-					cookies[name] = value;
-				}
-				return cookies;
-			 }
-			 
-			 //now that have the large, single cookie split into smaller name and value pairs in object, need to assign each to its own cookie
-			 
-			 //function to reassign name value pairs into a cookie
-			 //layout for a cookie is name=value
-			 
-			 function setIndivCookies (name, value, life){
-				var cookie = name + "=" + encodeURIComponent(value);
-				//ensure that life is a number, set the max-age if it is
-				if (typeof life === "number"){
-					cookie += "; max-age=" + (life);
-				}
-				//create the cookie
-				document.cookie = cookie;
-			 }
-			 
-			 function checkObjEmpty (obj){
-			 	for (var name in obj){
-			 		if (obj.hasOwnProperty(name)){
-			 			return false; //if return false, means not empty (if has property)
-			 		}
-			 	}
-			 	//if return true, then empty
-			 	return true;
-			 }
-			 
-			 
-//FROM OTHER END*/
-
 function CookieStorage(maxage, path) {  // Arguments specify lifetime and scope
 
     // Get an object that holds all cookies
