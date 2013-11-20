@@ -61,39 +61,6 @@ h2{color: blue; text-align: center;}
 		}
 		return obj;
 	}
-			
-			
-//from OTHER Start			
-function getSubmittedForm () {
-	//create object to store parameters of form, goes int array
-	var formObj = new Object ();
-	//get url and separate parameters from page, will have array, length of array determined by how many times it splits at set location
-	//split method automatically returns an array
-	var url = location.href;
-	var parameterslist = url.split("?");
-	//now that have all parameters, separate each, since array want values at 1 (will be a string)
-	//split string value, this will create a new array
-	var parameters = parameterslist[1].split("&");
-	//want to loop through each parameter set of the array created with split
-	// want to then separate the property from its value, creates a new array from that string
-	// store back into object
-	for (var i = 0; i < parameters.length; i ++){
-		var map = parameters[i].split("=");
-		var property = map[0];
-		var value = map[1];
-		
-		formObj[property] = value;
-	}
-	return formObj;
-}
-	
-function displaySubmittedForm (formObj) {
-	for (var propertyName in formObj){
-		document.write('<p>'+propertyName + " = " + formObj[propertyName] + "<br />"+'</p>');//name was propertyName
-	}
-}
-//from OTHER End
-	
 
 </script>
 
@@ -109,17 +76,9 @@ function displaySubmittedForm (formObj) {
 
  var $_GET=getFormInfo(location.href);
 	for(var name in $_GET){
-		document.write('<p>'+name+": ");
-		document.write($_GET[name] +'</p>');
-	}
-	
+		document.write('<p>'+name+": " + $_GET[name] +'</p>');
 
-	//From OTHER Start
-	//create variable to assign form objects to
-					var $_GET = getSubmittedForm();
-					//display inputted information
-					displaySubmittedForm($_GET);	
-	//From OTHER Start
+	}
 	
 
 </script>
