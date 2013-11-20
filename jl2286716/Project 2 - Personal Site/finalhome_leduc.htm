@@ -1,0 +1,162 @@
+<html>
+
+<head>
+<!-- 
+   Author: James Leduc
+   Date:   2/7/2011
+
+   Filename:         finalhome_leduc.htm
+   Supporting files:     moon_knight.jpg
+
+-->
+
+   <title>The Collection Corner Home</title>
+   <link href="fmain_leduc.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body style="background: yellow">
+
+   <h1>The Collection Corner</h1>
+      <hr />
+
+   <div id="links">
+      <ul>
+         <li><a href="finalhome_leduc.htm">Home</a></li>
+         <li><a href="finalcomics_leduc.htm">Comic Corner</a></li>
+         <li><a href="finalfigures_leduc.htm">Action Figure Corner</a></li>
+         <li><a href="finalclix_leduc.htm">Heroclix<sup>TM</sup> Corner</a></li>
+         <li><a href="#">Members Only</a></li>
+      </ul>
+         <hr />
+   </div>
+
+   <div id="leftMain" align="center">
+      <p>Welcome to the <span>Collection Corner</span>, where collectors come together 
+         to meet and network about <a href="finalcomics_leduc.htm">comics</a>, 
+         <a href="finalfigures_leduc.htm">action figures</a>, and 
+         <a href="finalclix_leduc.htm">Heroclix<sup>TM</sup></a>. Check out <i>all 
+         corners</i> of the <span>Collection Corner</span>! But you <b>must</b> be a 
+         registered member, it's <i>free</i> and <i>easy</i>!</p>
+      <p><b><i>Your one-stop super hero hobby spot!</i></b></p>
+      <h3>Register below for full access!</h3>
+   </div>
+
+   <img src="moon_knight.jpg" alt="Sketch" id="moonPool" />
+
+   <div id="rightMain">
+      <h2>Member Registration Form</h2>
+      <p><span>*</span> Required information. <span>**</span> Screen Name is used 
+         for login.</p>
+
+      <form name="memberInfo" id=memberInfo" 
+            action="http://www.collectioncorner.com/forum/members_info" 
+            method="post">
+
+         <input type="hidden" name="eMail" id="eMail" 
+                value="highrumthebrownrecluse@yahoo.com" />
+
+         <fieldset id="member">
+            <legend>Member Information</legend>
+ 
+            <label class="blockLabel">
+               First Name<span>*</span>
+               <input type="text" id="firstName" name="firstName" />
+            </label>
+
+            <label class="blockLabel">
+               Last Name<span>*</span>
+               <input type="text" id="lastName" name="lastName" />
+            </label>
+
+            <label class="blockLabel">
+               Screen Name<span>**</span>
+               <input type="text" id="screenName" name="screenName" />
+            </label>
+
+            <fieldset id="interests">
+               <legend>Main Interest</legend>
+
+               <label for="comicType">Comic Books</label>
+               <input type="radio" id="comicType" name="interestType"
+                  value="comics" />
+
+               <label for="figureType">Action Figures</label>
+               <input type="radio" id="figureType" name="interestType"
+                  value="figures" />
+
+               <label for="clixType">HeroClix</label>
+               <input type="radio" id="clixType" name="interestType"
+                  value="clix" />
+
+               <label for="otherType">Other</label>
+               <input type="radio" id="otherType" name="interestType"
+                  value="other" />
+
+            </fieldset>
+
+         </fieldset>
+            
+         <fieldset id="contact">
+            <legend>Contact Information</legend>
+
+               <label class="blockLabel">
+                  E Mail<span>*</span>
+                  <input type="text" id="mail" name="mail" />
+               </label>
+
+               <p>Please include <b>area code</b> for phone numbers.</p>
+
+               <label class="blockLabel">
+                  Home Phone
+                  <input type="text" id="homePhone" name="homePhone" />
+               </label>
+
+               <label class="blockLabel">
+                  Cell Phone
+                  <input type="text" id="cellPhone" name="cellPhone" />
+               </label>
+
+         </fieldset>
+
+         <div>
+            <input type="submit" value="Register" />
+            <input type="reset" value="Cancel" />
+         </div>
+
+      </form>
+
+   </div>
+
+<hr />
+<address style="text-align: center">The Collection Corner &#9830;
+         Comic Books &#9830;
+         Action Figures &#9830;
+         HeroClix<sup>TM</sup> &#9830;
+</address>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
