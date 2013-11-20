@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Truth Table</title>
+</head>
+
+<body>
+	<table width="200" border="1"
+    <tr>
+    <th>x</th>
+    <th>y</th>
+    <th>!x</th>
+    <th>!y</th>
+    <th>x&&y</th>
+    <th>x||y</th>
+    <th>x^y</th>
+    <th>x^y^y</th>
+    <th>x^y^x</th>
+    <th!(x&&y)</th>
+    <th>!x||!y</th>
+    <th>!(x||y)</th>
+    <th>!x&&!y</th>
+</tr>
+<tr>
+<script>
+<script type="text/javascript">
+	//Initilize variables x and y
+	var x=true,y=true;
+	document.write("<td>"+(x?'T':'F')+"</td>");
+	document.write("<td>"+(y?'T':'F')+"</td>");
+	document.write("<td>"+(!x?'T':'F')+"</td>");
+	document.write("<td>"+(!y?'T':'F')+"</td>");	
+</script>
+</tr>
+<tr>
+<script type="text/javascript">
+	//Initilize variables x and y
+	y=false;
+	//Display row 2
+	document.write("<td>"+(x?'T':'F')+"</td>");
+	document.write("<td>"+(y?'T':'F')+"</td>");
+	document.write("<td>"+(!x?'T':'F')+"</td>");
+	document.write("<td>"+(!y?'T':'F')+"</td>");	
+
+</body>
+</html>
