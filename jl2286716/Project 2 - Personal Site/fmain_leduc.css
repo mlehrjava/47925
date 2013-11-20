@@ -1,0 +1,124 @@
+/*
+
+   Final Main Style Sheet
+   Author: James Leduc
+   Date:   2/7/2011
+
+   Filename:         fmain_leduc.css
+   Supporting Files: 
+
+*/ 
+
+h1               {text-align: center; background-color: black; color: white}
+
+p span           {font-weight: bold}
+
+a                {text-decoration: none; color: black}
+
+p a:hover        {color: blue}
+
+li a:hover       {color: blue}
+
+a:visited        {color: red}
+
+p a sup          {font-size: 6pt}
+
+h1 sup           {font-size: 10pt}
+
+#links ul li     {display: inline; list-style-type: none; padding-left: 3em}
+
+#rightMain       {width: 600px;}
+
+#rightMain span  {color: red}
+
+#leftMain        {width: 600px}
+
+#leftMain p      {text-align: center}
+
+label.blockLabel {display: block}
+
+fieldset         {margin-bottom: 10px; padding: 10px}
+
+#firstName, #lastName, #screenName 
+                 {width: 20em}
+
+#mail            {width: 25em; margin-left: 30px}
+
+#homePhone, #cellPhone 
+                 {width: 13em}
+
+label.blockLabel #cellPhone       
+                 {margin-top: 13px}
+
+#firstName, #lastName
+                 {margin-left: 2em}
+
+#screenName      {margin-left: 3px}
+
+#homePhone       {margin-left: 1px}
+
+#cellPhone       {margin-left: 1em}
+
+legend           {color: green}
+
+#comicLinks a    {display: inline; padding-left: 1em}
+
+body             {margin: 1in; border-left: 1px solid black; 
+                  border-right: 1px solid black; width: 900px}
+
+#comLinkInfo p   {font-size: 17pt; font-family: sans serif; font-weight: bold}
+
+#comLinkInfo p span
+                 {font-size: 14pt; color: red}
+
+#forum p span i  {color: red; border: 1px dashed red; padding: 20px}
+
+label.forumMail span
+                 {color: red}
+
+#forum p span    {color: red}
+
+#moonPool        {float: right}
+
+address          {background-color: black; color: white}
+
+#clixInfo        {text-align: center}
+
+#clixInfo sup    {font-size: 10pt}
+
+#clixTable       {border: 5px solid black; width: 800px; margin-left: 45px; 
+                  background-color: black}
+
+table.HeroClix thead
+                 {background-color: blue; color: white}
+
+table.HeroClix col.setName
+                 {background-color: orange}
+
+table.HeroClix col.universe
+                 {background-color: red; color: white}
+
+#clickLink       {color: red; font-weight: bold}
+
+#batmanClix      {float: right}
+
+#wolverineClix   {float: left}
+
+#figureContent p {font-size: 30pt; font-weight: bold; font-variant: small-caps; 
+                  color: red}
+
+#exclaim p        {font-size: 200pt; font-weight: bold; color: red; margin: 0px}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
