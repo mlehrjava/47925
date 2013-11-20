@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Paycheck</title>
+<style type="text/css">
+.output { font-weight: bold; }
+th { text-align:center; padding:15px;  }
+#construct { padding:0 0 15px 0; }
+#buttonRow { padding:40px 0 15px 0; }
+#errors { color: red; }
+#paycheck { border-bottom:1px solid black;}
+</style>
+</head>
+
+<body>
+
+<table>
+    <tr>
+        <th colspan=2>Paycheck Calculator</th>
+    </tr>
+    <tr>
+        <th id="construct" colspan=2></th>
+    </tr>
+    <tr>
+        <td>Pay Rate ($):</td>
+        <td><input id="payRate" onchange="calculate(false);"></td>
+    </tr>
+    <tr>
+        <td>Hours Worked (hours):</td>
+        <td><input id="hrsWorked" onchange="calculate(false);"></td>
+    </tr>
+    <tr>
+        <td>When Double Time Starts (hours):</td>
+        <td><input id="dbTime" onchange="calculate(false);">
+    </td>
+    <tr>
+        <td>When Triple Time Starts (hours):</td>
+        <td><input id="trTime" onchange="calculate(false);"></td>
+    </tr>
+    <tr>
+        <th colspan=2 ><button onclick="calculate(true);">Calculate</button></th>
+    </tr>
+    <tr>
+        <td>Total Paycheck:</td>
+        <td>$<span class="output" id="paycheck"></span></td>
+    </tr>
+    <tr><td>&nbsp</td></tr>
+    <tr><td colspan=2><hr size="1" width="100%" /></td></tr>
+    <tr>
+        <th colspan=2 id="buttonRow" >
+            <button onclick="changeConstruct('Ternary');">Ternary</button>
+            <button onclick="changeConstruct('If');">If</button>
+            <button onclick="changeConstruct('If_Else');">If Else</button>
+            <button onclick="changeConstruct('Switch');">Switch</button>
+        </th>
+    </tr>
+</table>
+
+
+
+<p id="code"></p>
+
+<p id="errors"></p>
+
+<script type="text/javascript">
+
+var payRateE = document.getElementById("payRate");
+var hrsWorkedE = document.getElementById("hrsWorked");
+var dbTimeE = document.getElementById("dbTime");
+var trTimeE = document.getElementById("trTime");
+var payCheckE = document.getElementById("paycheck");
+
+var errP = document.getElementById("errors");
+var consP = document.getElementById("construct");
+var codeP = document.getElementById("code");
+
+var trTime = 0;
+var dbTime = 0;
+var hrsWorked = 0;
+var payRate = 0;
+var payCheck = 0;
+
+var construct = 'Ternary';
+
+
+function Ternary() {
+
+    (hrsWorked > trTime ? payCheck += payRate * (hrsWorked - trTime) : "");
+    (hrsWorked > dbTime ? payCheck += payRate * (hrsWorked - dbTime): "");
+    payCheck += payRate * hrsWorked;
+
+}
+
+function If() {
+
+    if (hrsWorked > trTime) {
+        payCheck += payRate * (hrsWorked - trTime);
+    }
+    if (hrsWorked > dbTime) {
+        payCheck += payRate * (hrsWorked - dbTime);
+    }
+        payCheck += payRate * hrsWorked;
+
+}
+
+function If_Else() {
+
+    if (hrsWorked > trTime) {
+        payCheck += (payRate * (hrsWorked - trTime)) + (payRate * (hrsWorked - dbTime));
+    } else if (hrsWorked > dbTime) {
+        payCheck += payRate * (hrsWorked - dbTime);
+    }
+    payCheck += payRate * hrsWorked;
+
+}
+
+function Switch() {
+
+    switch(true) {
+        case (hrsWorked > trTime) : payCheck += (payRate * (hrsWorked - trTime)) + (payRate * (hrsWorked - dbTime));
+            break;
+        case (hrsWorked > dbTime) : payCheck += payRate * (hrsWorked - dbTime);
+            break;
+    }
+    payCheck += payRate * hrsWorked;
+
+}
+
+changeConstruct(construct);
+
+
+function changeConstruct(newConstruct) {
+
+    construct = newConstruct;
+
+    consP.innerHTML =  "Using " + construct + " Construct";
+    construct = eval(construct);
+    codeP.innerHTML = "<pre>" + construct.toString().substring(9) + "</pre>";
+
+    payRateE.value = "";
+    hrsWorkedE.value = "";
+    dbTimeE.value = "";
+    trTimeE.value = "";
+    payCheckE.innerHTML = "";
+    errP.innerHTML = "";
+}
+
+
+function calculate(printErrors) {
+
+    payCheckE.innerHTML = "";
+    errP.innerHTML = "";
+    var errors = [];
+
+    // alternate code if want to output error for no Double Time input when there is a Triple Time input
+    //var trTime = trTimeE.value;
+    //var dbTime = ( dbTimeE.value  ? (trTime ? dbTimeE.value : errors.push("You must enter a value for Double Time")) : 0 );
+    trTime = parseInt(trTimeE.value);
+    dbTime = dbTimeE.value ? parseInt(dbTimeE.value) : trTime; // if no Double Time assign Triple Time if exists (fixes Triple Time when DT missing)
+    hrsWorked = ( hrsWorkedE.value ? hrsWorkedE.value : errors.push("You must enter a value for Hours Worked") );
+    payRate = ( payRateE.value ? payRateE.value : errors.push("You must enter a value for Pay Rate") );
+    payCheck = 0;
+
+
+    if (printErrors && errors.length) {
+        errP.innerHTML =  errors.join("<br/>");
+    }
+    if (errors.length) {
+        return;
+    }
+
+    construct();
+    payCheckE.innerHTML = payCheck.toFixed(2).toString();
+
+}
+
+
+
+</script>
+
+</body>
+</html>
