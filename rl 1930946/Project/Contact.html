@@ -1,0 +1,203 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>LEON Contact Us</title>
+
+<style type="text/css">
+body
+{
+background-color:black;
+}
+
+h1
+{
+	text-align: center;
+	font-family: Comic Sans MS, sans-serif;
+	color: #8B008B;
+}
+
+form
+{
+	text-align: center;
+}
+
+td
+{
+	text-align: center;
+}
+
+
+p
+{
+	color: yellow;
+	font-size:x-large;
+	font-family:Comic Sans MS, serif;
+	text-align: center;
+}
+
+
+#link
+{
+	color: #8B008B;
+	font-size: large;
+}
+
+span
+{
+	
+	text-decoration: underline;
+}
+
+#conact{
+	position: absolute;
+	top: 74px;
+	left: 1000px;
+	}
+	
+#signUp{
+	position: absolute;
+	top: 74px;
+	left: 19px;
+	}
+
+#gender { 
+	text-align:center;
+	
+	}
+	
+</style>
+
+<script type = "text/javascript">
+
+
+function checkBlank(){
+
+	if(document.getElementById('FirstAndLastName').value == ""){
+		
+		var name = document.getElementById('FirstAndLastName');
+	
+		alert("Please enter your first and last name");
+		name.backgroundColor = "grey";
+		name.borderColor = "yellow";
+		name.focus();
+		name.select();
+		return false;
+	}
+	
+	
+	if(document.getElementById('Email').value == ""){
+		
+		var email = document.getElementById('Email');
+	
+		alert("Please enter your an email adress");
+		email.style.backgroundColor = "grey";
+		email.style.borderColor = "yellow";
+		email.focus();
+		return false;
+	}
+	
+	if(document.getElementById('Subject').value == ""){
+		
+		var subject = document.getElementById('Subject');
+	
+		alert("Please enter a subject");
+		subject.style.backgroundColor = "grey";
+		subject.style.borderColor = "yellow";
+		subject.focus();
+		return false;
+	}
+	
+}
+
+function txtName_onchange(){
+
+	var name = document.getElementById('FirstAndLastName');
+	var RegExpName = /^([a-zA-Z ]){2,30}$/;
+	
+	if (!RegExpName.test(name.value)) {
+    alert('Please provide a valid first and last name');
+	name.style.backgroundColor = "grey";
+	name.style.borderColor = "red";
+    name.focus();
+    return false;
+	}
+	
+	
+}
+
+function txtEmail_onchange(){
+
+	var email = document.getElementById('Email');
+	var RegExpEmail = /^([A-Za-z0-9_\-\.]){1,}\@([A-Za-z0-9_\-\.]){1,}\.([A-Za-z]){2,4}$/;
+	
+	 if (!RegExpEmail.test(email.value)) {
+    alert('Please provide a valid email address');
+	email.style.backgroundColor = "grey";
+	email.style.borderColor = "red";
+    email.focus();
+    return false;
+	}
+}
+
+
+function txtSubject_onchange(){
+
+	var subject = document.getElementById('Subect');
+	var RegExpSubject = /^([a-zA-Z ]){2,30}$/;
+	
+	 if (!RegExpSubject.test(subject.value)) {
+    alert('Please provide a valid sujbect');
+    subject.style.backgroundColor = "grey";
+	subject.style.borderColor = "red";
+	subject.focus();
+    return false;
+	}
+	
+}
+
+
+
+
+</script>-->
+<!--<script type = "text/javascript" src="cookies.js"></script>-->
+
+</head>
+<body>
+<h1>Contact Us</h1>
+<hr style="border: 1px dashed #000; background-color: #8B008B" />
+</br>
+
+
+<table align="center" border = "1" bordercolor="#8B008B" cellpadding="5">
+<form action = "contactSubmit.html" name = "form1" method = "get" >
+
+<tr>
+<td><p>Name</p></td>
+<td><input type = "text" name = "FirstAndLastName" id = "FirstAndLastName" onchange = "txtName_onchange()" value = "first and last"/></td>
+</tr>
+
+<tr>
+<td ><p >Email</p></td>
+<td><input type = "text" name = "Email" id = "Email" onchange = "txtEmail_onchange()" value = "someone@mail.com"/></td>
+</tr>
+
+<tr>
+<td><p>Subject</p></td>
+<td><input type = "text" name = "Subject" id = "Subject" onchange = "txtSubject_onchange()" value = "subject"/></td>
+</tr>
+
+<tr>
+<td><p>Message</p></td>
+<td><textarea type = "text" name = "Message" id ="Message" cols = "30" rows = "5"></textarea>
+
+
+<tr>
+<td colspan = "2"  align = "center" ><input type = "submit" value = "submit" onclick = "return checkBlank()"/></td>
+</tr>
+
+</form>
+</table>
+
+</body>
+</html>
