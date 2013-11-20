@@ -1,0 +1,307 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>LEON Contact Info</title>
+
+<style type="text/css">
+body
+{
+background-color:black;
+}
+
+h1
+{
+	text-align: center;
+	font-family: Comic Sans MS, sans-serif;
+	color: #8B008B;
+}
+
+h2
+{
+	text-align: center;
+	font-family: Comic Sans MS, sans-serif;
+	color: blue;
+}
+
+
+p
+{
+	color: yellow;
+	font-size:x-large;
+	font-family:Comic Sans MS, serif;
+	text-align: center;
+}
+
+td
+{
+	text-align:center;
+}
+
+#link
+{
+	color: #8B008B;
+	font-size: large;
+}
+
+</style>
+
+<script type = "text/javascript" >
+
+
+	//Get the info from...
+	function getFormInfo(url){
+		//Split information using ?
+		var info=url.split("?");
+		//Take the second part for the
+		//info array and split into
+		//name-value pairs
+		var nameValuePairs=info[1].split("&");
+		//Map the information to the Get Object
+		var obj=new Object();
+		for(var i=0;i<nameValuePairs.length;i++){//WAS i<nameValuePairs.length-1
+			var map=nameValuePairs[i].split("=");
+			var name=map[0];
+			var value=map[1];
+			obj[name]=value;
+		}
+		return obj;
+	}	
+	
+	/*Cookies...
+	function setCookie(cookieName, cookieValue, cookiePath, cookieExpires){
+	
+		cookieValue = escape(cookieValue);
+		 
+		 if(cookieExpires == " "){
+			 
+			 	var nowDate = new Date();
+				nowDate.setMonth(nowDate.getMonth() +6);
+				cookieExpires = nowDate.toGMTString();
+				
+			 }
+			 
+		if( cookiePath != " "){
+			
+			cookiePath = ";Path=" + cookiePath;
+			
+			}
+			
+		document.cookie = cookieName + "=" + cookieValue + ";expires=" + cookieExpires + cookiePath;
+}
+
+var Name = document.getElementById("FirstAndLastName").value;
+
+setCookie(Name, "Hello", "", "");
+
+document.write(document.cookie);*/
+
+/*FROM OTHER START
+			 function getFormCookies () {
+				//create empty object to store cookie name/value pairs and to return
+				var cookies = {};
+				//get all cookies from submitted form
+				var formCookies = document.cookie;
+				//take into account that user may not have cookies if first visit, will need to return an empty cookies object
+				if (formCookies === ""){
+					return cookies;
+				}
+				//cookies stored as one large string in array
+				//separate each set of name value pairs from each other to create separate cookies rather than one giant cookie
+				var separateCookies = formCookies.split("; ");
+				//when split, returns an array, want to loop through each array and separate the name from its value and assign to appropriate variables
+				//array now holds [name=value, name=value, name=value]
+				for (var i = 0; i < separateCookies.length; i ++){
+					var singleCookie = separateCookies[i];
+					//assign variable to =, get range of characters for name and assign to corresponding var, same for value
+					var position = singleCookie.indexOf("=");
+					var name = singleCookie.substring(0, position);
+					var value = singleCookie.substring (position+1);
+					//use decodeURIComponent
+					value = decodeURIComponent(value);
+					//assign separated name value pairs to the cookies object
+					cookies[name] = value;
+				}
+				return cookies;
+			 }
+			 
+			 //now that have the large, single cookie split into smaller name and value pairs in object, need to assign each to its own cookie
+			 
+			 //function to reassign name value pairs into a cookie
+			 //layout for a cookie is name=value
+			 
+			 function setIndivCookies (name, value, life){
+				var cookie = name + "=" + encodeURIComponent(value);
+				//ensure that life is a number, set the max-age if it is
+				if (typeof life === "number"){
+					cookie += "; max-age=" + (life);
+				}
+				//create the cookie
+				document.cookie = cookie;
+			 }
+			 
+			 function checkObjEmpty (obj){
+			 	for (var name in obj){
+			 		if (obj.hasOwnProperty(name)){
+			 			return false; //if return false, means not empty (if has property)
+			 		}
+			 	}
+			 	//if return true, then empty
+			 	return true;
+			 }
+			 
+			 
+//FROM OTHER END*/
+
+function CookieStorage(maxage, path) {  // Arguments specify lifetime and scope
+
+    // Get an object that holds all cookies
+    var cookies = (function() { // The getCookies() function shown earlier
+        var cookies = {};           // The object we will return
+        var all = document.cookie;  // Get all cookies in one big string
+        if (all === "")             // If the property is the empty string
+            return cookies;         // return an empty object
+        var list = all.split("; "); // Split into individual name=value pairs
+        for(var i = 0; i < list.length; i++) {  // For each cookie
+            var cookie = list[i];
+            var p = cookie.indexOf("=");        // Find the first = sign
+            var name = cookie.substring(0,p);   // Get cookie name
+            var value = cookie.substring(p+1);  // Get cookie value
+            value = decodeURIComponent(value);  // Decode the value
+            cookies[name] = value;              // Store name and value
+        }
+        return cookies;
+    }());
+
+    // Collect the cookie names in an array
+    var keys = [];
+    for(var key in cookies) keys.push(key);
+
+    // Now define the public properties and methods of the Storage API
+
+    // The number of stored cookies
+    this.length = keys.length;
+
+    // Return the name of the nth cookie, or null if n is out of range
+    this.key = function(n) {
+        if (n < 0 || n >= keys.length) return null;
+        return keys[n];
+    };
+
+    // Return the value of the named cookie, or null.
+    this.getItem = function(name) { return cookies[name] || null; };
+	this.getItems = function() { return cookies || null; };
+
+    // Store a value
+    this.setItem = function(key, value) {
+        if (!(key in cookies)) { // If no existing cookie with this name
+            keys.push(key);      // Add key to the array of keys
+            this.length++;       // And increment the length
+        }
+
+        // Store this name/value pair in the set of cookies.
+        cookies[key] = value;
+
+        // Now actually set the cookie.
+        // First encode value and create a name=encoded-value string
+        var cookie = key + "=" + encodeURIComponent(value);
+
+        // Add cookie attributes to that string
+        if (maxage) cookie += "; max-age=" + maxage;
+        if (path) cookie += "; path=" + path;
+
+        // Set the cookie through the magic document.cookie property
+        document.cookie = cookie;
+    };
+
+    // Remove the specified cookie
+    this.removeItem = function(key) {
+        if (!(key in cookies)) return;  // If it doesn't exist, do nothing
+
+        // Delete the cookie from our internal set of cookies
+        delete cookies[key];
+
+        // And remove the key from the array of names, too.
+        // This would be easier with the ES5 array indexOf() method.
+        for(var i = 0; i < keys.length; i++) {  // Loop through all keys
+            if (keys[i] === key) {              // When we find the one we want
+                keys.splice(i,1);               // Remove it from the array.
+                break;
+            }
+        }
+        this.length--;                          // Decrement cookie length
+
+        // Finally actually delete the cookie by giving it an empty value
+        // and an immediate expiration date.
+        document.cookie = key + "=; max-age=0";
+    };
+
+    // Remove all cookies
+    this.clear = function() {
+        // Loop through the keys, removing the cookies
+        for(var i = 0; i < keys.length; i++)
+            document.cookie = keys[i] + "=; max-age=0";
+        // Reset our internal state
+        cookies = {};
+        keys = [];
+        this.length = 0;
+    };
+}
+
+
+</script>
+
+<body>
+<h1>Contact Info</h1>
+<hr style="border: 1px dashed #000; background-color: #8B008B" />
+
+</br>
+
+<h2>Thank yor for contacting us, we will get to your enquiry as soon as we can.</h2>
+
+<script type="text/javascript">
+
+ var $_GET=getFormInfo(location.href);
+	for(var name in $_GET){
+		document.write('<p>'+name + ": " + $_GET[name] + '</p>');
+		
+	}
+	
+/*FROM OTHER START	
+					//get cookies
+					//note max-age is set in seconds
+					var lifeLength = 120;
+					var  contactUsCookiesObj = getFormCookies(); //will return empty object if no cookies exist
+					// check if object is empty
+					if (checkObjEmpty(contactUsCookiesObj)){
+						//if empty create cookies (44 max)
+						for (var name in $_GET){
+							var value = $_GET[name];
+							setIndivCookies (name, value, lifeLength);
+						}
+					}
+					
+					document.write("<p>Form cookies</p>");
+					document.write('<p>'+document.cookie+ '</p>');
+				
+//FROM OTHER END*/
+
+//Set a cookie
+	//With a function
+	setCookie("WithAFunction", str, seconds);
+	//With a Class
+	var cs=new CookieStorage(seconds);
+	cs.setItem("WithAClass",str);
+	//Get the cookie with a function
+	cookiesObj=getCookies();
+	document.write("</br> Display all the function cookies </br>");
+	for(var name in cookiesObj){
+		document.write(name+"="+cookiesObj[name]+"<br/>");
+	}
+
+
+</script>
+
+
+</body>
+</html>
