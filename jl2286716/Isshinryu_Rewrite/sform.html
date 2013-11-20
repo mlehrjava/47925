@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+    
+		<!--
+        	Programmer: James Leduc
+        	Date Created: Nov. 4, 2013
+            Last Modified: Nov. 14, 2013
+		-->
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>A.R. Sandubrae's Isshinryu Karate Online</title>
+		
+		<style type="text/css">
+			h1, h2 {color: white}
+			li {display: inline}
+		</style>
+		
+		<link href="ryu.css" rel="stylesheet" type="text/css" title="ryu_styles" />
+		
+		<!--Validations and Functions-->
+		<script>
+			function Validate_First_Name(){
+				var x = document.forms["signForm"]["First_Name"].value;
+				var re = new RegExp(/^\s*[A-Z][a-z]{1,15}([A-Z][a-z]{1,10})?(([-\s][A-Z][a-z]{1,15})|([A-Z][a-z]{1,15}))?\s*$/);
+				var m = re.exec(x);//m is for 'match'
+				if (m==null){
+					alert("Your first name must be filled out properly!");
+					return false;
+				}else{
+					return true;
+				}
+			}
+			function Validate_Last_Name(){
+				var x = document.forms["signForm"]["Last_Name"].value;
+				var re = new RegExp(/^\s*(([A-Z][a-z]{1,15})([-][A-Z][a-z]{1,15})?.*(\s+[A-Z][a-z]{1,10})?|([A-Z][a-z'][a-zA-Z][a-z]{1,15}))\s*$/);
+				var m = re.exec(x);
+				if (m==null){
+					alert("Your last name must be filled out properly!");
+					return false;
+				}else{
+					return true;
+				}
+			}
+			function Validate_Street(){
+				var x = document.forms["signForm"]["Street"].value;
+				var re = new RegExp(/^\s*([1-9]|[1-9][0-9]|[1-9][0-9]{2,9})\s+[A-Z][a-z]{1,15}.*(\s+[A-Z][a-z]{1,15})?\s+[A-Z][a-z]{1,10}([.])?\s*$/);
+				var m = re.exec(x);
+				if (m==null){
+					alert("Your street address must be filled out properly!");
+					return false;
+				}else{
+					return true;
+				}
+			}
+			function Validate_City(){
+				var x = document.forms["signForm"]["City"].value;
+				var re = new RegExp(/^\s*[A-Z][a-z]{2,15}.*(\s+[A-Z][a-z]{2,15})?\s*$/);
+				var m = re.exec(x);
+				if (m==null){
+					alert("Your city name must be filled out properly!");
+					return false;
+				}else{
+					return true;
+				}
+			}
+			function Validate_Zip(){
+				var x = document.forms["signForm"]["Zip"].value;
+				var re = new RegExp(/^\s*[0-9]{5}([-\s][0-9]{4})?\s*$/);
+				var m = re.exec(x);
+				if (m==null){
+					alert("Type a proper zipcode, 5- or 9-digit (e.g. 12345 or 12345-6789)!");
+					return false;
+				}else{
+					return true;
+				}
+			}
+			function Validate_Home_Phone(){
+				var x = document.forms["signForm"]["Home_Phone"].value;
+				var re = new RegExp(/^\s*([(\s])?[1-9][0-9]{2}[-\s|)\s](\s)?[1-9][0-9]{2}[-\s][0-9]{4}\s*$/);
+				var m = re.exec(x);
+				if (m==null){
+					alert("Please, enter a proper home phone number!");
+					return false;
+				}else{
+					return true;
+				}
+			}
+			function Validate_Cellphone(){
+				var x = document.forms["signForm"]["Cellphone"].value;
+				var re = new RegExp(/^\s*([(\s])?[1-9][0-9]{2}[-\s|)\s](\s)?[1-9][0-9]{2}[-\s][0-9]{4}\s*$/);
+				var m = re.exec(x);
+				if (m==null){
+					alert("Please, enter a proper cellphone number!");
+					return false;
+				}else{
+					return true;
+				}
+			}
+			function Validate_Email(){
+				var x = document.forms["signForm"]["Email"].value;
+				var re = new RegExp(/^\s*((.*\d)?(.*[a-z])?.{5,20})[@][a-z]{4,15}[.][a-z]{2,4}([.][a-z]{2,4})?\s*$/);
+				var m = re.exec(x);
+				if (m==null){
+					alert("Please, enter a proper email address!");
+					return false;
+				}else{
+					return true;
+				}
+			}
+			function Validate_Emergency_First(){
+				var x = document.forms["signForm"]["Emergency_First"].value;
+				var re = new RegExp(/^\s*[A-Z][a-z]{1,15}([A-Z][a-z]{1,10})?(([-\s][A-Z][a-z]{1,15})|([A-Z][a-z]{1,15}))?\s*$/);
+				var m = re.exec(x);//m is for 'match'
+				if (m==null){
+					alert("Your first name must be filled out properly!");
+					return false;
+				}else{
+					return true;
+				}
+			}
+			function Validate_Emergency_Last(){
+				var x = document.forms["signForm"]["Emergency_Last"].value;
+				var re = new RegExp(/^\s*(([A-Z][a-z]{1,15})([-][A-Z][a-z]{1,15})?.*(\s+[A-Z][a-z]{1,10})?|([A-Z][a-z'][a-zA-Z][a-z]{1,15}))\s*$/);
+				var m = re.exec(x);
+				if (m==null){
+					alert("Your last name must be filled out properly!");
+					return false;
+				}else{
+					return true;
+				}
+			}
+			function Validate_Emergency_Phone(){
+				var x = document.forms["signForm"]["Emergency_Phone"].value;
+				var re = new RegExp(/^\s*([(\s])?[1-9][0-9]{2}[-\s|)\s](\s)?[1-9][0-9]{2}[-\s][0-9]{4}\s*$/);
+				var m = re.exec(x);
+				if (m==null){
+					alert("Please, enter a proper cellphone number!");
+					return false;
+				}else{
+					return true;
+				}
+			}
+			function Validate_Card_Name(){
+				var x = document.forms["signForm"]["Card_Name"].value;
+				var re = new RegExp(/^\s*[A-Z][a-z]{1,15}([A-Z][a-z]{1,10})?(([-\s][A-Z][a-z]{1,15})|([A-Z][a-z]{1,15}))?(\s+[A-Z]([.])?)?\s+(([A-Z][a-z]{1,15})([-][A-Z][a-z]{1,15})?.*(\s+[A-Z][a-z]{1,10})?|([A-Z][a-z'][a-zA-Z][a-z]{1,15}))\s*$/);
+				var m = re.exec(x);
+				if (m==null){
+					alert("Please, enter the correct name on the card!");
+					return false;
+				}else{
+					return true;
+				}
+			}
+			function Validate_Card_Number(){
+				var x = document.forms["signForm"]["Card_Number"].value;
+				var re = new RegExp(/^\s*[0-9]{16}\s*$/);
+				var m = re.exec(x);
+				if (m==null){
+					alert("Please, enter a proper card number!");
+					return false;
+				}else{
+					return true;
+				}
+			}
+			function Validate_Security_Code(){
+				var x = document.forms["signForm"]["Security_Code"].value;
+				var re = new RegExp(/^\s*[0-9]{3}\s*$/);
+				var m = re.exec(x);
+				if (m==null){
+					alert("Please, enter the security code correctly (the 3-digit value on the back of the card)!");
+					return false;
+				}else{
+					return true;
+				}
+			}			
+			function validateForm(){
+				if(!Validate_First_Name())return false;
+				if(!Validate_Last_Name)return false;
+				if(!Validate_Street())return false;
+				if(!Validate_City())return false;
+				if(!Validate_Zip())return false;
+				if(!Validate_Home_Phone())return false;
+				if(!Validate_Cellphone())return false;
+				if(!Validate_Email())return false;
+				if(!Validate_Emergency_First())return false;
+				if(!Validate_Emergency_Last())return false;
+				if(!Validate_Emergency_Phone())return false;
+				if(!Validate_Card_Name())return false;
+				if(!Validate_Card_Number())return false;
+				return true;
+			}
+			<!--hides and/or displays div content from ID 'under18' based upon 'Birth_Year'-->
+			function viewByDate(){
+				var tDate = new Date();
+				var tYear = tDate.getFullYear();
+				var bYear = document.forms["signForm"]["Birth_Year"].value;
+				var bIntYear = parseInt(bYear);
+				var age = tYear-bIntYear;
+				var tagID = document.getElementById("under18");
+				if(age < 18){
+					tagID.style.display='block';
+				}else{
+					tagID.style.display='none';
+				}
+			}
+		</script>
+        
+	</head>
+
+	<body id="back">
+	
+		<div id="posFix">
+	
+			<img id="lFloat" src="isshinryu_images/belt_image.png" />
+			<img id="rFloat" src="isshinryu_images/belt_image.png" />
+	
+			<center><h1 id="sub1">SIGN-UP <span id="sub2">FORM</span></h1></center>
+
+			<center><h3><ul id="links">
+				<li><a href="main.html">
+					<font face="sans-serif">HOME</font>
+				</a></li>
+				<li><a href="news.html">
+					<font face="sans-serif">NEWS</font>
+				</a></li>
+				<li><a href="bio.html">
+					<font face="sans-serif">BIO</font>
+				</a></li>
+				<li><a href="staff.html">
+					<font face="sans-serif">STAFF</font>
+				</a></li>
+			</ul></h3></center>
+
+		</div>
+        
+        <div id="form">
+        
+        	<center><form name="signForm" action="signup.html" method="get">
+				<center><h1 style="color:rgb(255,253,208)">New Member Sign-Up</h1></center>
+				<span id="ast">*</span><span id="note">Indicates Required Fields</span><br/>		
+				<span id="ast"><sup>*</sup></span>
+				<span id="whiteA">Name: </span>
+        		<input name="First_Name" type="text" size="25" value="First" />
+        		<select name="Middle_Initial" >
+					<option value=""></option>
+					<option value="A">A</option>
+					<option value="B">B</option>
+					<option value="C">C</option>
+					<option value="D">D</option>
+					<option value="E">E</option>
+					<option value="F">F</option>
+					<option value="G">G</option>
+					<option value="H">H</option>
+					<option value="I">I</option>
+					<option value="J">J</option>
+					<option value="K">K</option>
+					<option value="L">L</option>
+					<option value="M">M</option>
+					<option value="N">N</option>
+					<option value="O">O</option>
+					<option value="P">P</option>
+					<option value="Q">Q</option>
+					<option value="R">R</option>
+					<option value="S">S</option>
+					<option value="T">T</option>
+					<option value="U">U</option>
+					<option value="V">V</option>
+					<option value="W">W</option>
+					<option value="X">X</option>
+					<option value="Y">Y</option>
+					<option value="Z">Z</option>
+				</select>
+        		<input name="Last_Name" type="text" size="30" value="Last" /><br/><br/>
+				<span id="ast"><sup>*</sup></span>
+				<span id="whiteA">Birth Date: </span>
+        		<select name="Birth_Month" >
+					<option value="Jan">January</option>
+					<option value="Feb">February</option>
+					<option value="Mar">March</option>
+					<option value="Apr">April</option>
+					<option value="May">May</option>
+					<option value="Jun">June</option>
+					<option value="Jul">July</option>
+					<option value="Aug">August</option>
+					<option value="Sep">September</option>
+					<option value="Oct">October</option>
+					<option value="Nov">November</option>
+					<option value="Dec">December</option>
+				</select>
+        		<select name="Birth_Day" >
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
+					<option value="13">13</option>
+					<option value="14">14</option>
+					<option value="15">15</option>
+					<option value="16">16</option>
+					<option value="17">17</option>
+					<option value="18">18</option>
+					<option value="19">19</option>
+					<option value="20">20</option>
+					<option value="21">21</option>
+					<option value="22">22</option>
+					<option value="23">23</option>
+					<option value="24">24</option>
+					<option value="25">25</option>
+					<option value="26">26</option>
+					<option value="27">27</option>
+					<option value="28">28</option>
+					<option value="29">29</option>
+					<option value="30">30</option>
+					<option value="31">31</option>
+				</select>
+        		<select name="Birth_Year" onchange="viewByDate()">
+					<option value="1950">1950</option>
+					<option value="1951">1951</option>
+					<option value="1952">1952</option>
+					<option value="1953">1953</option>
+					<option value="1954">1954</option>
+					<option value="1955">1955</option>
+					<option value="1956">1956</option>
+					<option value="1957">1957</option>
+					<option value="1958">1958</option>
+					<option value="1959">1959</option>
+					<option value="1960">1960</option>
+					<option value="1961">1961</option>
+					<option value="1962">1962</option>
+					<option value="1963">1963</option>
+					<option value="1964">1964</option>
+					<option value="1965">1965</option>
+					<option value="1966">1966</option>
+					<option value="1967">1967</option>
+					<option value="1968">1968</option>
+					<option value="1969">1969</option>
+					<option value="1970">1970</option>
+					<option value="1971">1971</option>
+					<option value="1972">1972</option>
+					<option value="1973">1973</option>
+					<option value="1974">1974</option>
+					<option value="1975">1975</option>
+					<option value="1976">1976</option>
+					<option value="1977">1977</option>
+					<option value="1978">1978</option>
+					<option value="1979">1979</option>
+					<option value="1980">1980</option>
+					<option value="1981">1981</option>
+					<option value="1982">1982</option>
+					<option value="1983">1983</option>
+					<option value="1984">1984</option>
+					<option value="1985">1985</option>
+					<option value="1986">1986</option>
+					<option value="1987">1987</option>
+					<option value="1988">1988</option>
+					<option value="1989">1989</option>
+					<option value="1990">1990</option>
+					<option value="1991">1991</option>
+					<option value="1992">1992</option>
+					<option value="1993">1993</option>
+					<option value="1994">1994</option>
+					<option value="1995">1995</option>
+					<option value="1996">1996</option>
+					<option value="1997">1997</option>
+					<option value="1998">1998</option>
+					<option value="1999">1999</option>
+					<option value="2000">2000</option>
+					<option value="2001">2001</option>
+					<option value="2002">2002</option>
+					<option value="2003">2003</option>
+					<option value="2004">2004</option>
+					<option value="2005">2005</option>
+					<option value="2006">2006</option>
+					<option value="2007">2007</option>
+					<option value="2008">2008</option>
+					<option value="2009">2009</option>
+					<option value="2010">2010</option>
+				</select><br/><br/>
+				
+				<span id="ast"><sup>*</sup></span>
+				<span id="whiteA">Sex: </span><!--radio 'Sex' control needs validation-->
+				<input type="radio" name="Sex" value="male"><span id="whiteA">Male </span>
+				<input type="radio" name="Sex" value="female"><span id="whiteA">Female</span><br/><br/>
+				<span id="whiteA">Belt Level Upon Entry: </span>
+        		<select name="Entry_Belt" >
+					<option value="none">none</option>
+					<option value="unsure">unsure</option>
+					<option value="Ju_Kyu">Ju Kyu: 10th Kyu White</option>
+					<option value="Ku_Kyu">Ku Kyu: 9th Kyu Striped White</option>
+					<option value="Hachi_Kyu:">Hachi Kyu: 8th Kyu Yellow</option>
+					<option value="Shichi_Kyu">Shichi Kyu: 7th Kyu Orange</option>
+					<option value="Roko_Kyu">Roko Kyu: 6th Kyu Blue</option>
+					<option value="Go_Kyu">Go Kyu: 5th Kyu Green</option>
+					<option value="Yon_Kyu">Yon Kyu: 4th Kyu Brown or Purple</option>
+					<option value="San_Kyu">San Kyu: 3rd Kyu Brown</option>
+					<option value="Ni_Kyu">Ni Kyu: 2nd Kyu Brown</option>
+					<option value="Ik_Kyu">Ik Kyu: 1st Kyu Brown</option>
+					<option value="Sho_Dan">Sho Dan: 1st Degree Black</option>
+					<option value="Ni_Dan">Ni Dan: 2nd Degree Black</option>
+					<option value="San_Dan">San Dan: 3rd Degree Black</option>
+					<option value="Yo_Dan">Yo Dan: 4th Degree Black</option>
+					<option value="Go_Dan">Go Dan: 5th Degree Black</option>
+					<option value="Roku_Dan">Roku Dan: 6th Degree Black</option>
+					<option value="Nana_Dan">Nana (Shichi) Dan: 7th Degree Black</option>
+					<option value="Haichi_Dan">Haichi Dan: 8th Degree Black</option>
+					<option value="Ku_Dan">Ku Dan: 9th Degree Black</option>
+					<option value="Ju_Dan">Ju Dan: 10th Degree Black</option>
+				</select><br/><br/>
+				<span id="ast"><sup>*</sup></span>
+				<span id="whiteA">Address: </span>
+        		<input name="Street" type="text" size="35" value="Street" />
+        		<input name="City" type="text" value="City" />
+        		<select name="State" >
+					<option value="AK">AK</option>
+					<option value="AL">AL</option>
+					<option value="AR">AR</option>
+					<option value="AZ">AZ</option>
+					<option value="CA">CA</option>
+					<option value="CO">CO</option>
+					<option value="CT">CT</option>
+					<option value="DC">DC</option>
+					<option value="DE">DE</option>
+					<option value="FL">FL</option>
+					<option value="GA">GA</option>
+					<option value="HI">HI</option>
+					<option value="IA">IA</option>
+					<option value="ID">ID</option>
+					<option value="IL">IL</option>
+					<option value="IN">IN</option>
+					<option value="KS">KS</option>
+					<option value="KY">KY</option>
+					<option value="LA">LA</option>
+					<option value="MA">MA</option>
+					<option value="MD">MD</option>
+					<option value="ME">ME</option>
+					<option value="MI">MI</option>
+					<option value="MN">MN</option>
+					<option value="MO">MO</option>
+					<option value="MS">MS</option>
+					<option value="MT">MT</option>
+					<option value="NC">NC</option>
+					<option value="ND">ND</option>
+					<option value="NE">NE</option>
+					<option value="NH">NH</option>
+					<option value="NJ">NJ</option>
+					<option value="NM">NM</option>
+					<option value="NV">NV</option>
+					<option value="NY">NY</option>
+					<option value="OH">OH</option>
+					<option value="OK">OK</option>
+					<option value="OR">OR</option>
+					<option value="PA">PA</option>
+					<option value="RI">RI</option>
+					<option value="SC">SC</option>
+					<option value="SD">SD</option>
+					<option value="TN">TN</option>
+					<option value="TX">TX</option>
+					<option value="UT">UT</option>
+					<option value="VA">VA</option>
+					<option value="VT">VT</option>
+					<option value="WA">WA</option>
+					<option value="WI">WI</option>
+					<option value="WV">WV</option>
+					<option value="WY">WY</option>
+				</select>
+        		<input name="Zip" type="text" size="10" value="Zip" /><br/><br/>
+				<span id="ast"><sup>*</sup></span>
+				<span id="whiteA">Home Phone: </span>
+        		<input name="Home_Phone" type="text" size="15" value="555-555-5555" />
+				<span id="whiteA">Cell Phone: </span>
+        		<input name="Cellphone" type="text" size="15" value="555-555-5555" /><br/><br/>
+				<span id="whiteA">Email: </span>
+        		<input name="Email" type="text" size="50" value="Email Address" /><br/><br/>
+				<span id="ast"><sup>*</sup></span>
+				<span id="whiteA">Emergency Contact: </span>
+        		<input name="Emergency_First" type="text" size="25" value="First Name" />
+        		<input name="Emergency_Last" type="text" size="30" value="Last Name" />
+        		<select name="Emergency_Relation" >
+					<option value="Mother">Mother</option>
+					<option value="Father">Father</option>
+					<option value="Sister">Sister</option>
+					<option value="Brother">Brother</option>
+					<option value="Grandmother">Grandmother</option>
+					<option value="Grandfather">Grandfather</option>
+					<option value="Aunt">Aunt</option>
+					<option value="Uncle">Uncle</option>
+					<option value="Friend">Friend</option>
+					<option value="Other">Other</option>
+				</select>
+        		<input name="Emergency_Phone" type="text" size="15" value="Phone Number" /><br/><br/>
+				<span id="ast"><sup>*</sup></span>
+				<span id="whiteA">Credit/Debit Card Information: </span><br/>
+        		<select name="Card_Type" >
+					<option value="AmEx">AmEx</option>
+					<option value="CapitalOne">CapitalOne</option>
+					<option value="Discover">Discover</option>
+					<option value="MasterCard">MasterCard</option>
+					<option value="Visa">Visa</option>
+				</select>
+        		<input name="Card_Name" type="text" size="35" value="Name on Card" />
+        		<input name="Card_Number" type="text" size="30" value="Card Number" />
+        		<select name="Expiration_Month" >
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
+				</select>
+        		<select name="Expiration_Year" >
+					<option value="13">13</option>
+					<option value="14">14</option>
+					<option value="15">15</option>
+					<option value="16">16</option>
+					<option value="17">17</option>
+					<option value="18">18</option>
+					<option value="19">19</option>
+					<option value="20">20</option>
+				</select>				
+				<input name="Security_Code" type="text" size="7" value="CSC/CVN" /><br/><br/>
+				
+				<div id="under18" style="display:none" >
+					<hr style="color:white; width:75%; border:dashed; border-width:0.5px" />
+					
+					<span id="whiteA">For Students <u><i>UNDER 18</i> ONLY: </u></span><br/>
+					<span id="whiteA">Guardian 1 Name: </span>
+					<select name="Guardian1_Rel" >
+						<option value=""></option>
+						<option value="Father">Father</option>
+						<option value="Mother">Mother</option>
+						<option value="Brother">Brother</option>
+						<option value="Sister">Sister</option>
+						<option value="Grandfather">Grandfather</option>
+						<option value="Grandmother">Grandmother</option>
+						<option value="Uncle">Uncle</option>
+						<option value="Aunt">Aunt</option>
+						<option value="Guardian">Guardian</option>
+						<option value="Other">Other</option>
+					</select>
+					<input name="Guardian1_First" type="text" size="25" /><!--needs validation-->
+					<input name="Guardian1_Last" type="text" size="30" /><br/><br/><!--needs validation-->
+					<span id="whiteA">Guardian 1 Phone: </span>
+					<input name="Guardian1_Phone" type="text" size="15" /><br/><br/><!--needs validation-->
+					<span id="whiteA">Guardian 2 Name: </span>
+					<select name="Guardian2_Rel" >
+						<option value=""></option>
+						<option value="Mother">Mother</option>
+						<option value="Father">Father</option>
+						<option value="Sister">Sister</option>
+						<option value="Brother">Brother</option>
+						<option value="Grandmother">Grandmother</option>
+						<option value="Grandfather">Grandfather</option>
+						<option value="Aunt">Aunt</option>
+						<option value="Uncle">Uncle</option>
+						<option value="Guardian">Guardian</option>
+						<option value="Other">Other</option>
+					</select>
+					<input name="Guardian2_First" type="text" size="25" /><!--needs validation-->
+					<input name="Guardian2_Last" type="text" size="30" /><br/><br/><!--needs validation-->
+					<span id="whiteA">Guardian 2 Phone: </span>
+					<input name="Guardian2_Phone" type="text" size="15" /><br/><br/><!--needs validation-->
+					<span id="whiteA">Choose Schedule Type: </span><!--radio 'Schedule' control needs validation-->
+					<input type="radio" name="Schedule" value="1-Hour at 5PM">
+					<span id="whiteA">5PM-6PM</span>
+					<input type="radio" name="Schedule" value="1-Hour at 6PM">
+					<span id="whiteA">6PM-7PM</span>
+					<input type="radio" name="Schedule" value="2-Hour at 5PM">
+					<span id="whiteA">5PM-7PM</span><br/><br/>
+				</div>
+	
+            	<input name="submit" type="submit" /><br/><br/><br/>
+        	</form></center>
+        
+        </div>
+
+	</body>
+    
+</html>

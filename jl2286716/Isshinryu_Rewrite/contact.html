@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+    
+		<!--
+        	Programmer: James Leduc
+        	Date Created: Nov. 4, 2013
+            Last Modified: Nov. 14, 2013
+		-->
+
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Contact Info Submitted</title>
+		
+    	<script type="text/javascript">
+			//for input text box values only
+			function getFormInfo(url){
+				//split info at the "?"
+				var info=url.split("?");//creates 'info' array
+				//split the name value pairs at the second part of the 'info' array
+				var nameValuePairs=info[1].split("&");
+				//map info for object
+				var obj=new Object();
+				for(var i=0;i<nameValuePairs.length-1;i++){
+					var map=nameValuePairs[i].split("=");
+					name=map[0];
+					value=map[1];
+					obj[name]=value.replace("%40","@");	//replaces '%40' with '@'
+				}
+				return obj;
+			}
+		</script>
+		
+		<style type="text/css">
+			h1, h2 {color: white}
+			li {display: inline}
+		</style>
+
+		<link href="ryu.css" rel="stylesheet" type="text/css" title="ryu_styles" />
+		
+	</head>
+
+	<body id="back">
+	
+		<div id="posFix">
+	
+			<img id="lFloat" src="isshinryu_images/belt_image.png" />
+			<img id="rFloat" src="isshinryu_images/belt_image.png" />
+	
+			<center><h1 id="sub1">CONTACT SUBMISSION</h1></center>
+
+			<center><h3><ul id="links">
+				<li><a href="main.html">
+					<font face="sans-serif">HOME</font>
+				</a></li>
+				<li><a href="news.html">
+					<font face="sans-serif">NEWS</font>
+				</a></li>
+				<li><a href="bio.html">
+					<font face="sans-serif">BIO</font>
+				</a></li>
+				<li><a href="staff.html">
+					<font face="sans-serif">STAFF</font>
+				</a></li>
+			</ul></h3></center>
+
+		</div>
+
+		<div id="content">
+		
+			<script type="text/javascript">
+				//get info from form
+				var $_GET=getFormInfo(location.href);
+				document.write('<div style="background-color:rgba(0,0,0,0.7)"><span id="whiteA">INFORMATION SUBMITTED</span><br/><br/>');
+				for(var name in $_GET){
+					document.write('<span id="whiteA">'+name+': '+$_GET[name]+'</span><br/>');	
+				}
+				document.write('</div>');
+			</script>
+			
+			<address>
+				Isshinryu Karate Dojo &bull; 
+				68225 Ramon Rd. &bull;
+				Cathedral City, CA 92234 &bull;
+				(760) 568-0961
+			</address>
+
+		</div>
+	
+	</body>
+</html>
