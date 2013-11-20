@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>LEON Contact Info</title>
+
+<style type="text/css">
+body
+{
+background-color:black;
+}
+
+h1
+{
+	text-align: center;
+	font-family: Comic Sans MS, sans-serif;
+	color: #8B008B;
+}
+
+p
+{
+	color: yellow;
+	font-size:x-large;
+	font-family:Comic Sans MS, serif;
+	text-align: center;
+}
+
+td
+{
+	text-align:center;
+}
+
+#link
+{
+	color: #8B008B;
+	font-size: large;
+}
+
+h2{color: blue; text-align: center;}
+
+#red{color:red;}
+</style>
+
+<script type = "text/javascript" >
+
+
+	function getFormInfo(url){
+		//Split information using ?
+		var info=url.split("?");
+		//Take the second part for the
+		//info array and split into
+		//name-value pairs
+		var nameValuePairs=info[1].split("&");
+		//Map the information to the Get Object
+		var obj=new Object();
+		for(var i=0;i<nameValuePairs.length;i++){//was i<nameValuePairs.length-1
+			var map=nameValuePairs[i].split("=");
+			var name=map[0];
+			var value=map[1];
+			obj[name]=value;
+		}
+		return obj;
+	}
+
+</script>
+
+<body>
+<h1>Contact Info</h1>
+<hr style="border: 1px dashed #000; background-color: #8B008B" />
+</br>
+
+<h2>Thanks for singing up with us. </ br>We will contact you shortly.</h2>
+
+
+<script type="text/javascript">
+
+ var $_GET=getFormInfo(location.href);
+	for(var name in $_GET){
+		document.write('<p>'+name+": " + $_GET[name] +'</p>');
+
+	}
+	
+
+</script>
+
+<a href="Project- Main Paige.html"><p id = "link">Back to home page<p></a>
+
+
+
+</body>
+</html>
