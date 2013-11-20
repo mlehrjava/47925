@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Sign Up</title>
+
+<style type="text/css">
+body
+{
+background-color:black;
+}
+
+h1
+{
+	text-align: center;
+	font-family: Comic Sans MS, sans-serif;
+	color: #8B008B;
+}
+
+p
+{
+	color: yellow;
+	font-size:x-large;
+	font-family:Comic Sans MS, serif;
+}
+
+td
+{
+	text-align:center;
+}
+
+#link
+{
+	color: #8B008B;
+	font-size: large;
+}
+
+span {  
+	color: #5F9EA0;
+	
+	}
+</style>
+
+<script type = "text/javascript"src = "signUpScript.js"></script>
+
+</head>
+<body>
+
+
+<h1>Sign Up</h1>
+<hr style="border: 1px dashed #000; background-color: #8B008B" />
+</br>
+
+<div id= "signUp">
+
+<table align="center" border = "1" bordercolor="#8B008B" cellpadding="5">
+<form action = "SignUpSubmit.html" name = "formA" method = "get" onsubmit = "return checkBlank() ">
+
+<tr>
+
+<td><p>Name</p></td>
+<td><span>First  </span><input type = "text" name = "FirstName" id = "Fname" onchange = "Fname_onchange()" value = "raul" /> 
+<span>Last </span><input type = "text" name = "LastName" id = "Lname" onchange = "Lname_onchange()" value = "leon" />
+</td>
+</tr>
+
+<tr>
+<td ><p >Birth Date</p></td>
+<td><span>Month </span><input type = "text" name = "Month" id = "bDay1" onchange = "Bday_onchange()" value = "01" size = "2" />
+<span>Day </span><input type = "text" name = "Day" id = "bDay2" onchange = "Bday_onchange()"  size = "2"  value = "30"  />
+<span>Year </span><input type = "text" name = "Year" id = "bDay3" onchange = "Bday_onchange()" size = "4" value = "1989"  />
+</td>
+</tr>
+
+<tr>
+<td><p>Gender</p></td>
+<td><span >Male</span><input type = "radio" name = "Gender" id = "radioBtn" value ="male" checked = "checked"/>
+<span >Female </span><input type = "radio" name = "Gender" id = "radioBtn" value ="female" />
+</td></tr>
+
+<tr>
+<td ><p>Adress</p></td>
+<td><span>Street </span><input type = "text" name = "Street" id = "street" onchange = "street_onchange()" value = "5728 Crest Avenue"/>
+<span>City </span><input type = "text" name = "City" id = "city" onchange = "city_onchange()" value = "Riverside"/><br /><br />
+<span>State </span><input type = "text" name = "State" id = "state" onchange = "form_onchange()" value = "CA"/>
+<span>Zip </span><input type = "text" name = "Zip" id = "zip" onchange = "zip_onchange()" value = "92503" />
+</td>
+</tr>
+
+
+<tr>
+<td ><p>Phone Number</p></td>
+<td><span>Home or Cell </span><input type = "text" name = "Phone" id = "phone" onchange = "phone_onchange()" value = "555-555-5555"  />
+</td>
+</tr>
+
+
+<tr>
+<td ><p>Emergency Contact</p></td>
+<td><span>First Name </span><input type = "text" name = "EmergencyContactFirstName" id = "Fname2" onchange = "contactFname_onchange()" value = "first"/>
+<span>Last Name </span><input type = "text" name = "EmergencyContactLastName" id = "Lname2" onchange = "contactLname_onchange()" value = "last" />
+<span>Phone Number </span><input type = "text" name = "EmergencyContactPhone" id = "phone" onchange = "phone_onchange()" value = "555-555-5555"  />
+</td>
+</tr>
+
+<tr>
+<td colspan = "2"  align = "center" ><input type = "submit" value = "submit" /></td>
+</tr>
+
+</form>
+</table>
+</div>
+
+<a href="Project- Main Paige.html"><p id = "link">Back to home page<p></a>
+
+</body>
+</html>
