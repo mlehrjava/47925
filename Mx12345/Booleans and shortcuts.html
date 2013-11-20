@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Booleans and Shortcuts</title>
+</head>
+
+<body>
+<script type="text/javascript">
+	//Declare variables 
+	var x=7, y=8, z;
+	//Range operators
+	z=x<y;
+	document.write("<p>x="+x+"</p>");
+	document.write("<p>y="+x+"</p>");
+	document.write("<p>z=x&lt;y ? "+z+"</p>");
+	z=x>y;
+	document.write("<p>z=x&gt;y ? "+z+"</p>");
+	z=x==y;
+	document.write("<p>z=x==y ? "+z+"</p>");
+	z=x>y;
+	document.write("<p>z=x&gt;=y ? "+z+"</p>");
+	//short cuts for increment
+	//how to increment algebraically
+	//Math teacher would be proud
+	var a=0;
+	var temp=a+1;
+	a+temp;
+	document.write("<p>a+temp"+a+"</p>");
+	//Another way to increment
+	//Algebra teacher here on out would give you
+	a=a+1;
+	document.write("<p>a+a+1"+a+"</p>");
+	//Again
+	a+=1;
+	document.write("<p>a+=1"+a+"</p>");
+	//Again "post increment"
+	a++;
+	document.write("<p>a++"+a+"</p>");
+	//Again "pre increment"
+	++a;
+	document.write("<p>++a"+a+"</p>");
+	//Difference between pre and post incrementer
+	var b=2,c;
+	document.write("<p>a="+a+"</p>");
+	document.write("<p>b="+b+"</p>");
+	c=(a++)+(++b);
+	document.write("<p>a="+a+"</p>");
+	document.write("<p>b="+b+"</p>");
+	document.write("<p>c="+c+"</p>");
+	//Some other short cuts
+	a/=2;//a=a/2 -> a=3
+	a*=2;//a=a*2 -> a=6
+	a%=2//a=a%2; -> a=0 remainder
+	
+</script>	
+</body>
+</html>
