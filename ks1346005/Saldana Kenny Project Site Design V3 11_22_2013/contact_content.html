@@ -1,0 +1,92 @@
+<!-- Ref: http://www.colorpicker.com/color-chart/-->
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HTML Frames Example - Content</title>
+<style type="text/css">
+body {
+		font-family:verdana,arial,sans-serif;
+		font-size:10pt;
+		margin:30px;
+		background-color:#C19A6B;
+	}
+</style>
+<script>
+	function formReset()
+				{
+				document.getElementById("frm1").reset();
+				}
+
+
+</script>
+
+</head>
+<body>
+<h1>Contact</h1>
+<h3>___________________________</h3>
+<h2>Location:</h2>
+
+
+<h3>68225 Ramon Road at Whispering Palms Cathedral City</h3>
+</p>
+<img border="0" src="images/map.png" alt="Pulpit rock" width="480" height="353">
+
+<h3>___________________________</h3>
+
+
+
+<h2>Phone Number: <h3>760-568 0961</h3></h2>
+</p>
+<h3>___________________________</h3>
+<!--
+<ul>
+<li><a href="http://www.code-generator.net" target="_blank">Code Generator</a></li>
+	<li><a href="http://www.zappyhost.com" target="_blank">ZappyHost</a></li>
+	<li><a href="http://www.natural-environment.com" target="_blank">Natural Environment</a></li>
+	<li><a href="http://www.great-workout.com" target="_blank">Great Workout</a></li>
+</ul>
+-->
+
+<!--
+	<li><a href="white.html" target="content">Load white page</a></li>
+	<li><a href="green.html" target="content">Load green page</a></li>
+-->
+
+<h2>Questions?</h2>
+<form id="frm1" action="contact_UsingGetAndCookies.html" method="get">  <!--action="form_action.asp">-->
+	<p><br/><label for='Terms_radio_0'>Male</label>
+    	<input type='radio' name="female" id='Terms_radio_0' value='Disagree'/><label for='Terms_radio_1'>&nbsp;&nbsp;&nbsp;&nbsp;Female</label>
+		<input type='radio' name="male" id='Terms_radio_' value='Agree'/>
+	</p>
+		First name: <input type="text" name="fname"><br></p>
+		Last name: <input type="text" name="lname"><br></p>
+		Age: <input type="text" name="age"><br></p>
+		Address: <input type="text" name="saddress">  Apt: <input type="number" name="aptnumber"><br></p>
+		City: <input type="text" name="city"><br></p>
+		Zip code: <input type="number" name="zcode"><br/></p>
+		E-mail: <input type="text" name="e-mail"><br></p>
+
+<!--<form action="" name="mailing list">-->
+			<input type="CHECKBOX" name="mailListBox" checked>Add me to the mailing List.</p>
+
+<h4>Your comments or questions here:</h4>
+	<tr>
+    	<td align="right">
+        	</td>
+          	<td>
+ 				<textarea cols="80" rows="15" name="comments" ></textarea>
+          	</td>
+  	</tr>
+        </p>
+	<tr>
+    	<td align="right"></td>
+        	<td>
+            	<input type="button" onClick="formReset()" value="Reset form"></p>
+            	<input type="submit" value="Submit" />
+          	</td>
+	</tr>
+</form>
+
+</body>
+</html>
