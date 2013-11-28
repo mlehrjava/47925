@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Sign Up</title>
+<link type="text/css" rel="stylesheet" href="Style.css"/>
+</head>
+
+<body>
+            <!--Form Validation Script-->
+            <script type="text/javascript"
+				src="SignUpValidation.js">
+			</script>
+                <!--Sign Up Form-->
+<h1 id="events">Sign Up Today!</h1>
+<h3 style="color:#FFF">
+  <div id="form2">
+    <form name="SignUp" action="Sign Up Form Submitted.html" onsubmit="return validateForm()" method="get">
+      <fieldset style="width:750px;">
+      <h2 style=" text-align:center;">Personal Info</h2>
+      First name:<input type="text" name="firstName" />
+      M. I.:<input type="text" name="mi" />
+      Last name:<input type="text" name="lastName" /><br />
+      Address:<input type="text" name="street" /><br />
+      City:<input type="text" name="city" />
+      State:<select required>
+      	<option></option>
+      	<option>AL</option>
+	  	<option>AK</option>
+   	  	<option>AZ</option>
+	  	<option>AR</option>
+		<option>CA</option>
+		<option>CO</option>
+		<option>CT</option>
+		<option>DE</option>
+		<option>Fl</option>
+		<option>GA</option>
+		<option>HI</option>
+		<option>ID</option>
+		<option>IL</option>
+		<option>IN</option>
+		<option>IA</option>
+		<option>KS</option>
+		<option>KY</option>
+		<option>LA</option>
+		<option>ME</option>
+		<option>MD</option>
+		<option>MA</option>
+		<option>MI</option>
+		<option>MN</option>
+		<option>MS</option>
+		<option>MO</option>
+		<option>MT</option>
+		<option>NE</option>
+		<option>NV</option>
+		<option>NH</option>
+		<option>NJ</option>
+		<option>NM</option>
+		<option>NY</option>
+		<option>NC</option>
+		<option>ND</option>
+		<option>OH</option>
+		<option>OK</option>
+		<option>OH</option>
+		<option>PA</option>
+		<option>RI</option>
+		<option>SC</option>
+		<option>SD</option>
+		<option>TN</option>
+		<option>TX</option>
+		<option>UT</option>
+		<option>VT</option>
+		<option>VA</option>
+		<option>WA</option>
+		<option>WV</option>
+		<option>WI</option>
+		<option>WY</option>
+      </select>
+      Zip: <input type="text" name="zip"/><br />
+      Phone: <input type="text" name="phone"/>
+      E-mail: <input type="text" name="e-mail" /><br />
+      Birth Date: <input type="date" name-"Birth Date" required="required" />
+      </fieldset><br />
+      <fieldset style="width:750px;">
+      <h2 style=" text-align:center;">Choose Your Class</h2>
+      		<input type="radio" name="Class Age" required="required" />Adult Class
+            <input type="radio" name="Class Age" />Children's Class<br />
+     		<input type="radio" name="Class Length" required="required" />1 Hour Class
+      		<input type="checkbox" name="Day" required="required" />Tuesday<br />
+      		<input type="radio" name="Class Length" />2 Hour Class
+            <input type="checkbox" name="Day" />Thursday<br />
+            <br />
+		Current Belt:<select required>
+        	<option></option>
+        	<option>None/Beginner</option>
+      		<option>White</option>
+	  		<option>Yellow</option>
+   	  		<option>Orange</option>
+	  		<option>Green</option>
+			<option>Brown</option>
+			<option>Black</option>
+		</select>
+        </fieldset><br />
+        <fieldset style="width:750px;">
+      <h2 style=" text-align:center;">Emergency Contact</h2>
+      <p>*Serious injuries can occur in his class, so as a precaution, please provide emergency conact information.</p>
+      First name: <input type="text" name="EfirstName" />
+      Last name: <input type="text" name="ElastName" /> <br />
+      Phone: <input type="text" name="ephone"/><br />
+      </fieldset><br />
+      <input type="submit" value="Continue to Billing" id="submit1"/>
+    </form>
+  </div>
+    		<!--Dojo Black Belts- Right-->
+  <div id="dojo-masters">
+  <h3>Currently Attending<br />
+      Black Belts</h3>
+  <table width="300" border="0">
+  <tr>
+    <td><img id="dmci" src="Images/Arnold Sandubrae_8th.png" /></td>
+    <td><h3 id="dminfo">Master Sensei<br /> Arnold Sandubrae<br /> 8th Degree Black Belt</h3></td>
+  </tr>
+  <tr>
+    <td><img id="dmci" src="Images/Pat McConnell_7th.png" /></td>
+    <td><h3 id="dminfo">Sensei<br /> Pat McConnell<br /> 7th Degree Black Belt</h3></td>
+  </tr>
+  <tr>
+    <td><img id="dmci" src="Images/Tom Tweedie_5th.png" /></td>
+    <td><h3 id="dminfo">Sensei<br /> Tom Tweedie<br /> 5th Degree Black Belt</h3></td>
+  </tr>
+  <tr>
+    <td><img id="dmci" src="Images/Jay Doster_4th.png" /></td>
+    <td><h3 id="dminfo">Sensei<br /> Jay Doster<br /> 4th Degree Black Belt</h3></td>
+  </tr>
+  <tr>
+    <td><img id="dmci" src="Images/Erik Kindell_2nd.png" /></td>
+    <td><h3 id="dminfo">Mr.<br /> Erik Kindell<br /> 2nd Degree Black Belt</h3></td>
+  </tr>
+  <tr>
+    <td><img id="dmci" src="Images/Gerald Peterson_1st.jpg" /></td>
+    <td><h3 id="dminfo">Mr.<br /> Gerald Petersen<br /> 1st Degree Black Belt</h3></td>
+  </tr>
+  <tr>
+    <td><img id="dmci" src="Images/Marvin Peterson_1st.png" /></td>
+    <td><h3 id="dminfo">Mr.<br /> Marvin Peterson<br /> 1st Degree Black Belt</h3></td>
+  </tr>
+  <tr>
+    <td><img id="dmci" src="Images/Daniel Cabellero_1st.png" /></td>
+    <td><h3 id="dminfo">Mr.<br /> Daniel Vabellierro<br /> 1st Degree Black Belt</h3></td>
+  </tr>
+</table>
+    </div>
+</h3>
+</body>
+</html>
