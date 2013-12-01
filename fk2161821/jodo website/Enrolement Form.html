@@ -5,7 +5,150 @@
 <meta name="viewport" content="width=device-width">
 <title>Isshinryu Karate Website</title>
 <link href="stylesheet.css" rel="stylesheet" type="text/css">
-
+<script>
+                
+                function validateFName(){
+                    var x=document.forms["EnroleForm.html"]["Fname"].value;
+                    var re = new RegExp(/^\s*[A-Z][a-z]{2,10}\s*$/);
+                    var m = re.exec(x);
+                    if (m==null){
+                        alert("First name must be filled out properly!!!!");
+                        return false;
+                    }else{
+                        return true;
+                    }
+                }
+                function validateLName(){
+                    var x=document.forms["EnroleForm.html"]["Lname"].value;
+                    var re = new RegExp(/^\s*[A-Z][a-z]{2,10}\s*$/);
+                    var m = re.exec(x);
+                    if (m==null){
+                        alert("Last name must be filled out properly!!!!");
+                        return false;
+                    }else{
+                        return true;
+                    }
+                }
+				function validateAddress(){
+                    var x=document.forms["EnroleForm.html"]["address1"].value;
+                    var re = new RegExp(/\s*[0-9]{0,5}\s*[a-z]{2,20}\s*/);
+                    var m = re.exec(x);
+                    if (m==null){
+                        alert("Address must be filled out properly!!!!");
+                        return false;
+                    }else{
+                        return true;
+                    }
+                }
+				function validateCity(){
+                    var x=document.forms["EnroleForm.html"]["city"].value;
+                    var re = new RegExp(/^\s*[A-Z][a-z]{2,10}\s*$/);
+                    var m = re.exec(x);
+                    if (m==null){
+                        alert("City name  must be filled out properly!!!!");
+                        return false;
+                    }else{
+                        return true;
+                    }
+                }
+				function validateState(){
+                    var x=document.forms["EnroleForm.html"]["State"].value;
+                    var re = new RegExp(/^\s*[A-Z][a-z]{1,2}\s*$/);
+                    var m = re.exec(x);
+                    if (m==null){
+                        alert("State name must be filled out properly!!!!");
+                        return false;
+                    }else{
+                        return true;
+                    }
+                }
+				function validateZIP(){
+                    var x=document.forms["EnroleForm.html"]["Zip"].value;
+                    var re = new RegExp(/\s*[0-9]{1,5}\s*/);
+                    var m = re.exec(x);
+                    if (m==null){
+                        alert("Zip Code must be filled out properly!!!!");
+                        return false;
+                    }else{
+                        return true;
+                    }
+                }
+				function validateEmail(){
+                    var x=document.forms["EnroleForm.html"]["Email"].value;
+                    var re = new RegExp(/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/);
+                    var m = re.exec(x);
+                    if (m==null){
+                        alert("Email  must be filled out properly!!!!");
+                        return false;
+                    }else{
+                        return true;
+                    }
+                }
+				function validatePhone(){
+                    var x=document.forms["EnroleForm.html"]["Phone"].value;
+                    var re = new RegExp(/\s*[0-9]{1,10}\s*/);
+                    var m = re.exec(x);
+                    if (m==null){
+                        alert("Phone number  must be filled out properly!!!!");
+                        return false;
+                    }else{
+                        return true;
+                    }
+                }
+				function validateEmergencyPhone(){
+                    var x=document.forms["EnroleForm.html"]["EContP"].value;
+                    var re = new RegExp(/^\s*[A-Z][a-z]{2,10}\s*[A-Z][a-z]{2,10}\s*$/);
+                    var m = re.exec(x);
+                    if (m==null){
+                        alert("Emergency Contact Person must be filled out properly!!!!");
+                        return false;
+                    }else{
+                        return true;
+                    }
+                }
+				function validateEmergencyContact(){
+                    var x=document.forms["EnroleForm.html"]["Enumber"].value;
+                    var re = new RegExp(/\s*[0-9]{1,10}\s*/);
+                    var m = re.exec(x);
+                    if (m==null){
+                        alert("Emergency Phone number must be filled out properly!!!!");
+                        return false;
+                    }else{
+                        return true;
+                    }
+                }
+				function validateSSN(){
+                    var x=document.forms["EnroleForm.html"]["SSnumber"].value;
+                    var re = new RegExp(/\s*[0-9]{1,8}\s*/);
+                    var m = re.exec(x);
+                    if (m==null){
+                        alert("Social Security number must be filled out properly!!!!");
+                        return false;
+                    }else{
+                        return true;
+                    }
+                }
+				
+				
+				
+				
+                function validateForm(){
+                    if(!validateFName())return false;
+                    if(!validateLName())return false;
+					if(!validateAddress())return false;
+					if(!validateCity())return false;
+					if(!validateState())return false;
+					if(!validateZIP())return false;
+					if(!validateEmail())return false;
+					if(!validatePhone())return false;
+					if(!validateEmergencyPhone())return false;
+					if(!validateEmergencyContact())return false;
+					if(!validateSSN())return false;
+					
+					
+                    return true;
+                }
+            </script>
 </head>
 
 <body>
@@ -21,18 +164,18 @@
 </header>
 <section>
   <h2>Enrolement Form:</h2>
-  <form action="" method="post" name="form1" class="Fcolor">
+  <form action="FormValidated.html" method="post" name="EnroleForm.html" onsubmit="return validateForm()">
 
   <table width="800" border="0">
   <tr>
     <td>      <label for="Fname">First name</label> 
-      <input type="text" name="Fname" id="Fname" tabindex="1" required>          
+      <input type="text" name="Fname" id="fname" tabindex="1" >          
       <label for="Lname">Last name</label>
-      <input type="text" name="Lname" id="Fname" tabindex="2" required></td>
+      <input type="text" name="Lname" id="lname" tabindex="2" ></td>
   </tr>
   <tr>
   <td><label for="Address:">Address:</label> 
-    <Input name="address1" type="text" id="Address1" size="30" tabindex="3"maxlength="0"></td>
+    <Input name="address1" type="text" id="Address1" size="30" tabindex="3"></td>
   </tr>
   <tr>
   <td><label for="Address">City:</label>
@@ -51,14 +194,14 @@
       <input name="Phone" type="text" id="Phone" tabindex="8" maxlength="10" ></td>
   </tr>
   <tr>
-    <td><label for="Emergency Contact Person">Emergency Contact Person: </label><input name="EContP" type="text" id="EcontP" tabindex="9" maxlength="10" required>
+    <td><label for="Emergency Contact Person">Emergency Contact Person: </label><input name="EContP" type="text" id="EcontP" tabindex="9" maxlength="15">
       </td>
-      <td><label for="Emergency Contact Number">Emergency Contact Number:</label>  <input name="Enumber" type="text" id="Enumber" tabindex="10" maxlength="10" required>
+      <td><label for="Emergency Contact Number">Emergency Contact Number:</label>  <input name="Enumber" type="text" id="Enumber" tabindex="10" maxlength="10" >
       </td>
   </tr>
   <tr>
   <td>
-  <label for="Social Security Number">Social Security Number:</label><input name="SSnumber" type="text" id="SSnumber" tabindex="11" maxlength="10" required>
+  <label for="Social Security Number">Social Security Number:</label><input name="SSnumber" type="text" id="SSnumber" tabindex="11" maxlength="10" >
   </td>
   </tr>
   <tr>
