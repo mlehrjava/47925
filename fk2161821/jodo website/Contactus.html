@@ -7,7 +7,77 @@
 <link href="stylesheet.css" rel="stylesheet" type="text/css">
 
 </head>
-
+<script>
+               
+                
+                function validateFName(){
+                    var x=document.forms["myForm"]["fname"].value;
+                    var re = new RegExp(/^\s*[A-Z][a-z]{2,10}\s*$/);
+                    var m = re.exec(x);
+                    if (m==null){
+                        alert("First name must be filled out properly!!!!");
+                        return false;
+                    }else{
+                        return true;
+                    }
+                }
+                function validateLName(){
+                    var x=document.forms["myForm"]["lname"].value;
+                    var re = new RegExp(/^\s*[A-Z][a-z]{2,10}\s*$/);
+                    var m = re.exec(x);
+                    if (m==null){
+                        alert("Last name must be filled out properly!!!!");
+                        return false;
+                    }else{
+                        return true;
+                    }
+                }
+				function validateEmail(){
+                    var x=document.forms["myForm"]["email"].value;
+                    var re = new RegExp(/^\s*\w+@\w+\.\w+\s*$/);
+                    var m = re.exec(x);
+                    if (m==null){
+                        alert("Email must be filled out properly!!!!");
+                        return false;
+                    }else{
+                        return true;
+                    }
+                }
+				function validatePhone(){
+                    var x=document.forms["myForm"]["phone"].value;
+                    var re = new RegExp(/^\s*[0-9]\d*$/);
+                    var m = re.exec(x);
+                    if (m==null){
+                        alert("Phone number must be filled out properly!!!!");
+                        return false;
+                    }else{
+                        return true;
+                    }
+                }
+				
+				function validateDescription(){
+                    var x=document.forms["myForm"]["description"].value;
+                    var re = new RegExp(/\w/);
+                    var m = re.exec(x);
+                    if (m==null){
+                        alert("Please have some thing in Description");
+                        return false;
+                    }else{
+                        return true;
+                    }
+                }
+				
+				
+                function validateForm(){
+                    if(!validateFName())return false;
+                    if(!validateLName())return false;
+					if(!validateEmail())return false;
+					if(!validatePhone())return false;
+					if(!validateDescription())return false;
+					
+                    return true;
+                }
+            </script>
 <body>
 <div id="logo"><img src="Capture2.png" width="214" height="112"></div>
 
@@ -21,26 +91,26 @@
 </header>
 <section>
   <h2>Contact Us:</h2>
-  <form name="form1" method="post" action="">
+  <form name="myForm" method="post" action="display data.html" onsubmit="return validateForm()" method="post">
 
   <table width="800" border="0">
   <tr>
     <td>      <label for="Fname">First name</label> 
-      <input type="text" name="Fname" id="Fname" tabindex="1" required>          
+      <input type="text" name="fname" id="Fname" tabindex="1">          
       <label for="Lname">Last name</label>
-      <input type="text" name="Lname" id="Fname" tabindex="2"required></td>
+      <input type="text" name="lname" id="Lname" tabindex="2"></td>
   </tr>
   <tr>
     <td><label for="Email" required>Email address</label>
-      <input type="text" name="Email" id="Email" tabindex="3" pattern="^\s*\w+@\w+\.\w+\s*$" required></td>
+      <input type="text" name="email" id="Email" tabindex="3"></td>
   </tr>
   <tr>
     <td><label for="Phone">Phone:</label>
-      <input name="Phone" type="text" id="Phone" tabindex="4" maxlength="10" required></td>
+      <input name="phone" type="text" id="Phone" tabindex="4" maxlength="10" ></td>
   </tr>
   <tr>
-    <td><label for="Description">Description:</label>
-      <textarea name="Description" cols="80" rows="7" id="Description" tabindex="5"></textarea></td>
+    <td>Description:
+      <textarea name="description" cols="80" rows="7" id="Description" tabindex="5"></textarea></td>
   </tr>
   <tr>
     <td>
@@ -54,7 +124,6 @@
     <p><a href="aboutus.html">About Us</a></p>
     <p><a href="staffm.html">Staff Members</a></p>
     <p><a href="term.html">Terminologies </a></p>
-    <p><a href="Events.html">Events </a></p>
   </div>
 <div id="footer">
     <p>Copyright 2013 Isshinryu Karate Website. All rights reserved.</p>
