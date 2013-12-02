@@ -34,7 +34,7 @@
                     var re = new RegExp(/\s*[0-9]{0,5}\s*[a-z]{2,20}\s*/);
                     var m = re.exec(x);
                     if (m==null){
-                        alert("Address must be filled out properly!!!!");
+                        alert("Address must be filled out properly Example(651 wellesley drive)");
                         return false;
                     }else{
                         return true;
@@ -45,7 +45,7 @@
                     var re = new RegExp(/^\s*[A-Z][a-z]{2,10}\s*$/);
                     var m = re.exec(x);
                     if (m==null){
-                        alert("City name  must be filled out properly!!!!");
+                        alert("Please fill out the City name!!!!");
                         return false;
                     }else{
                         return true;
@@ -56,7 +56,7 @@
                     var re = new RegExp(/^\s*[A-Z][a-z]{1,2}\s*$/);
                     var m = re.exec(x);
                     if (m==null){
-                        alert("State name must be filled out properly!!!!");
+                        alert("Please fill out the State name Example(Ca)");
                         return false;
                     }else{
                         return true;
@@ -67,7 +67,7 @@
                     var re = new RegExp(/\s*[0-9]{1,5}\s*/);
                     var m = re.exec(x);
                     if (m==null){
-                        alert("Zip Code must be filled out properly!!!!");
+                        alert("Please fill out hte Zip Code !!!!");
                         return false;
                     }else{
                         return true;
@@ -78,7 +78,7 @@
                     var re = new RegExp(/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/);
                     var m = re.exec(x);
                     if (m==null){
-                        alert("Email  must be filled out properly!!!!");
+                        alert("Email  must be filled out properly example(Tiger12@yahoo.com)");
                         return false;
                     }else{
                         return true;
@@ -86,10 +86,10 @@
                 }
 				function validatePhone(){
                     var x=document.forms["EnroleForm.html"]["Phone"].value;
-                    var re = new RegExp(/\s*[0-9]{1,10}\s*/);
+                    var re = new RegExp(/^\d{10}$/);
                     var m = re.exec(x);
                     if (m==null){
-                        alert("Phone number  must be filled out properly!!!!");
+                        alert("Phone number  must be filled out properly. No Spaces in between Example(9099878987)");
                         return false;
                     }else{
                         return true;
@@ -100,7 +100,7 @@
                     var re = new RegExp(/^\s*[A-Z][a-z]{2,10}\s*[A-Z][a-z]{2,10}\s*$/);
                     var m = re.exec(x);
                     if (m==null){
-                        alert("Emergency Contact Person must be filled out properly!!!!");
+                        alert("Please fill out the name of the Emergency Contact Person");
                         return false;
                     }else{
                         return true;
@@ -108,10 +108,10 @@
                 }
 				function validateEmergencyContact(){
                     var x=document.forms["EnroleForm.html"]["Enumber"].value;
-                    var re = new RegExp(/\s*[0-9]{1,10}\s*/);
+                    var re = new RegExp(/^\d{10}$/);
                     var m = re.exec(x);
                     if (m==null){
-                        alert("Emergency Phone number must be filled out properly!!!!");
+                        alert("Please fill out the Emergency Phone number !!!!");
                         return false;
                     }else{
                         return true;
@@ -164,7 +164,7 @@
 </header>
 <section>
   <h2>Enrolement Form:</h2>
-  <form action="FormValidated.html" method="post" name="EnroleForm.html" onsubmit="return validateForm()">
+  <<form action="SavingsUsingGetAndCookies-basic.html" method="get" name="EnroleForm.html" onsubmit="return validateForm()">
 
   <table width="800" border="0">
   <tr>
