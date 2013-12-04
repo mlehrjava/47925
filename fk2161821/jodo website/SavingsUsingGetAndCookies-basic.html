@@ -75,7 +75,7 @@ function setCookie(name, value, secondsToLive) {
         setCookie("WithAFunction", str, seconds);
         //setCookie("SetAnother","My name is Farhan Khan" , seconds);
         //Retrieve all the cookies
-        cookiesObj=getCookies();
+        cookiesObj=getCookies(withAFunction);
         document.write("<p> Display all the function cookies </br>");
 		
         for(var name in cookiesObj){
