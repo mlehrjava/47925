@@ -1,0 +1,78 @@
+body{
+   margin:0;
+   padding:0;
+   min-width:525px;
+   font-size: 10pt;
+   background-color: #FFFFCF;
+   
+   font-family: Verdana, sans-serif;
+}
+
+#header{
+   float:  left;
+   width:100%;
+   background-color: #FFFFCF;
+}
+#fSet{
+    float:  left;
+    width:93%;
+    margin:10px;
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-right:10px;
+    padding-left:10px;
+    border:7px groove green; 
+    
+    border-color:#99C2FF;
+    box-shadow: 10px 10px 5px #888888;
+}
+#button1{
+    color: #0000FF; 
+    background-color: #FFFFCF; 
+    border:none; cursor:pointer;
+}
+#button2{
+    background-color: #FFFFCF; 
+    border:3pt ridge lightgrey;
+    border-width:6px; 
+    cursor:pointer;
+}
+#disabled{
+    color: #C0C0C0; 
+    background-color: #FFFFCF;
+    border:none;
+}
+#fancy{
+    color: #669900; 
+    background-color: #FFFFCF;
+    font-weight:bold; 
+    font-style:italic; 
+    border:none; cursor:pointer;
+}
+#td{
+    text-align:left
+    padding-left:10px;
+    padding-right:10px;    
+}
+
+#footer{
+   float:  left;
+   width:100%;
+   font-size: 8pt;
+   font-weight: bold;
+   background-color: #FFFFCF;
+   text-align: center;
+   position: relative; 
+}
+<!--/*.btn {
+    //background-color: #FFFFFF; 
+    border: 3pt ridge lightgrey;
+    //background-color:greenyellow;
+    cursor:pointer;
+}*/
+#wrapper{
+   float:  left;
+   padding-left: 200px;
+   padding-right: 125px;
+   overflow: hidden;
+}-->
