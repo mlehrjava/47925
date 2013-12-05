@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<script>
+var AM = require('./modules/account-manager');
+app.get('/', function(req, res){
+// check if the user's credentials are saved in a cookie //
+   if (req.cookies.user == undefined || req.cookies.pass == undefined){
+      res.render('login', 
+         { locals: 
+            { title: 'Hello - Please Login To Your Account' }
+         }
+      );
+   } else{
+   // attempt automatic login //
+      AM.autoLogin(req.cookies.user, req.cookies.pass, function(o){
+         if (o != null){
+            req.session.user = o;
+            res.redirect('/home');
+         }  else{
+            res.render('login', 
+               { locals: 
+                  { title: 'Hello - Please Login To Your Account' }
+               }
+            );
+         }
+      });
+   }
+});
+</script>
+<script>
+var AM = require('./modules/account-manager');
+var EM = require('./modules/email-dispatcher');
+app.post('/', function(req, res){
+   if (req.param('email') != null){
+      AM.getEmail(req.param('email'), function(o){
+         if (o){
+	    res.send('ok', 200);
+	    EM.send(o, function(e, m){ console.log('error : '+e, 'msg : '+m)});	
+	 } else{
+	    res.send('email-not-found', 400);
+	 }
+      });
+   } else{
+  // attempt manual login //
+   AM.manualLogin(req.param('user'), req.param('pass'), function(e, o){
+      if (!o){
+         res.send(e, 400);
+      }	else{
+	 req.session.user = o;
+      if (req.param('remember-me') == 'true'){
+	 res.cookie('user', o.user, { maxAge: 900000 });
+	 res.cookie('pass', o.pass, { maxAge: 900000 });
+      }			
+	 res.send(o, 200);
+      }
+    });
+   }
+});
+</script>
+<script>
+var lv = new LoginValidator();
+var lc = new LoginController();
+ 
+// main login form //
+ 
+$('#login-form').ajaxForm({
+   beforeSubmit : function(formData, jqForm, options){
+      if (lv.validateForm() == false){
+         return false;
+      } else{
+// append 'remember-me' option to formData to write local cookie //					
+	 formData.push({name:'remember-me', value:$("input:checkbox:checked").length == 1})
+	 return true;
+      }
+   },
+   success : function(responseText, status, xhr, $form){
+      if (status == 'success') window.location.href = '/home';
+   },
+   error : function(e){
+      lv.showLoginError('Login Failure', 'Please check your username and/or password');
+   }
+});
+</script>
+
+
+</body>
+</html>
