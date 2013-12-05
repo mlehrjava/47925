@@ -71,18 +71,21 @@ function setCookie(name, value, secondsToLive) {
         //Test JSON to stringify and parse back
         var str=JSON.stringify($_GET);
 		
+
+		
 		
 
         //Test the Cookie class
         var seconds=150;
         //Set a cookieWith a function
-        setCookie("FormValues", str, seconds);
+        setCookie("FormValues", str, seconds)
         //setCookie("SetAnother","My name is Farhan Khan" , seconds);
         //Retrieve all the cookies
         cookiesObj=getCookies();
 		//var newOBJ = JSON.parse(cookiesObj)
 		//var nValue = cookiesObj[name].split(",");
 		//document.write(nValue);
+		
 		
         document.write("<p> Display the form values</br>");
 		
