@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>Isshinryu Karate Website</title>
+<link href="stylesheet.css" rel="stylesheet" type="text/css">
+</head>
+<script type="text/javascript" 
+         src="Library.js" >//Get Function
+</script>
+<body>
+<div id="logo"><img src="Capture2.png" width="214" height="112"></div>
+
+<nav><a href="index.html"> Home</a> - <a href="schedule.html">Schedule</a> - <a href="Contactus.html">ContactUs</a></nav>
+
+<div id="Mainpic"></div>
+
+<header>
+  <h1>isshinryu-karate</h1>
+  
+</header>
+<section>
+  <h2>Enrolement Form:</h2>
+ <h2> Please review the infomration below and press Ok.<p></h2>
+  
+First Name: <span id="fName"></span><br /> 
+Last Name: <span id="lName"></span><br /> 
+Email Address: <span id="Vemail"></span><br /> 
+Phone Number: <span id="Vphone"></span><br />
+Emergency Contact Person: <span id="vDescription"></span><br /> 
+<button onclick="newDoc()">OK</button>
+</section>
+<div id="leftNav">
+    <p><a href="aboutus.html">About Us</a></p>
+    <p><a href="staffm.html">Staff Members</a></p>
+    <p><a href="term.html">Terminologies </a></p>
+  </div>
+<div id="footer">
+    <p>Copyright 2013 Isshinryu Karate Website. All rights reserved.</p>
+</div>
+  <p>
+
+<script type="text/javascript">
+// Cookie function to retrive the value from the cookie
+function newDoc(){
+	window.location.assign("Thankyou.html")
+	}
+function getCookie(cookieName){
+	var cookies = document.cookie.split(/;\s*/);
+	for (var i = 0; i < cookies.length; i++){
+		var currentCookie = cookies[i];
+		if (currentCookie.indexOf(cookieName) == 0){
+			return currentCookie.substring(cookieName.length + 1); 
+		}
+	}
+	return null;
+}
+
+
+//store the name pair vlaue in the cookie
+function setCookie(cookieName, value, secondsToLive) {
+    var cookie = cookieName + "=" + value;
+	
+    if (typeof secondsToLive === "number") 
+        cookie += "; max-age=" + (secondsToLive);
+    document.cookie = cookie;
+}
+</script>
+
+<script type="text/javascript">
+        //Place into the $_GET object
+    var $_GET=getFormInfo(location.href);
+	//document.write("value of $GET after rerutn from ="+$_GET.Fname)
+        //Test JSON to stringify and parse back
+        
+		var cookieValue = JSON.stringify($_GET);
+		        
+          //var Value=JSON.parse(str);
+		  //document.write("="+nValue.Fname+"</P>");
+        //Test the Cookie class
+        var seconds=150;
+        //Set a cookieWith a function
+        setCookie("ContactFormCookie", cookieValue, seconds);
+		//  setCookie("SetAnother","My name is Farhan Khan" , seconds);
+        //Retrieve all the cookies
+		
+        var cookieValueJSON = getCookie("ContactFormCookie");
+		if (cookieValueJSON != null)
+		
+
+		{ 
+		    var cookieObject = JSON.parse(cookieValueJSON);
+			var V_emailtrim=cookieObject.email
+			var VEmail=V_emailtrim.replace(/\%40/g, "@");
+			var descriptionField =cookieObject.description;
+			var vDescriptionfield = descriptionField.replace(/\+/g, " ");
+						//oFormObject = document.forms['displayForm'];
+			
+			//oFormObject.elements["FormFname"].value =cookieObject.Fname;
+			document.getElementById("fName").innerHTML=cookieObject.fname;
+			document.getElementById("lName").innerHTML=cookieObject.lname;
+			document.getElementById("Vemail").innerHTML=VEmail;
+			document.getElementById("Vphone").innerHTML=cookieObject.phone;
+			document.getElementById("vDescription").innerHTML=vDescriptionfield;
+			//document.write("First name:"+cookieObject.Fname);
+			
+		}
+		</script>
+
+  
+
+</body>
+</html>
