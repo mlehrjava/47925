@@ -98,7 +98,9 @@ function setCookie(cookieName, value, secondsToLive) {
 			var vAdd1=cookieObject.address1;
      		var finalAddres1=vAdd1.replace(/\+/g, "  ");
 			var v_snumber=cookieObject.SSnumber;
-			var final_svalue=v_snumber.slice(4); 
+			var final_svalue=v_snumber.slice(4);
+			var vEmail =cookieObject.Email;
+			var vFemail = vEmail.replace(/\%40/g, "@")
 			//oFormObject = document.forms['displayForm'];
 			
 			//oFormObject.elements["FormFname"].value =cookieObject.Fname;
@@ -108,7 +110,7 @@ function setCookie(cookieName, value, secondsToLive) {
 			document.getElementById("vCity").innerHTML=cookieObject.city;
 			document.getElementById("vState").innerHTML=cookieObject.state;
 			document.getElementById("vZIP").innerHTML=cookieObject.Zip;
-			document.getElementById("Vemail").innerHTML=cookieObject.Email;
+			document.getElementById("Vemail").innerHTML=vFemail;
 			document.getElementById("Vphone").innerHTML=cookieObject.Phone;
 			document.getElementById("vEmergencyContactPerson").innerHTML=cookieObject.EContP;
 			document.getElementById("vEmergencyPhoneNumber").innerHTML=cookieObject.Enumber;
