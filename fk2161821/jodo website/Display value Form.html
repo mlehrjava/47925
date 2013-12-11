@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>Isshinryu Karate Website</title>
+<link href="stylesheet.css" rel="stylesheet" type="text/css">
+</head>
+<script type="text/javascript" 
+         src="Library.js" >//Get Function
+</script>
+<body>
+<div id="logo"><img src="Capture2.png" width="214" height="112"></div>
+
+<nav><a href="index.html"> Home</a> - <a href="schedule.html">Schedule</a> - <a href="Contactus.html">ContactUs</a></nav>
+
+<div id="Mainpic"></div>
+
+<header>
+  <h1>isshinryu-karate</h1>
+  
+</header>
+<section>
+  <h2>Enrolement Form:</h2>
+ <h2> Please review the infomration below and press Ok.<p></h2>
+  
+First Name: <span id="fName"></span><br /> 
+Last Name: <span id="lName"></span><br /> 
+Address: <span id="vAddress"></span><br /> 
+City: <span id="vCity"></span><br /> State: <span id="vState"></span><br /> Zip Code: <span id="vZIP"></span><br /> 
+Email Address: <span id="Vemail"></span><br /> 
+Phone Number: <span id="Vphone"></span><br />
+Emergency Contact Person: <span id="vEmergencyContactPerson"></span><br /> 
+Emergency Phone number: <span id="vEmergencyPhoneNumber"></span><br /> 
+Last four of SSN: <span id="vSSN"></span><br />
+<button onclick="newDoc()">OK</button>
+</section>
+<div id="leftNav">
+    <p><a href="aboutus.html">About Us</a></p>
+    <p><a href="staffm.html">Staff Members</a></p>
+    <p><a href="term.html">Terminologies </a></p>
+  </div>
+<div id="footer">
+    <p>Copyright 2013 Isshinryu Karate Website. All rights reserved.</p>
+</div>
+  <p>
+
+<script type="text/javascript">
+// Cookie function to retrive the value from the cookie
+function newDoc(){
+	window.location.assign("Thankyou.html")
+	}
+function getCookie(cookieName){
+	var cookies = document.cookie.split(/;\s*/);
+	for (var i = 0; i < cookies.length; i++){
+		var currentCookie = cookies[i];
+		if (currentCookie.indexOf(cookieName) == 0){
+			return currentCookie.substring(cookieName.length + 1); 
+		}
+	}
+	return null;
+}
+
+
+//store the name pair vlaue in the cookie
+function setCookie(cookieName, value, secondsToLive) {
+    var cookie = cookieName + "=" + value;
+	
+    if (typeof secondsToLive === "number") 
+        cookie += "; max-age=" + (secondsToLive);
+    document.cookie = cookie;
+}
+</script>
+
+<script type="text/javascript">
+        //Place into the $_GET object
+    var $_GET=getFormInfo(location.href);
+	//document.write("value of $GET after rerutn from ="+$_GET.Fname)
+        //Test JSON to stringify and parse back
+        
+		var cookieValue = JSON.stringify($_GET);
+		        
+          //var Value=JSON.parse(str);
+		  //document.write("="+nValue.Fname+"</P>");
+        //Test the Cookie class
+        var seconds=150;
+        //Set a cookieWith a function
+        setCookie("FormCookie", cookieValue, seconds);
+		//  setCookie("SetAnother","My name is Farhan Khan" , seconds);
+        //Retrieve all the cookies
+		
+        var cookieValueJSON = getCookie("FormCookie");
+		if (cookieValueJSON != null)
+		
+
+		{ 
+		    var cookieObject = JSON.parse(cookieValueJSON);
+			var vAdd1=cookieObject.address1;
+     		var finalAddres1=vAdd1.replace(/\+/g, "  ");
+			var v_snumber=cookieObject.SSnumber;
+			var final_svalue=v_snumber.slice(4); 
+			//oFormObject = document.forms['displayForm'];
+			
+			//oFormObject.elements["FormFname"].value =cookieObject.Fname;
+			document.getElementById("fName").innerHTML=cookieObject.Fname;
+			document.getElementById("lName").innerHTML=cookieObject.Lname;
+			document.getElementById("vAddress").innerHTML=finalAddres1
+			document.getElementById("vCity").innerHTML=cookieObject.city;
+			document.getElementById("vState").innerHTML=cookieObject.state;
+			document.getElementById("vZIP").innerHTML=cookieObject.Zip;
+			document.getElementById("Vemail").innerHTML=cookieObject.Email;
+			document.getElementById("Vphone").innerHTML=cookieObject.Phone;
+			document.getElementById("vEmergencyContactPerson").innerHTML=cookieObject.EContP;
+			document.getElementById("vEmergencyPhoneNumber").innerHTML=cookieObject.Enumber;
+			document.getElementById("vSSN").innerHTML=final_svalue;
+			//document.write("First name:"+cookieObject.Fname);
+			
+		}
+		</script>
+
+  
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Mortgage Calculator</title>
+</head>
+
+<script type="text/javascript">
+function checnum(as)
+{
+	var dd = as.value;
+	if(isNaN(dd))
+	{
+		dd = dd.substring(0,(dd.length-1));
+		as.value = dd;
+	}		
+}
+function loan()
+{
+	var a = document.Form_m.LA.value;
+	var b = document.Form_m.IR.value;
+	var c = document.Form_m.nYear.value;
+	var n = c * 12;
+	var r = b/(12*100);
+	var p = (a * r *Math.pow((1+r),n))/(Math.pow((1+r),n)-1);
+	var prin = Math.round(p*100)/100;
+	document.Form_m.r1.value = prin;
+
+	
+}
+</script>
+
+
+
+
+
+<table width=90% border=0 cellpadding=0 cellspacing=0 >
+	<tr><td align=center >
+		<form name=Form_m>
+		<table class=subheading cellspacing=0 cellpadding=3>
+			<tr><td>Loan Amount:</td><td><input name=LA type=text size=15 onkeyup=checnum(this) ></td></tr>
+			<tr><td>Interest Rates:</td><td><input name=IR type=text size=15 onkeyup=checnum(this) ></td></tr>
+			<tr><td>Term(Years):</td><td><input name=nYear type=text size=15 onkeyup=checnum(this)></td></tr>
+		</table>
+		<br><input type=button name=ss value=calculate onclick=loan() class=calc>
+	<br>
+		<table class=subheading cellspacing=0 cellpadding=3>
+			<tr align=center><td class=inner colspan=2><b>Results:</b></td></tr>
+			<tr><td>Monthly Payment:</td><td> <input name=r1 type=text readonly > </td></tr>
+	
+			
+			</td></tr>
+		</table></form>
+	</td></tr>
+	
+	</td></tr>
+</table>

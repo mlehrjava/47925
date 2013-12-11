@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Survey Page</title>
+
+<style type="text/css">
+section {
+	background: rgba(255,255,204,1);
+}
+</style>
+
+
+</head>
+<script type="text/javascript" 
+         src="Library.js" >//Get Function
+</script>
+
+<body>
+<h2> Survey name: How good you know your spouce </h2>
+
+<section>
+
+<table border="1"  align="center" width="500px">
+<tr><td><b>Does your spouse enjoy alone time?</b></td></tr>
+<tr><td>  <span id="Question1"></span><br/> </td></tr>
+<tr><td><b>Your Spouse's ideal vacation would be?</b></td></tr>
+<tr><td><span id="Question2"></td></tr>
+<tr><td><b>What is his or her philosophy on parenting?</b></td></tr>
+<tr><td><span id="Question3"></td></tr>
+<tr><td><b>Does your spouce feel that you contribute enough to your relationship?</b></td></tr>
+<tr><td><span id="Question4"></td></tr>
+<tr><td><b>List your partners 3 biggest pet peeves in decreasing order?</b></td></tr>
+<tr><td><span id="Question5"></td></tr>
+
+
+</table>
+
+</section>
+<script type="text/javascript">
+function setCookie(cookieName, value, secondsToLive) {
+    var cookie = cookieName + "=" + value;
+	
+    if (typeof secondsToLive === "number") 
+        cookie += "; max-age=" + (secondsToLive);
+    document.cookie = cookie;
+}
+</script>
+<script type="text/javascript">
+function getCookie(cookieName){
+	var cookies = document.cookie.split(/;\s*/);
+	for (var i = 0; i < cookies.length; i++){
+		var currentCookie = cookies[i];
+		if (currentCookie.indexOf(cookieName) == 0){
+			return currentCookie.substring(cookieName.length + 1); 
+		}
+	}
+	return null;
+}
+</script>
+
+
+
+<script type="text/javascript" >
+         
+var $_GET=getFormInfo(location.href);
+var cookieValue = JSON.stringify($_GET);
+var seconds=150;
+setCookie("SurveyFormCookie", cookieValue, seconds);
+var cookieValueJSON = getCookie("SurveyFormCookie");
+if (cookieValueJSON != null)
+	 { 
+		    var cookieObject = JSON.parse(cookieValueJSON);
+			var vQuestion2 = cookieObject.Question2;
+			var vFQuestion2 = vQuestion2.replace(/\+/g, " ");
+			var vQuestion3 = cookieObject.Question3;
+			var vFQuestion3= vQuestion3.replace(/\+/g, " ");
+			var vQuestion4=cookieObject.question4;
+			var vFQuestion4= vQuestion4.replace(/\+/g, " ");
+			var vQuestion5=cookieObject.question5;
+			var vFQuestion5= vQuestion5.replace(/\%0D%0A/g, ", ");
+			var vFCQuestion5= vFQuestion5.replace(/\+/g, " ");
+			
+			
+			
+	 document.getElementById("Question1").innerHTML=cookieObject.question1;
+	 document.getElementById("Question2").innerHTML=vFQuestion2;
+	 document.getElementById("Question3").innerHTML=vFQuestion3;
+	 document.getElementById("Question4").innerHTML=vFQuestion4;
+	 document.getElementById("Question5").innerHTML=vFCQuestion5;
+	 }
+
+</script>
+
+
+</body>
+</html>

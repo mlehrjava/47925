@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Survey Page</title>
+
+<style type="text/css">
+section {
+	background: rgba(255,255,204,1);
+}
+</style>
+<script language="javascript">
+<!---
+
+function question4()
+   { if (document.formSurvey.question4.checked)
+	{document.getElementById("Q4no").checked = false;
+	return true;}
+	
+	else {
+		return false;
+		}
+	
+	}
+	
+function validQuestion1(){
+	if(document.getElementById("Q1yes").checked = true){
+		document.getElementById("Q1no").checked= false;
+		return true;
+		} 	
+	else if(document.getElementById("Q1no").checked = true){
+		document.getElementById("Q1yes").checked= false;
+		return true;
+		} 	
+		
+		
+		else{
+			alert("please select question 1");
+			return false;}
+	}
+		
+function validQuestion2()
+{
+	
+if (document.getElementById("id0").checked = true)
+{
+	document.getElementById("id1").checked = false;
+	document.getElementById("id2").checked = false;
+return true;
+}
+
+else
+{
+alert (" Please check one answer from question 2");
+return false;
+}
+}
+
+function validQuestion2b()
+{
+	
+if (document.getElementById("id1").checked = true)
+{
+	document.getElementById("id0").checked = false;
+	document.getElementById("id2").checked = false;
+return true;
+}
+
+else
+{
+alert (" Please check one answer from question 2");
+return false;
+}
+}
+function validQuestion2c()
+{
+	
+if (document.getElementById("id2").checked = true)
+{
+	document.getElementById("id0").checked = false;
+	document.getElementById("id1").checked = false;
+return true;
+}
+
+else
+{
+
+return false;
+}
+}
+function validQuestion3a()
+{
+if (document.getElementById("Q3A1").checked = true)
+{
+	document.getElementById("Q3A2").checked = false;
+	document.getElementById("Q3A3").checked = false;
+return true;
+}
+
+else
+{
+alert (" Please check one answer from question 2");
+return false;
+}
+
+}
+
+function validQuestion3b()
+{
+if (document.getElementById("Q3A2").checked = true)
+{
+	document.getElementById("Q3A1").checked = false;
+	document.getElementById("Q3A3").checked = false;
+return true;
+}
+
+else
+{
+alert (" Please check one answer from question 2");
+return false;
+}
+
+}
+
+function validQuestion3c()
+{
+if (document.getElementById("Q3A3").checked = true)
+{
+	document.getElementById("Q3A1").checked = false;
+	document.getElementById("Q3A2").checked = false;
+return true;
+}
+
+else
+{
+alert (" Please check one answer from question 2");
+return false;
+}
+
+}
+function validQuestion5(){
+	//var x = document.getElementById("Description").value;
+    var x = document.forms["formSurvey"]["question5"].value;
+	if (x == ""){
+	alert("List your partners 3 biggest pet peeves in decreasing order?");
+	return false;
+	
+	}
+	else{
+	return true;
+	}
+	}
+
+
+function formValid(){
+	//if (!validQuestion2()) return false;
+	//if (!validQuestion1()) return false;
+	//if (!validQuestion3a()) return false;
+	//if (!validQuestion3b()) return false;
+	//if (!validQuestion3c()) return false;
+	if (!validQuestion5()) return false;
+	
+	//if (!question4()) return false;
+	return true;
+	}
+-->
+</script>
+</head>
+<body>
+<h2> Survey name: How well do you know your spouse ?</h2>
+
+<section>
+
+<form name="formSurvey" action="displaySurveyData.html" method="get" onsubmit="return formValid()" >
+<table border="1"  align="center" width="400px">
+<tr>
+  <td><b>Does your spouse enjoy alone time?</b></td></tr>
+<tr><td> Yes <input name="question1" type="radio" id="Q1yes" value = "yes" > No <input name="question1" type="radio" id="Q1no" value = "no" ></td></tr>
+<tr>
+  <td><b>Your Spouse's ideal vacation would be?</b></td></tr>
+<tr><td> <input name="Question2" type="checkbox" id ="id0" value = "Adventurous" onclick="validQuestion2()">Adventurous </td></tr>
+<tr><td> <input name="Question2" type="checkbox" id ="id1" value = "Quiet and relaxing" onclick="validQuestion2b()">Quiet and relaxing</td></tr>
+<tr><td> <input name="Question2" type="checkbox" id ="id2" value = "Watching football on the couch" onclick="validQuestion2c()">Watching football on the couch </td></tr>
+<tr><td><b>What is his or her philosophy on parenting?</b></td></tr>
+<tr><td> <input name="Question3" type="checkbox" id="Q3A1" value = "Going with the flow" onclick="validQuestion3a()">Going with the flow </td></tr>
+<tr><td> <input name="Question3" type="checkbox" id="Q3A2" value = "Easy going with limits" onclick="validQuestion3b()">Easy going with limits</td></tr>
+<tr><td> <input name="Question3" type="checkbox" id="Q3A3" value = "Consequences for every bad action" onclick="validQuestion3c()">Consequences for every bad action. </td></tr>
+<tr><td><b>Does your spouce feel that you contribute enough to your relationship?</b></td></tr>
+<tr><td> Yes <input name="question4" type="radio" id "Q4yes"value = "yes" > No <input name="question4" type="radio" id "Q4no" value = "Not really" ></td></tr>
+<tr><td><b>List your partners 3 biggest pet peeves in decreasing order?</b></td></tr>
+<tr><td><textarea name="question5" cols="80" rows="7" id="Description" tabindex="5" value=""></textarea></td></tr>
+
+<tr>
+    <td>
+    <input type="submit" name="Cancel" id="Cancel" value="Cancel" tabindex="6">
+      <input type="submit" name="Cancel" id="Cancel" value="Submit" tabindex="6"></td>
+  </tr>
+</table>
+</form>
+</section>
+
+
+
+</body>
+</html>
