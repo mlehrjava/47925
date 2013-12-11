@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Admin Login</title>
+</head>
+
+<script type="text/javascript">
+/*This will check for a specific Administrator username and password for access to the Administrator Page*/
+
+function admin(form) {
+	if (form.id.value=="Spex") { 
+		if (form.pass.value=="cis14a") {              
+			window.location="" 
+		} else {
+			alert("Access Denied, Invalid Password")
+		}
+	} else {  
+		alert("Access Denied, Unauthorized User")
+	}
+}
+</script>
+
+<body>
+
+<center>
+<form name="adminLogin" action="Admin Page.html" method="get">
+<h2>User Name</h2>
+<input name="id" type="text">
+<br />
+<h2>Password:</h2>
+<input name="pass" type="password">
+<br />
+<input type="submit" value="Login" onClick="admin(this.form)">
+<br />
+<input type="Reset">
+</form>
+</center>
+ 
+</body>
+</html>

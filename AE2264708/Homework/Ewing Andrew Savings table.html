@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Savings Table</title>
+</head>
+<table width="200" border="1">
+<body>
+<script type="text/javascript">
+	//declare variables
+	var bal=100;//balance $100
+	var begInt=5//Interest
+	var endInt=10
+	var yr=15;//10 years
+	//First row headings
+	var str="<tr><th>Years</th>";
+	for(var rate=5; rate<=endInt; rate++){
+		str+=("<th>"+rate+"%</th>");
+	}	str+="</tr>";
+	
+	var balTemp=100;
+	for(var year=1; year<=yr; year++){
+		str+="<tr><th>";
+		str+=(year+"</th>");
+		for(var irate=5; irate<=10; irate++){
+			balTemp=bal*Math.pow((1+irate/100),year);
+			str+=("<td>"+balTemp.toFixed(2)+"</td>");
+		}
+	}
+	document.write(str);
+	//Output the result
+	document.write("<p>Balance = $");
+	document.write(bal.toFixed(2)+"</p>");
+
+</script>
+</table>
+</body>
+</html>

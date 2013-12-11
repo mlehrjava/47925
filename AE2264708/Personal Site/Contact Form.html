@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+            <!--Form Validation Script-->
+            <script type="text/javascript">
+//These functions will validate the entered form data
+//Borrowed from Class Examples.  Edited to fi his projec.
+
+//Validates first name field
+//Checks for a capital first letter and lowercase letters following it.
+				function validateFName(){
+                    var x=document.forms["ContactUs"]["firstname"].value;
+                    var re = new RegExp(/^\s*[A-Z][a-z]{2,10}\s*$/);
+                    var m = re.exec(x);
+                    if (m==null){
+                        alert("Please Enter First Name.");
+                        return false;
+                    }else{
+                        return true;
+                    }
+                }
+//Validates last name field
+//Same function as first name
+                function validateLName(){
+                    var x=document.forms["ContactUs"]["lastname"].value;
+                    var re = new RegExp(/^\s*[A-Z][a-z]{2,10}\s*$/);
+                    var m = re.exec(x);
+                    if (m==null){
+                        alert("Please Enter Last Name.");
+                        return false;
+                    }else{
+                        return true;
+                    }
+                }
+//Validates E-mail field
+//Checks that the e-mail address will contain the following
+	/*any letters or numbers including characters such as "_", "+", and "-".
+	a possilb period in the address name followed by the same match as above
+	a single @ symbol
+	a url containing a string separated by at least one dot but possibly two.*/
+//This should include MOST valid e-mail addresses.
+//Source of regular expression http://www.markussipila.info/pub/emailvalidator.php
+				function validateEmail(){
+					var x=document.forms["ContactUs"]["e-mail"].value;
+                    var re = new RegExp(/^[a-z0-9_\+-]+(\.[a-z0-9_\+-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*\.([a-z]{2,4})$/);
+                    var m = re.exec(x);
+                    if (m==null){
+                        alert("Please Enter E-mail Address.");
+                        return false;
+                    }else{
+                        return true;
+                    }
+				}
+//Final validation is summarized into one function with if statements
+                function validateForm(){
+                    if(!validateFName())return false;
+                    if(!validateLName())return false;
+					if(!validateEmail())return false;
+                    return true;
+                }
+			</script>
+
+<h2>
+  <div id="form">				<!--Coonects the form to this file-->
+    <form name="ContactUs" action="Contact Form Submitted.html" onsubmit="return validateForm()" method="get">
+      First name: <input type="text" name="firstname" /> <br />
+      Last name: <input type="text" name="lastname" /> <br />
+      E-mail: <input type="text" name="e-mail" /> <br />
+      <br />
+      Message:<br />
+      <textarea rows="5" cols="50" maxlength="255" input type="text" name="Message"></textarea>
+      <br />
+      <input type="submit" value="Submit" id="submit1"/>
+    </form>
+  </div>
+</h2>
+</body>
+</html>
