@@ -1,0 +1,14 @@
+@charset "utf-8";
+/* CSS Document */
+<!--For Navigation Bar-->
+#Navi{
+	width:auto;
+	text-decoration:none;
+	display:inline-block;
+	background-color:#CC0000;
+	border:2px solid #666666;
+	border-radius:5px;
+	padding:2px;
+	font-size:16pt;
+	color:#009;
+	}

@@ -5,11 +5,24 @@
 <title>Admin Page</title>
 <script type="text/javascript" src="AdminCookies.js">
 </script>
+<script type="text/javascript">
+//Button functions:
+//Adapted from John Leduc
+function goToQuiz(){
+	window.location.assign("TakeTheQuiz.html")}
+
+function goHome(){
+	window.location.assign("Home.html")}
+</script>
+
 </head>
 
 <body>
 	Delete a User's Survey Results:<br />
-	<input type="button" name="delete" value="Delete Results" onclick="deleteResult()" />
+	(Broken)<input type="button" name="view" value="View Results" onclick="results()" />
+    <input type="button" name="delete" value="Delete Results" onclick="deleteResult()" />
+    <input type="button" name="toQuiz" value="Back to Quiz" onclick="goToQuiz()" />
+    <input type="button" name="home" value="Home" onclick="goHome()" />
     
 		
 		<br><h2>Here are the results for every survey submitted thus far:</h2><br>
@@ -22,6 +35,7 @@
 //				document.write("<p>"+name+": "+cookie+"</p><br>");
 				var cSplit = JSON.parse(cookie);
 			}
+			
 		</script>
 
 </body>

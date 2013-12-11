@@ -36,6 +36,15 @@ function getCookies() {
 			}
 			return cVal;
 		}
+		//Display results
+		function results(){
+			var cookies = getCookies();
+			var cookieObj = JSON.parse(cookies)
+			document.write("</br> Quiz Results </br>");
+			for(var name in cookieObj){
+			document.write(name+"="+cookieObj[name]+"<br/>");
+		}
+		}
 		//To delete a cookie
 		function deleteResult(){
 				window.location.assign("Delete Cookie.html");

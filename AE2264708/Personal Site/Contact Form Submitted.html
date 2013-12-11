@@ -47,43 +47,43 @@ function setCookie(name, value, secondsToLive) {
 <body>
 <script type="text/javascript">
     //Grab the URL
-	document.write("Display the URL </br>");
-	document.write(location.href+"</br>");
+	//document.write("Display the URL </br>");
+	//document.write(location.href+"</br>");
 	//Place into the $_GET object
     var $_GET=getFormInfo(location.href);
 	//Print the $_GET object
-	document.write("</br>Display the $_GET Object </br>");
+/*	document.write("</br>Display the $_GET Object </br>");
 	for(var name in $_GET){
 		document.write(name+"="+$_GET[name]+"<br/>");
 	}
-	//Test JSON to stringify and parse back
+*/	//Test JSON to stringify and parse back
 	var str=JSON.stringify($_GET);
-	document.write("</br> Display the JSON String </br>");
-	document.write("The $_GET Object in a string = "+str+"</br>");
+	//document.write("</br> Display the JSON String </br>");
+	//document.write("The $_GET Object in a string = "+str+"</br>");
 	var obj=JSON.parse(str);
 	//Print the new object
-	document.write("</br> Display the JSON Object </br>");
+/*	document.write("</br> Display the JSON Object </br>");
 	for(var name in obj){
 		document.write(name+"="+obj[name]+"<br/>");
 	}
-	//Test the Cookie class
+*/	//Test the Cookie class
 	var seconds=150;
 	//var cobj=new CookieStorage(days*60*60*24,"");
 	//Print the new object
 	var cookiesObj=getCookies();
-	document.write("</br> Display all the cookies </br>");
+/*	document.write("</br> Display all the cookies </br>");
 	for(var name in cookiesObj){
 		document.write(name+"="+cookiesObj[name]+"<br/>");
 	}
-	//Set a cookie
+*/	//Set a cookie
 	//With a function
 	setCookie("CookiesFunction", str, seconds);
 	//Get the cookie with a function
 	cookiesObj=getCookies();
-	document.write("</br> Display all the function cookies </br>");
+/*	document.write("</br> Display all the function cookies </br>");
 	for(var name in cookiesObj){
 		document.write(name+"="+cookiesObj[name]+"<br/>");
-	}
+	}*/
 </script>
 			<center>
 			<h1>Message Sent. Thank you!</h1>
