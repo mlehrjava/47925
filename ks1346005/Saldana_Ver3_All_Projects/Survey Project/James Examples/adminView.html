@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+    
+		<!--
+        	Programmer: James Leduc
+        	Date Created: Dec. 4, 2013
+            Last Modified: Dec. 8, 2013
+		-->
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Welcome, You Survey Monkeys!</title>
+		
+		<script><!--Functions-->
+			//Get ALL Cookies
+			function getCookies(){
+				var cookies = {};
+				var all = document.cookie;
+				if (all === "")
+					return cookies;
+				var list = all.split("; ");
+				for(var i = 0; i < list.length; i++) {
+					var cookie = list[i];
+					var p = cookie.indexOf("=");
+					var name = cookie.substring(0,p);
+					var value = cookie.substring(p+1);
+					value = decodeURIComponent(value);
+					cookies[name] = value;
+				}
+				return cookies;
+			}
+			
+			//Get a Cookie by Name
+			function getCookie(cName){
+				var cVal = document.cookie;
+				var cBeg = cVal.indexOf(" " + cName + "=");
+				if (cBeg == -1){
+					cBeg = cVal.indexOf(cName + "=");
+				}
+				if (cBeg == -1){
+					cVal = null;
+				}else{
+					cBeg = cVal.indexOf("=", cBeg) + 1;
+					var cEnd = cVal.indexOf(";", cBeg);
+					if (cEnd == -1){
+						cEnd = cVal.length;
+					}
+					cVal = unescape(cVal.substring(cBeg,cEnd));
+				}
+				return cVal;
+			}	
+			
+			//Return to home page
+			function returnHome(){
+				window.location.assign("surveyIntro.html");
+			}
+			
+			//Delete a specific survey
+			function deleteResult(){
+				window.location.assign("surveyDelete.html");
+			}
+		</script>
+		
+	</head>
+	
+	<center><body>
+		<h1>Oh, you are an administrator! Well, good for you!</h1>
+		
+		<input type="button" name="return" value="Return Home" style="display:inline" onclick="returnHome()" />
+		<input type="button" name="delete" value="Delete Results" style="display:inline" onclick="deleteResult()" />
+		
+		<br><h2>Here are the results for every survey submitted thus far:</h2><br>
+		
+		<script>
+			//Get and Display ALL Cookies
+			var cookiesObj = getCookies();
+			
+/*1*/		var colorProp;		//tally each
+			var redInc=0, oraInc=0, yelInc=0, greInc=0, bluInc=0, purInc=0,
+				pinInc=0, broInc=0, blaInc=0, graInc=0, whiInc=0;
+
+/*2*/		var likeReadProp;	//tally each
+			var readYesInc=0,
+				readNoInc=0,
+				readSomeInc=0;
+			
+/*3*/		var whatReadProp;	//tally each
+			var readBookInc=0,
+				readNewsInc=0,
+				readMagsInc=0,
+				readComsInc=0,
+				readNoneIne=0,
+				readDontInc=0;
+
+/*4*/		var likeMusicProp;	//tally each
+			var musicYesInc=0,
+				musicNoInc=0,
+				musicSomeInc=0;
+
+/*5*/		var genreProp;		//post
+
+/*6*/		var musicianProp;	//post
+
+/*7*/		var songProp;		//post
+
+/*8*/		var likeTvProp;		//tally each
+			var tvYesInc=0,
+				tvNoInc=0,
+				tvSomeInc=0;
+
+/*9*/		var tvShowProp;		//post
+
+/*10*/		var likeMoviesProp;	//tally each
+			var movYesInc=0,
+				movNoInc=0,
+				movSomeInc=0;
+
+/*11*/		var favMovieProp;	//post
+
+/*12*/		var favActorProp;	//post
+
+/*13*/		var favActressProp;	//post
+
+/*14*/		var likeGamesProp;	//tally each
+			var gameYesInc=0,
+				gameNoInc=0,
+				gameSomeInc=0;
+
+/*15*/		var gameTypeprop;	//tally each
+			var boardGameInc=0,
+				cardGameInc=0,
+				videoGameInc=0,
+				noneGameInc=0,
+				dontGameInc=0;
+
+/*16*/		var favGameProp;	//post
+
+/*17*/		var likeSportsProp;	//tally each
+			var sportYesInc=0,
+				sportNoInc=0,
+				sportSomeInc=0;
+
+/*18*/		var favSportProp;	//tally each
+			var baseInc=0, baskInc=0, footInc=0, golfInc=0, hockInc=0,
+				soccInc=0, softInc=0, wresInc=0, noneInc=0, dontInc=0;
+
+/*19*/		var favTeamProp;	//post
+
+/*20*/		var favAthProp;		//post
+
+			for(var name in cookiesObj){
+				document.write("<p>Results from the <b>"+name+"</b> survey are as follows: </p>");
+				var cookie = cookiesObj[name];
+//				document.write("<p>"+name+": "+cookie+"</p><br>");
+				var cSplit = JSON.parse(cookie);
+				
+				for(var cName in cSplit){
+					document.write(cName.replace(/\_/g,' ')+" = "+cSplit[cName].replace(/\+/g,' ')+"<br>");
+									
+					colorProp = cSplit["Color"];					//1
+					likeReadProp = cSplit["Like_to_Read"];			//2
+					whatReadProp = cSplit["What_do_you_Read"];		//3
+					likeMusicProp = cSplit["Listen_to_Music"];		//4
+					genreProp = cSplit["Favorite_Genre"];			//5
+					musicianProp = cSplit["Favorite_Musician"];		//6
+					songProp = cSplit["Favorite_Song"];				//7
+					likeTvProp = cSplit["Watch_TV"];				//8
+					tvShowProp = cSplit["Favorite_Show"];			//9
+					likeMoviesProp = cSplit["Watch_Movies"];		//10
+					favMovieProp = cSplit["Favorite_Movie"];		//11
+					favActorProp = cSplit["Favorite_Actor"];		//12
+					favActressProp = cSplit["Favorite_Actress"];	//13
+					likeGamesProp = cSplit["Play_Games"];			//14
+					gameTypeprop = cSplit["What_kinds_of_Games"];	//15
+					favGameProp = cSplit["Favorite_Game"];			//16
+					likeSportsProp = cSplit["Like_Sports"];			//17
+					favSportProp = cSplit["Favorite_Sport"];		//18
+					favTeamProp = cSplit["Favorite_Team"];			//19
+					favAthProp = cSplit["Favorite_Athelete"];		//20
+/*		
+					document.write("<h2>Favorite Colors: </h2>"									//1
+									+"<span style="font-weight:bold">Red: </span>"+redInc+"<br>"
+									+"<span style="font-weight:bold">Orange: </span>"+oraInc+"<br>"
+									+"<span style="font-weight:bold">Yellow: </span>"+yelInc+"<br>"
+									+"<span style="font-weight:bold">Green: </span>"+greInc+"<br>"
+									+"<span style="font-weight:bold">Blue: </span>"+bluInc+"<br>"
+									+"<span style="font-weight:bold">Purple: </span>"+purInc+"<br>"
+									+"<span style="font-weight:bold">Pink: </span>"+pinInc+"<br>"
+									+"<span style="font-weight:bold">Brown: </span>"+broInc+"<br>"
+									+"<span style="font-weight:bold">Black: </span>"+blaInc+"<br>"
+									+"<span style="font-weight:bold">Gray: </span>"+graInc+"<br>"
+									+"<span style="font-weight:bold">White: </span>"+whiInc+"<br>");
+					document.write("<h2>Readers: </h2>"											//2
+									+"<span style="font-weight:bold">Yes: </span>"+readYesInc+"<br>"
+									+"<span style="font-weight:bold">No: </span>"+readNoInc+"<br>"
+									+"<span style="font-weight:bold">Sometimes: </span>"+readSomeInc+"<br>");
+					document.write("<h2>Favorite Reading Material: </h2>"						//3
+									+"<span style="font-weight:bold">Books: </span>"+readBookInc+"<br>"
+									+"<span style="font-weight:bold">Newspapers: </span>"+readNewsInc+"<br>"
+									+"<span style="font-weight:bold">Magazines: </span>"+readMagsInc+"<br>"
+									+"<span style="font-weight:bold">Comic Books: </span>"+readComsInc+"<br>"
+									+"<span style="font-weight:bold">None of These: </span>"+readNoneIne+"<br>"
+									+"<span style="font-weight:bold">Don't Like to Read: </span>"+readDontInc+"<br>");
+					document.write("<h2>Music Listeners: </h2>"									//4
+									+"<span style="font-weight:bold">Yes: </span>"+musicYesInc+"<br>"
+									+"<span style="font-weight:bold">No: </span>"+musicNoInc+"<br>"
+									+"<span style="font-weight:bold">Sometimes: </span>"+musicSomeInc+"<br>");
+					document.write("<h2>Favorite Music Genre: </h2><p>"+genreProp+"</p><br>");	//5
+					document.write("<h2>Favorite Musician: </h2><p>"+musicianProp+"</p><br>");	//6
+					document.write("<h2>Favorite Song: </h2><p>"+songProp+"</p><br>");			//7
+					document.write("<h2>Television Watchers: </h2>"								//8
+									+"<span style="font-weight:bold">Yes: </span>"+tvYesInc+"<br>"
+									+"<span style="font-weight:bold">No: </span>"+tvNoInc+"<br>"
+									+"<span style="font-weight:bold">Sometimes: </span>"+tvSomeInc+"<br>");
+					document.write("<h2>Favorite TV Show: </h2><p>"+tvShowProp+"</p><br>");		//9
+					document.write("<h2>Moviegoers: </h2>"										//10
+									+"<span style="font-weight:bold">Yes: </span>"+movYesInc+"<br>"
+									+"<span style="font-weight:bold">No: </span>"+movNoInc+"<br>"
+									+"<span style="font-weight:bold">Sometimes: </span>"+movSomeInc+"<br>");
+					document.write("<h2>Favorite Movie: </h2><p>"+favMovieProp+"</p><br>");		//11
+					document.write("<h2>Favorite Actor: </h2><p>"+favActorProp+"</p><br>");		//12
+					document.write("<h2>Favorite Actress: </h2><p>"+favActressProp+"</p><br>");	//13
+					document.write("<h2>Gamers: </h2>"											//14
+									+"<span style="font-weight:bold">Yes: </span>"+gameYesInc+"<br>"
+									+"<span style="font-weight:bold">No: </span>"+gameNoInc+"<br>"
+									+"<span style="font-weight:bold">Sometimes: </span>"+gameSomeInc+"<br>");
+					document.write("<h2>Favorite Game Types: </h2>"								//15
+									+"<span style="font-weight:bold">Board Games: </span>"+boardGameInc+"<br>"
+									+"<span style="font-weight:bold">Card Games: </span>"+cardGameInc+"<br>"
+									+"<span style="font-weight:bold">Video Games: </span>"+videoGameInc+"<br>"
+									+"<span style="font-weight:bold">None of These: </span>"+noneGameInc+"<br>"
+									+"<span style="font-weight:bold">Don't Like Games: </span>"+dontGameInc+"<br>");
+					document.write("<h2>Favorite Games: </h2><p>"+favGameProp+"</p><br>");		//16
+					document.write("<h2>Sports Fans: </h2>"										//17
+									+"<span style="font-weight:bold">Yes: </span>"+sportYesInc+"<br>"
+									+"<span style="font-weight:bold">No: </span>"+sportNoInc+"<br>"
+									+"<span style="font-weight:bold">Sometimes: </span>"+sportSomeInc+"<br>");
+
+					document.write("<h2>Favorite Sport: </h2>"									//18
+									+"<span style="font-weight:bold">Baseball: </span>"+baseInc+"<br>"
+									+"<span style="font-weight:bold">Basketball: </span>"+baskInc+"<br>"
+									+"<span style="font-weight:bold">Football: </span>"+footInc+"<br>"
+									+"<span style="font-weight:bold">Golf: </span>"+golfInc+"<br>"
+									+"<span style="font-weight:bold">Hockey: </span>"+hockInc+"<br>"
+									+"<span style="font-weight:bold">Soccer: </span>"+soccInc+"<br>"
+									+"<span style="font-weight:bold">Softball: </span>"+softInc+"<br>"
+									+"<span style="font-weight:bold">Wrestling: </span>"+wresInc+"<br>"
+									+"<span style="font-weight:bold">None of These: </span>"+noneInc+"<br>"
+									+"<span style="font-weight:bold">Don't Like Sports: </span>"+dontInc+"<br>");
+					document.write("<h2>Favorite Team: </h2><p>"+favTeamProp+"</p><br>");		//19
+					document.write("<h2>Favorite Athelete: </h2><p>"+favAthProp+"</p><br>");	//20
+
+
+
+
+*/									
+				}
+				document.write("<br><br>");
+			}
+			
+/*			document.write("<p>This is only a test:</p>"
+							+"<p>"+colorProp+"</p>"
+							+"<p>"+favSportProp+"</p>");
+*/						
+			
+			
+			
+		</script>
+				
+	</body></center>
+
+</html>

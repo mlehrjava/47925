@@ -1,0 +1,286 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Order</title>
+
+<link rel="stylesheet" type="text/css" href="styles9.css" />
+
+<script language="JavaScript" src="../gen_validatorv4.js" type="text/javascript" xml:space="preserve">
+</script>
+
+<script>
+				//http://rickharrison.github.io/validate.js/
+				//http://www.tizag.com/javascriptT/javascriptform.php
+				//http://enacit1.epfl.ch/tutorials/JavaScript/forms.html
+												
+				function formReset()
+				{
+					document.getElementById("myForm").reset();
+				}
+				
+                //Date
+				function displayDate(){
+                    document.getElementById("date").innerHTML=Date();
+                }
+				function displayResult()
+				{
+					alert(document.getElementById("myTable").tBodies.length);
+				}
+				
+				//First name
+                function validateFName(){
+                    var x=document.forms["myForm"]["fname"].value;
+                    var re = new RegExp(/^\s*[A-Z][a-z]{2,10}\s*$/);
+                    var m = re.exec(x);
+                    if (m==null){
+                        alert("First name must be filled out properly!!!\n\nEx. Joe");
+                        return false;
+                    }else{
+                        return true;
+                    }
+                }
+				
+                //Last name
+				function validateLName(){
+                    var x=document.forms["myForm"]["lname"].value;
+                    var re = new RegExp(/^\s*[A-Z][a-z]{2,10}\s*$/);
+                    var m = re.exec(x);
+                    if (m==null){
+                        alert("Last name must be filled out properly!!!\n\n\Ex. Smith");
+                        return false;
+                    }else{
+                        return true;
+                    }
+                }
+				//Age  NOT used
+				/*
+				function validateAge(){
+        			var x=document.forms["myForm"]["age"].value;
+                    var re = new RegExp(/^[0-9]+$/);
+                    var m = re.exec(x);
+                    if (m==null){
+                        alert("Age must be filled out properly!!!");
+    			        	return false;
+        			}else{
+            				return true;
+        			}
+    			}
+				*/
+				//Street Address /^[\w\s.-]+\d+,\s*[\w\s.-]+$/
+				function validateSAddress(){
+        			var x=document.forms["myForm"]["saddress"].value;
+                    var re = new RegExp(/[a-zA-Z0-9 ]+/);
+                    var m = re.exec(x);
+                    if (m==null){
+                        alert("Street address must be filled out properly!!!\n\nEx. 123 Main st.");
+    			        	return false;
+        			}else{
+            				return true;
+        			}
+    			}
+				
+				//Apt Number
+				/*
+				function validateAptNumber(){
+        			var x=document.forms["myForm"]["aptnumber"].value;
+                    var re = new RegExp(/^[0-9]+$/);
+                    var m = re.exec(x);
+                    if (m==null){
+                        alert("Apt number must be filled out properly!!!");
+    			        	return false;
+        			}else{
+            				return true;
+        			}
+    			}
+				*/
+				
+				//City
+				function validateCity(){
+                    var x=document.forms["myForm"]["city"].value;
+                    var re = new RegExp(/^\s*[A-Z][a-z]{2,10}\s*$/);
+                    var m = re.exec(x);
+                    if (m==null){
+                        alert("City name must be filled out properly!!!\n\n\Ex. Riverside");
+                        return false;
+                    }else{
+                        return true;
+                    }
+                }
+        			
+				
+				//Zip code 							                 
+                function validateZCode(){
+                    var x=document.forms["myForm"]["zcode"].value;
+                    <!--var re = new RegExp(/^\s*\d{5}\s*$/);-->
+                    var re = new RegExp(/^\d{5}$/);
+					var m = re.exec(x);
+                    if (m==null){
+                        alert("Zip code must be filled out properly!!!\n\nEx. 90001");
+                        return false;
+                    }else{
+                        return true;
+					}
+				}
+				//Phone Number -->http://www.w3resource.com/javascript/form/phone-no-validation.php
+				function validatePNumber(){
+                    var x=document.forms["myForm"]["pnumber"].value;
+                    var re = new RegExp(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/);
+					var m = re.exec(x);
+                    if (m==null){
+                        alert("Phone Number must be filled out properly!!!\n\nEx. 123-456-7890");
+                        return false;
+                    }else{
+                        return true;
+					}
+				}
+				
+				//Email
+				function validateEMail(){
+					var x=document.forms["myForm"]["email"].value;
+					var atpos=x.indexOf("@");
+					var dotpos=x.lastIndexOf(".");
+					if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length){
+			  			alert("Not a valid e-mail address!!!\n\nEx. joesmith@yahoo.com");
+  						return false;
+					}else{
+                        return true;	
+  					}
+				}			
+                function validateForm(){
+                    if(!validateFName())return false;
+                    if(!validateLName())return false;
+					if(!validateSAddress())return false;
+					//if(!validateAptNumber())return false;
+					if(!validateCity())return false;
+					if(!validateZCode())return false;
+					if(!validatePNumber())return false;
+					if(!validateEMail())return false;
+                    return true;
+                }
+</script>
+
+</head>
+
+<body>
+<form id="myForm" action="../order_UsingGetAndCookies.html" onsubmit="return validateForm()" method="get">
+<!--
+<form id="email" method="post" action="mailto:customcars@isp.com">
+-->
+<div style="text-align: center">
+	<ul>
+		<li class="navlist"><a href="Home_Saldana_B.html">Home</a></li>&nbsp; | &nbsp; 
+		<li class="navlist"><a href="Photo_Album_Saldana.html">Photo Album</a></li>&nbsp; | &nbsp; 
+		<li class="navlist"><a href="Order_Saldana.html">Order Photo</span></a></li> &nbsp; | &nbsp;
+        <li class="navlist"><a href="Order_Saldana_II.html">Order Posters</span></a></li> &nbsp; | &nbsp;
+		<li class="navlist"><a href="Custom-car-video_Saldana.html">Video</a></li> &nbsp; | &nbsp;
+		<li class="navlist"><a href="http://rikhovingkustoms.blogspot.com/2011/06/art-of-early-custom-cars.html">1940's and 1950's Custom Car Blog</a></li> 
+	</ul>
+<div>    
+<br>
+<div style="text-align: center">
+	<img src="../pic7.jpg" width="460" height="339" alt="pic7" />
+</div>
+
+<h1 class="boldword">Order photos here!</h1>
+
+<div>
+<fieldset><legend>Customer Information: </legend><br>	
+	First Name: <input name="fname" type="text" size="25" />&nbsp; &nbsp;Last Name: <input name="lname" type="text" size="25" /> &nbsp; &nbsp
+	Address: <input type="text" name="saddress" size="30">&nbsp; &nbsp;Apt: <input type="number" name="aptnumber" size="10"><br><br>
+	City: <input type="text" name="city">&nbsp; &nbsp;Zip code: <input type="number" name="zcode">&nbsp; &nbsp;
+	Ph. Number: <input type="number" name="pnumber">&nbsp; &nbsp;E-mail: <input type="text" name="email" size="25"><br><br>
+	<input type="CHECKBOX" name="mailListBox" checked>Add me to the mailing List.<br><br>
+    <input type="button" onClick="formReset()" value="Reset form"><input type="submit" value="Submit">
+
+</fieldset>
+</div>
+
+<fieldset> 
+<legend>Select the following photos: </legend><br><br>
+   
+   <div class="group1">
+    <p>This Item Costs $2.22</p>		
+	<input name=addbox type=button value="Add" onclick=Loc_additem('p2i1','2.22','Page_2_Item_1','Order_Saldana.html')><br>
+	<input type=button name=subbox value="Remove" onclick=Loc_subitem('p2i1','2.22','Page_2_Item_1','Order_Saldana.html')><br>
+	You Have Ordered This Many: <input type=text name=p2i1 size=2><br>
+    <img class="small_1" src="../pic1.jpg" width="130" height="80" alt="pic1" /><br><br>
+    <p>This Item Costs $2.22</p>		
+	<input name=addbox type=button value="Add" onclick=Loc_additem('p2i1','2.22','Page_2_Item_1','Order_Saldana.html')><br>
+	<input type=button name=subbox value="Remove" onclick=Loc_subitem('p2i1','2.22','Page_2_Item_1','Order_Saldana.html')><br>
+	You Have Ordered This Many: <input type=text name=p2i1 size=2><br>
+    <img class="small_2" src="../pic2.jpg" width="130" height="80" alt="pic2" /><br><br>
+    <p>This Item Costs $2.22</p>
+    <input name=addbox type=button value="Add" onclick=Loc_additem('p2i1','2.22','Page_2_Item_1','Order_Saldana.html')><br>
+	<input type=button name=subbox value="Remove" onclick=Loc_subitem('p2i1','2.22','Page_2_Item_1','Order_Saldana.html')><br>
+	You Have Ordered This Many: <input type=text name=p2i1 size=2><br>
+    <img class="small_3" src="../pic3.jpg" width="130" height="80" alt="pic3" /><br><br>
+    </div>
+  
+    <div class="group2">
+    <p>This Item Costs $2.22</p>		
+	<input name=addbox type=button value="Add" onclick=Loc_additem('p2i1','2.22','Page_2_Item_1','Order_Saldana.html')><br>
+	<input type=button name=subbox value="Remove" onclick=Loc_subitem('p2i1','2.22','Page_2_Item_1','Order_Saldana.html')><br>
+	You Have Ordered This Many: <input type=text name=p2i1 size=2><br>
+    <img class="small_1" src="../pic4.jpg" width="130" height="80" alt="pic1" /><br><br>
+    <p>This Item Costs $2.22</p>		
+	<input name=addbox type=button value="Add" onclick=Loc_additem('p2i1','2.22','Page_2_Item_1','Order_Saldana.html')><br>
+	<input type=button name=subbox value="Remove" onclick=Loc_subitem('p2i1','2.22','Page_2_Item_1','Order_Saldana.html')><br>
+	You Have Ordered This Many: <input type=text name=p2i1 size=2><br>
+    <img class="small_2" src="../pic5.jpg" width="130" height="80" alt="pic2" /><br><br>
+    <p>This Item Costs $2.22</p>
+    <input name=addbox type=button value="Add" onclick=Loc_additem('p2i1','2.22','Page_2_Item_1','Order_Saldana.html')><br>
+	<input type=button name=subbox value="Remove" onclick=Loc_subitem('p2i1','2.22','Page_2_Item_1','Order_Saldana.html')><br>
+	You Have Ordered This Many: <input type=text name=p2i1 size=2><br>
+    <img class="small_3" src="../pic6.jpg" width="130" height="80" alt="pic3" /><br><br>
+    </div>
+  
+    <div class="group3">
+    <p>This Item Costs $2.22</p>		
+	<input name=addbox type=button value="Add" onclick=Loc_additem('p2i1','2.22','Page_2_Item_1','Order_Saldana.html')><br>
+	<input type=button name=subbox value="Remove" onclick=Loc_subitem('p2i1','2.22','Page_2_Item_1','Order_Saldana.html')><br>
+	You Have Ordered This Many: <input type=text name=p2i1 size=2><br>
+    <img class="small_1" src="../pic7.jpg" width="130" height="80" alt="pic1" /><br><br>
+    <p>This Item Costs $2.22</p>		
+	<input name=addbox type=button value="Add" onclick=Loc_additem('p2i1','2.22','Page_2_Item_1','Order_Saldana.html')><br>
+	<input type=button name=subbox value="Remove" onclick=Loc_subitem('p2i1','2.22','Page_2_Item_1','Order_Saldana.html')><br>
+	You Have Ordered This Many: <input type=text name=p2i1 size=2><br>
+    <img class="small_2" src="../pic8.jpg" width="130" height="80" alt="pic2" /><br><br>
+    <p>This Item Costs $2.22</p>
+    <input name=addbox type=button value="Add" onclick=Loc_additem('p2i1','2.22','Page_2_Item_1','Order_Saldana.html')><br>
+	<input type=button name=subbox value="Remove" onclick=Loc_subitem('p2i1','2.22','Page_2_Item_1','Order_Saldana.html')><br>
+	You Have Ordered This Many: <input type=text name=p2i1 size=2><br>
+    <img class="small_3" src="../pic9.jpg" width="130" height="80" alt="pic3" />
+    </div>
+   
+</fieldset>
+
+</form>	
+<br>
+
+<!--
+<div id="order_images">
+<p>
+	<img class="small_1" src="../pic1.jpg" width="130" height="80" alt="pic1" />
+    <img class="small_2" src="../pic2.jpg" width="130" height="80" alt="pic2" />
+    <img class="small_3" src="../pic3.jpg" width="130" height="80" alt="pic3" />
+    <img class="small_4" src="../pic4.jpg" width="130" height="80" alt="pic4" />
+    <img class="small_5" src="../pic5.jpg" width="130" height="80" alt="pic5" />
+    <img class="small_6" src="../pic6.jpg" width="130" height="80" alt="pic6" />
+</p>
+<p>
+	<img class="small_7" src="../pic7.jpg" width="130" height="80" alt="pic7" />
+	<img class="small_8" src="../pic8.jpg" width="130" height="80" alt="pic8" />
+	<img class="small_9" src="../pic9.jpg" width="130" height="80" alt="pic9" />
+	<img class="small_10" src="../pic10.jpg" width="130" height="80" alt="pic10" />
+	<img class="small_11" src="../pic11.jpg" width="130" height="80" alt="pic11" />
+	<img class="small_12" src="../pic12.jpg" width="130" height="80" alt="pic12" />
+    
+</p>
+-->
+
+<br><br><br><br>
+</body>
+<br><br><br><br>
+</html>

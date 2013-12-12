@@ -1,0 +1,186 @@
+<!--
+Ref:
+http://qualtrics.com/university/researchsuite/developer-tools/custom-programming/example-code-snippets/
+
+-->
+<html>
+<head>
+<title>Survey</title>
+
+<link rel="stylesheet" href="CSS_files/bootstrap.css">
+<link rel="stylesheet" href="CSS_files/style.css">
+<!--
+<link rel="stylesheet" type="text/css" href="CSS_files/css.css">
+-->
+
+<!--
+<style type="text/css">
+body {
+	font-family:verdana,arial,sans-serif;
+	font-size:10pt;
+	margin:30px;
+	background-color:#92BFE4; 
+	}
+</style>-->
+
+<style>
+	h2
+		{
+		position:;
+		text-align:center;
+		font-size:24pt;
+		left:;
+		top:;
+		}
+
+	ul
+		{
+		list-style-type:none;
+		text-align:center;
+		font-size:19pt;
+		margin:0;
+		padding:0;
+		}
+	li
+		{
+		display:inline;
+		}
+</style>
+
+<script>
+	function formReset()
+		{
+		document.getElementById("fsurv_1").reset();
+		}
+</script>
+</head>
+
+<body>
+	<h2>Survey Question 1</h2>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<ul>
+		<li><a href="Login ver3.html" target="login">Login Page</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<li><a href="#news">News</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<li><a href="#contact">Contact</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<li><a href="#help">Help</a></li>
+	</ul>
+<!--  
+<ul>
+<li><a href="Login ver3.html" target="content">Login Page</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<li><a href="#news">News</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<li><a href="#contact">Contact</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<li><a href="#help">Help</a></li>
+</ul>  
+-->
+	<br/>
+	<br/>
+	<br/>
+		<div style="text-align:center"> 
+			<td align="center"><a href="survey_menu.html">Take a Survey</a>&nbsp;&nbsp;</td><td align="center"><a href="http:???????">								       		Create/Edit a Survey</a>&nbsp;&nbsp;</td><td align="center"><a href="http:??????">Preferences</a></td>            
+		</div>
+		<br/>
+		<br/>
+
+		<div align="center" style="margin: 0px auto;">
+
+			<form id="fsurv_1" action="survey1_cookies_ver2.html" method="get">
+				<legend><h2>Favorite Items</h2></legend>
+ 				<!--   
+    			<form action="TakeSurvey.html" method="post">
+        		-->
+        		<legend>***Please Answer the Following Questions***</legend>
+        
+        		<!--
+            	<label for='Terms_radio_0'>Male</label><input type='radio' name="female" id='Terms_radio_0' value='Disagree'/>
+        		<label for='Terms_radio_1'>Female</label><input type='radio' name="male" id='Terms_radio_' value='Agree'/>
+          		-->
+        			<h3>Favorite Type of Music</h3>
+		        	<input name="favmusic" value='rock_and_roll' type='radio'> Rock and Roll<br>
+                    <input name="favmusic" value='country' type='radio'> Country<br>
+                    <input name="favmusic" value='R_and_B' type='radio'> Rythm and Blues<br>
+                    <input name="favmusic" value='soul' type='radio'> Soul<br>
+                    <input name="favmusic" value='no_idea' type='radio'> No Idea<br><br>
+            
+                    <h3>Favorite Sport</h3>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input name="favsport" value='basketball' type='checkbox'> Basketball<br>&nbsp;
+                        <input name="favsport" value='football' type='checkbox'> Football<br>
+                        <input name="favsport" value='soccer' type='checkbox'> Soccer<br>&nbsp;&nbsp;
+                        <input name="favsport" value='baseball' type='checkbox'> Baseball<br>
+                        <input name="favsport" value='no_idea' type='checkbox'> No Idea<br><br>
+                    
+                    <h3>Favorite Food</h3>  
+                        <input name="favfood" value='hotdog'type='radio'> Hotdog<br>
+                        <input name="favfood" value='burrito' type='radio'> Burrito<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input name="favfood" value='hamburger' type='radio'> Hamburger<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input name="favfood" value='sandwich' type='radio'> Sandwich<br>&nbsp;&nbsp;
+                        <input name="favfood" value='no_idea' type='radio'> No Idea<br>
+                        
+                    <!--Write In (Optional)<br><textarea name="1a" rows="4" cols="45"></textarea><br><br>-->
+                    <h3>Favorite Season</h3>
+                        <input name="favseason" value='summer' type='radio'> Summer<br>
+                        <input name="favseason" value='spring' type='radio'> Spring<br>
+                        <input name="favseason" value='fall' type='radio'> Fall<br>
+                        <input name="favseason" value='winter' type='radio'> Winter<br>
+                        <input name="favseason" value='no_idea' type='radio'/> No Idea<br><br>
+                   
+                        <!--
+                        <input name="favmusic" value="FALSE" type="hidden">
+                        <input name="questionList" value="1|2|25|24" type="hidden">
+                        <input name="takeSurvey" value="FALSE" type="hidden">
+                        -->
+                            <input type="button" onClick="formReset()" value="Reset Form">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="submit" value="Submit" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <!--
+                            <button id="NoButton" onclick="javascript: window.close();"name="NoButton" value="Close">Close</button>
+                            -->
+                            <!--
+                            <input id="button2" value="Submit" <br="" type="submit">
+                            <input id="button2" value="Discard All" <br="" type="submit">
+                            -->
+<!--
+<div id="footer">
+
+<br>
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+  <tbody><tr> 
+    <td> <div align="center">*-*</div></td>
+  </tr>
+</tbody></table>
+</div>
+-->
+</form>
+
+</div>
+
+<!--
+<h1>Content</h1>
+<h2>Replacing the Contents of the Current Frame</h2>
+<p>Clicking on these links will open the new page within the current frame.</p>
+<ul>
+	<li><a href="white.html" target="content">Load white page</a></li>
+	<li><a href="green.html" target="content">Load green page</a></li>
+</ul>
+
+<h2>Replacing the Whole Frameset</h2>
+<p>When you click on any of the following links, the whole frameset is replaced with the new website. This is because we're using <code>target="_top"</code> in the anchor links.</p>
+<ul>
+	<li><a href="http://www.quackit.com" target="_top">Quackit</a></li>
+	<li><a href="http://www.quackit.com/html/templates/frames/" target="_top">HTML Frames Templates</a></li>
+	<li>Learn more about frames with the <a href="http://www.quackit.com/html/tutorial/html_frames.cfm" target="_top">frames tutorial</a><//li>
+</ul>
+
+<h2>Open a New Window</h2>
+<p>These links open in a new browser window. This is because we use <code>target="_blank"</code>.</p>
+<ul>
+	<li><a href="http://www.code-generator.net" target="_blank">Code Generator</a></li>
+	<li><a href="http://www.zappyhost.com" target="_blank">ZappyHost</a></li>
+	<li><a href="http://www.natural-environment.com" target="_blank">Natural Environment</a></li>
+	<li><a href="http://www.great-workout.com" target="_blank">Great Workout</a></li>
+</ul>
+-->
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+    
+		<!--
+        	Programmer: James Leduc
+        	Date Created: Dec. 4, 2013
+            Last Modified: Dec. 10, 2013
+		-->
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Welcome, You Survey Monkeys!</title>
+		
+		<script><!--Functions-->
+			function checkUsername(){
+				var adminUser = ('cis14a');
+				var userLog = document.forms["loginForm"]["username"].value;
+				if(userLog == adminUser){
+					return true;
+				}else{
+					alert("That is NOT the administrator username!");
+					document.forms["loginForm"]["username"].value = null;
+					return false;
+				}
+			}
+			function checkPassword(){
+				var adminPass = ('cis14a');
+				var userPass = document.forms["loginForm"]["password"].value;
+				if(userPass == adminPass){
+					return true;
+				}else{
+					alert("That is NOT the administrator password!");
+					document.forms["loginForm"]["password"].value = null;
+					return false;
+				}
+			}
+			function verifyAdmin(){
+				var adminUser = ('cis14a');
+				var adminPass = ('cis14a');
+				var userLog = document.forms["loginForm"]["username"].value;
+				var userPass = document.forms["loginForm"]["password"].value;
+				if(userLog == adminUser && userPass == adminPass){
+					return true;
+				}else{
+					alert("You are NO administrator! Prove me wrong!");
+					document.forms["loginForm"]["username"].value = null;
+					document.forms["loginForm"]["password"].value = null;
+					return false;
+				}
+			}
+			function validateAdmin(){
+				if(!verifyAdmin())return false;
+				return true;
+			}
+			function backHome(){
+				window.location.assign("surveyIntro.html");
+			}
+		</script>
+
+	</head>
+	
+	<center><body>
+		<h1>Oh, so you think you're an administrator, huh?</h2>
+		
+		<center>
+			<form id="loginForm" name="loginForm" action="adminView.html" onsubmit="return validateAdmin()" method="get"><br>
+				<h2 style="color:red">Please, Login!</h2><br><br>
+				<b>username:</b><input type="text" name="username" onchange="checkUsername()" /><br><br>
+				<b>password:</b><input type="password" name="password" onchange="checkPassword()" /><br><br>
+				<input type="submit" name="submit" value="Login" onclick="verifyAdmin()" /><br/><br/><br/>
+			</form>
+		</center>
+		
+		<input type="button" name="return" value="Return Home" onclick="return backHome()" />
+		
+	</body></center>
+
+</html>

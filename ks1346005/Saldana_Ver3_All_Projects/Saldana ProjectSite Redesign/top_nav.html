@@ -1,0 +1,152 @@
+<!--
+Kenny Saldana
+CIS 14A
+Website redesign v.3
+11/22/2013
+-->
+<!--
+http://stackoverflow.com/questions/19418397/how-to-switch-the-images-on-hover-using-flip-plugin
+-->
+
+<html>
+<head>
+<title>Top Nav</title>
+
+<style type="text/css">
+body {
+	font-family:verdana,arial,sans-serif;
+	font-size:10pt;
+	margin:10px;
+	background-color:#91A3B0;
+	box {
+  width: 300px;
+  height:100px;
+  background: #234156;
+  line-height:100px;
+  text-align:center;
+  font-family:'ChunkFive Regular', Tahoma, Helvetica;
+  font-size: 1em;
+  color:white;
+}
+.description {
+  display:none;
+	}
+</style>
+<!--
+<style type="css">
+box {
+  width: 300px;
+  height:100px;
+  background: #234156;
+  line-height:100px;
+  text-align:center;
+  font-family:'ChunkFive Regular', Tahoma, Helvetica;
+  font-size: 1em;
+  color:white;
+}
+.description {
+  display:none;
+}
+</style>
+-->
+
+<!--
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+</script>
+<script>
+$(document).ready(function(){
+  $("p").mouseover(function(){
+    $("p").css("background-color","yellow");
+  });
+  $("p").mouseout(function(){
+    $("p").css("background-color","");
+  });
+});
+</script>
+-->
+
+<script>
+$(document).on("click", ".front", function (e) {
+  e.preventDefault();
+  var $this = $(this);
+  $this.flip({
+    direction: 'lr',
+    color: 'red',
+    speed: 700,
+    content: $(".description"),
+    onBefore: function () {
+      $this.removeClass('front');
+      $this.addClass('back');
+    }
+  })
+});
+
+$(document).on("click", ".back", function (e) {
+  e.preventDefault();
+  var $this = $(this);
+  $this.revertFlip();
+  $this.removeClass('back');
+  $this.addClass('front');
+});
+
+var isHover = false;
+$(".hoverfront").mouseenter(function () {
+  if (isHover == false) {
+    isHover = true;
+    var elem = $(this);
+    elem.flip({
+      direction: 'lr',
+      color: 'red',
+      speed: 150,
+      content: $(".description"),
+      onBefore: function () {
+        elem.removeClass('hoverfront');
+        elem.addClass('back');
+      }
+    });
+  }
+}).mouseleave(function () {
+  var $this = $(this);
+  $this.revertFlip();
+  $this.removeClass('back');
+  $this.addClass('hoverfront');
+  isHover = false;
+});
+</script>
+
+
+</head>
+<body>
+
+<!--<p>Move the mouse pointer over this paragraph.</p>-->
+
+
+
+<!--<img alt="" style="line-height: 10.35; width: 259px; height: 141px; font-size: 14px;" src="Isshinryu_files/0ee079d2df5c99036753aff72348ba5b_a9hq.jpg" height="502" width="559">
+</p>-->
+<!--<h3>Top Navbar</h3>-->
+
+<!--ref: http://stackoverflow.com/questions/13530014/how-to-add-both-mouseover-and-click-event-at-same-time -->
+<!--
+<div class="box front"> click</div>
+<br/>
+<div class="box hoverfront">mouse enter</div>
+<div class="description">description</div>
+-->
+
+&nbsp;
+<p align="center"><a href= target="">mouse hover 1</a>&nbsp;&nbsp; | &nbsp;&nbsp;
+
+<a href= target="">mouse hover 2</a>&nbsp;&nbsp; | &nbsp;&nbsp;
+
+<a href= target="">mouse hover 3</a>&nbsp;&nbsp; | &nbsp;&nbsp;
+
+<a href= target="">mouse hover 4</a>&nbsp;&nbsp; | &nbsp;&nbsp;
+
+<a href= target="">mouse hover 5</a>
+</p>
+
+
+
+</body>
+</html>

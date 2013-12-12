@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+    
+		<!--
+        	Programmer: James Leduc
+        	Date Created: Nov. 21, 2013
+            Last Modified: Dec. 3, 2013
+		-->
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>My Online Survey, You Monkeys!</title>
+		
+		<style type="text/css">
+		</style>
+		
+		<link href="survey.css" rel="stylesheet" type="text/css" title="survey_styles" />
+				
+		<script><!--Name Field Functions-->
+			function nameTextSelect(){
+				document.getElementById("NameRadio").checked = false;
+			}
+			function nameRadioSelect(){
+				document.getElementById("NameText").value = null;
+			}
+		</script>
+		<script><!--Reading Field Functions-->
+			function readingSelect(){
+				document.getElementById("UncheckBook").checked = false;
+				document.getElementById("UncheckNews").checked = false;
+				document.getElementById("UncheckMag").checked = false;
+				document.getElementById("UncheckComic").checked = false;
+			}
+			function readingUnselect(){
+				document.getElementById("ReadingNoneThese").checked = false;
+				document.getElementById("ReadingDislike").checked = false;
+			}
+		</script>
+		<script><!--GameType Field Functions-->
+			function gameTypeSelect(){
+				document.getElementById("UncheckBoard").checked = false;
+				document.getElementById("UncheckCard").checked = false;
+				document.getElementById("UncheckVideo").checked = false;
+			}
+			function gameTypeUnselect(){
+				document.getElementById("GameTypeNoneThese").checked = false;
+				document.getElementById("GameTypeDislike").checked = false;
+			}
+		</script>
+        
+	</head>
+
+	<body>
+		
+		<div>
+	
+			<center><h2>Welcome to my online survey, you monkeys!</h2></center>
+			<center><h1>20 Questions: WTF Interests You?</h1></center>
+
+		</div>
+		
+		<hr />
+		
+		<form name="surveyForm" action="surveySub.html" method="get">
+		
+			<p><b>Name:</b>
+				<input id="NameText" type="text" name="Name" size="50" onclick="nameTextSelect()" />
+				<input id="NameRadio" type="radio" name="Name" value="Anonymous" onclick="nameRadioSelect()" />Keep it a mystery!
+			</p>
+			
+			<p><b>Gender:</b>
+				<input type="radio" name="Sex" value="Male">Male
+				<input type="radio" name="Sex" value="Female">Female
+				<input type="radio" name="Sex" value="Anonymous">Keep it a mystery!
+			</p>
+			
+			<p><b>Zodiac:</b>
+				<select name="Zodiac" >
+					<option value="Aries">Aries</option>
+					<option value="Taurus">Taurus</option>
+					<option value="Gemini">Gemini</option>
+					<option value="Cancer">Cancer</option>
+					<option value="Leo">Leo</option>
+					<option value="Virgo">Virgo</option>
+					<option value="Libra">Libra</option>
+					<option value="Scorpio">Scorpio</option>
+					<option value="Sagittarius">Sagittarius</option>
+					<option value="Capricorn">Capricorn</option>
+					<option value="Aquarius">Aquarius</option>
+					<option value="Pisces">Pisces</option>
+					<option value="Anonymous">Keep it a mystery!</option>
+				</select>
+			</p>
+			
+			<hr />
+			
+			<b>1. What is your favorite color?</b>
+				<select name="Color" >
+					<option value="Red">Red</option>
+					<option value="Orange">Orange</option>
+					<option value="Yellow">Yellow</option>
+					<option value="Green">Green</option>
+					<option value="Blue">Blue</option>
+					<option value="Purple">Purple</option>
+					<option value="Pink">Pink</option>
+					<option value="Brown">Brown</option>
+					<option value="Black">Black</option>
+					<option value="Gray">Gray</option>
+					<option value="White">White</option>
+				</select>
+			<br/>
+				
+			<p><b>2. Do you like to read?</b>
+				<input type="radio" name="Like_to_Read" value="Yes">Yes
+				<input type="radio" name="Like_to_Read" value="No">No
+				<input type="radio" name="Like_to_Read" value="Sometimes">Sometimes
+			</p>
+			
+			<b>3. What do you like to read?</b> (check all that apply)<br>
+				<input id="UncheckBook" type="checkbox" name="What_do_you_Read" value="Books" onclick="readingUnselect()">Books<br>
+				<input id="UncheckNews" type="checkbox" name="What_do_you_Read" value="Newspapers" onclick="readingUnselect()">Newspapers<br>
+				<input id="UncheckMag" type="checkbox" name="What_do_you_Read" value="Magazines" onclick="readingUnselect()">Magazines<br>
+				<input id="UncheckComic" type="checkbox" name="What_do_you_Read" value="Comics" onclick="readingUnselect()">Comic Books<br>
+				<input id="ReadingNoneThese" type="checkbox" name="What_do_you_Read" value="None" onclick="readingSelect()">None of these.<br>
+				<input id="ReadingDislike" type="checkbox" name="What_do_you_Read" value="Dislike" onclick="readingSelect()">I don't like to read.<br>
+				
+			<p><b>4. Do you like to listen to music?</b>
+				<input type="radio" name="Listen_to_Music" value="Yes">Yes
+				<input type="radio" name="Listen_to_Music" value="No">No
+				<input type="radio" name="Listen_to_Music" value="Sometimes">Sometimes
+			</p>
+			
+			<p><b>5. What is your favorite music genre?</b>
+				<input type="text" name="Favorite_Genre" size="25" />
+			</p>
+
+			<p><b>6. Who is your favorite musician or group?</b>
+				<input type="text" name="Favorite_Musician" size="25" />
+			</p>
+
+			<p><b>7. What is your favorite song?</b>
+				<input type="text" name="Favorite_Song" size="35" />
+			</p>
+
+			<p><b>8. Do you like to watch TV?</b>
+				<input type="radio" name="Watch_TV" value="Yes">Yes
+				<input type="radio" name="Watch_TV" value="No">No
+				<input type="radio" name="Watch_TV" value="Sometimes">Sometimes
+			</p>
+
+			<p><b>9. What is your favorite TV show?</b>
+				<input type="text" name="Favorite_Show" size="35" />
+			</p>
+
+			<p><b>10. Do you like to watch movies?</b>
+				<input type="radio" name="Watch_Movies" value="Yes">Yes
+				<input type="radio" name="Watch_Movies" value="No">No
+				<input type="radio" name="Watch_Movies" value="Sometimes">Sometimes
+			</p>
+
+			<p><b>11. What is your favorite movie?</b>
+				<input type="text" name="Favorite_Movie" size="35" />
+			</p>
+
+			<p><b>12. Who is your favorite actor?</b>
+				<input type="text" name="Favorite_Actor" size="40" />
+			</p>
+
+			<p><b>13. Who is your favorite actress?</b>
+				<input type="text" name="Favorite_Actress" size="40" />
+			</p>
+			
+			<p><b>14. Do like to play games?</b>
+				<input type="radio" name="Play_Games" value="Yes">Yes
+				<input type="radio" name="Play_Games" value="No">No
+				<input type="radio" name="Play_Games" value="Sometimes">Sometimes
+			</p>
+			
+			<b>15. What kind of games do you like to play?</b> (check all that apply)<br>
+				<input id="UncheckBoard" type="checkbox" name="What_kinds_of_Games" value="Board" onclick="gameTypeUnselect()">Board Games<br>
+				<input id="UncheckCard" type="checkbox" name="What_kinds_of_Games" value="Card" onclick="gameTypeUnselect()">Card Games<br>
+				<input id="UncheckVideo" type="checkbox" name="What_kinds_of_Games" value="Video" onclick="gameTypeUnselect()">Video Games<br>
+				<input id="GameTypeNoneThese" type="checkbox" name="What_kinds_of_Games" value="None" onclick="gameTypeSelect()">None of these.<br>
+				<input id="GameTypeDislike" type="checkbox" name="What_kinds_of_Games" value="Dislike" onclick="gameTypeSelect()">I don't like games.<br>
+			
+			<p><b>16. What is your favorite game?</b>
+				<input type="text" name="Favorite_Game" size="40" />
+			</p>
+			
+			<p><b>17. Do you like sports?</b>
+				<input type="radio" name="Like_Sports" value="Yes">Yes
+				<input type="radio" name="Like_Sports" value="No">No
+				<input type="radio" name="Like_Sports" value="Somewhat">Somewhat
+			</p>
+
+			<b>18. What is your favorite sport?</b>
+				<select name="Favorite_Sport" >
+					<option value="Baseball">Baseball</option>
+					<option value="Basketball">Basketball</option>
+					<option value="Football">Football</option>
+					<option value="Golf">Golf</option>
+					<option value="Hockey">Hockey</option>
+					<option value="Soccer">Soccer</option>
+					<option value="Softball">Softball</option>
+					<option value="Wresting">Wresting</option>
+					<option value="None">None of these.</option>
+					<option value="Dislike">I don't like sports.</option>
+				</select>
+			<br/>
+			
+			<p><b>19. Who is your favorite sports team?</b>
+				<input type="text" name="Favorite_Team" size="40" />
+			</p>
+			
+			<p><b>20. Who is your favorite athelete?</b>
+				<input type="text" name="Favorite_Athelete" size="40" />
+			</p>
+			
+			<input type="submit" name="submit" value="Submit Survey" /><br/><br/><br/>
+		</form>
+
+	</body>
+    
+</html>

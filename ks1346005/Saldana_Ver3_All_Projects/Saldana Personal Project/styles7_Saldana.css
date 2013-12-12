@@ -1,0 +1,93 @@
+
+body{
+	font-family: Sans Serif, Verdana, Garamond; 								    font-size: 11pt;
+	background-color:#83A67E;
+	}
+	
+li.navlist	{display: inline; list-style-type: none;}
+	
+a			{text-decoration: none; color: black;}
+a:hover		{background: black; color: #ffff66;}
+
+/*
+.wrapper {
+    padding:10px;
+    background:;   
+    position:relative;
+ 
+}
+*/
+/*
+img {
+    width:100px;
+    height:100px;   
+    display:block;
+    background:orange;
+}
+*/
+.first {
+ position:absolute;
+    top:176px;
+    left:70px;
+}
+.second {
+ position:absolute;
+    top:176px;
+    left:270px;
+}
+.third {
+    /*margin:0 auto;*/
+	position:absolute;
+    top:176px;
+    left:470px;
+}
+.fourth {
+    /*margin:0 auto;*/
+	position:absolute;
+    top:176px;
+    left:670px;
+}
+.fifth {
+    /*margin:0 auto;*/
+	position:absolute;
+    top:176px;
+    left:870px;
+}
+.sixth {
+    /*margin:0 auto;*/
+	position:absolute;
+    top:176px;
+    left:1070px;
+}
+
+
+img.small		{text-decoration: none;}
+/* displays text decoration around images on the left */
+
+div#sizes a img.large		{height: 0; width: 0; border-width: 0;}
+/* hide the larger image by setting its height and width to zero */
+
+div#sizes a:hover img.large		{position: absolute; top: 300px; left: 400px;
+								height: 389px; width: 500px;}
+/* make the larger image appear on the right when a user hovers
+over smaller image on the left */
+
+/* p		{margin-bottom: 26px; margin-top: 26px; font-size: small;
+		font-family: Verdana, Arial; color: #100375;} */
+/* add bottom and top margins to p elements so they are aligned with the large image */
+
+/*
+.wrapper {
+    padding:10px;
+    background:red;   
+}
+
+img {
+    width:100px;
+    height:100px;   
+    display:block;
+    background:orange;
+}
+*/
+
+

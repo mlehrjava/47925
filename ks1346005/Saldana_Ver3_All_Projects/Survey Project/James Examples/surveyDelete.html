@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+    
+		<!--
+        	Programmer: James Leduc
+        	Date Created: Dec. 9, 2013
+            Last Modified: Dec. 9, 2013
+		-->
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Welcome, You Survey Monkeys!</title>
+		
+		<script>
+		function setCookie(name, value, secondsToLive) {
+			var cookie = name + "=" + encodeURIComponent(value);
+			if (typeof daysToLive === "number") 
+				cookie += "; max-age=" + (daysToLive);
+			document.cookie = cookie;
+		}
+		
+		function returnHome(){
+				window.location.assign("surveyIntro.html");
+		}
+		
+		function returnAdmin(){
+				window.location.assign("adminView.html");
+		}
+		</script>
+
+	</head>
+	
+	<center><body>
+		
+		<script>
+			var surveyName = prompt("What is the full name of the survey you wish to delete (include all special characters)!");
+			var cookieVal = null;
+			var ttl = -1;
+			
+			var ans = confirm("Are you sure you want to delete"+surveyName+"'s results?");
+			if(ans == true){
+				setCookie(surveyName, cookieVal, ttl);
+				if(surveyName == null){
+					document.write("<h1>No survey was deleted!</h1>");				
+				}else{
+					document.write("<h1>You have successfully deleted the results for the survey called "+surveyName+"!</h1>");
+				}
+			}else if(ans == false){
+				document.write("<h1>No survey was deleted!</h1>");				
+			}
+		</script>
+		
+		<input type="button" name="home" value="Return Home" style="inline" onclick="returnHome()" />
+		<input type="button" name="admin" value="Return to Admin View" style="inline" onclick="returnAdmin()" />
+		
+	</body></center>
+	
+</html>

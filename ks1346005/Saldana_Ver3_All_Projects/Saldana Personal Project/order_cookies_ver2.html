@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--original code Author: James Leduc
+-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Survey 1</title>
+
+<link rel="stylesheet" type="text/css" href="styles6.css" />
+
+<script type="text/javascript"><!--Cookie Functions-->
+		//Get Function
+		//Splits the URL at the "?", at the "&", then again at the "=", 
+		//then places them into an array of name/value pairs and passes them into an Object.
+		function getFormInfo(url){
+			var info=url.split("?");
+			var nameValuePairs=info[1].split("&");
+			var obj=new Object();//Maps the information to the Get Object.
+			for(var i=0;i<nameValuePairs.length-1;i++){
+				var map=nameValuePairs[i].split("=");
+				var name=map[0];
+				var value=map[1];
+				obj[name]=value;
+			}
+			return obj;
+		}
+		
+		//Splits the object string at the ";" and the "=", 
+		//then places them into a cookie.substring and decodes them.
+		function getCookies() {
+			var cookies = {};
+			var all = document.cookie;
+			if (all === "")
+				return cookies;
+			var list = all.split("; ");
+			for(var i = 0; i < list.length; i++) {
+				var cookie = list[i];
+				var p = cookie.indexOf("=");
+				var name = cookie.substring(0,p);
+				var value = cookie.substring(p+1);
+				value = decodeURIComponent(value);
+				cookies[name] = value;
+			}
+			return cookies;
+		}
+		
+		//Then encodes the values in order to escape semicolons, commas, and spaces and then stores them into a cookie.
+		//If daysToLive is a number, set the max-age attribute so that the cookie expires after the specified number of days.
+		//Pass 0 to delete a cookie.
+		function setCookie(name, value, secondsToLive) {
+			var cookie = name + "=" + encodeURIComponent(value);
+			if (typeof daysToLive === "number") 
+				cookie += "; max-age=" + (daysToLive);
+			document.cookie = cookie;
+		}
+		
+		//Searches for a specific cookie by name.
+		function getCookie(cName){
+			var cVal = document.cookie;
+			var cBeg = cVal.indexOf(" " + cName + "=");
+			if (cBeg == -1){
+				cBeg = cVal.indexOf(cName + "=");
+			}
+			if (cBeg == -1){
+				cVal = null;
+			}else{
+				cBeg = cVal.indexOf("=", cBeg) + 1;
+				var cEnd = cVal.indexOf(";", cBeg);
+				if (cEnd == -1){
+					cEnd = cVal.length;
+				}
+				cVal = unescape(cVal.substring(cBeg,cEnd));
+			}
+			return cVal;
+		}		
+		</script>
+		
+		<script><!--Function to Return to the Home Page-->
+			function backHome(){
+				window.location.assign("Home_Saldana_B.html");
+			}
+		</script>
+		
+	</head>
+
+	<body>
+    <br /><br /><br />
+   <div style="text-align:center"> 
+   <input type="submit" name="submit" value="Return To Home Page" onclick="location.href='Home_Saldana_B.html'" />		 		     
+   &nbsp;&nbsp;&nbsp;&nbsp;
+   <input type="submit" name="submit" value="Leave Page" onclick="location.href='https://www.google.com'" />
+   <br /><br /><br />
+   
+   </div>
+   
+		<script type="text/javascript">
+		
+		
+			//display date and time of survey submission
+			var time = new Date();
+			document.write("<p>Your order was submitted on "+time+"!</p>");
+		
+			//display the URL
+			//document.write("<p>"+location.href+"</p>");
+		
+			//splits the URL to obtain the form info
+			var $_GET = getFormInfo(location.href);
+			
+			//JSON stringifies the form info
+			var str = JSON.stringify($_GET);
+			
+			//displays the JSON string
+			//document.write("<p>Display the JSON string: "+str+"</p>");
+				
+			//parses the JSON string
+			var obj = JSON.parse(str);
+			
+			//displays the parsed JSON string
+/*			document.write("</br>Here is the info you submitted to the survey:</br>");
+			for(var name in obj){
+				document.write(name+"="+obj[name]+"<br>");
+			}
+*/			
+			//pulls the Name property from the cookie
+			var nameProp = obj["Name"];
+			
+			//asks user how long the cookie should live
+			var userTTL = prompt("How many days should your survey survive (over zero)?");
+			
+			//sets a time-to-live in seconds - the cookie's life			
+			var ttl=userTTL*60*60*24;
+			
+			//prompt the user for a cookie name
+			var cookName = prompt("Please, name your Survey (no spaces)!");
+			
+			//name the cookie according to the Name property and the user's cookie name
+			var cookieName = (nameProp+"-"+cookName);
+			
+			//displays the name of the cookie
+			//document.write("<p>Your cookie is named "+cookieName+"!</p>");
+			document.write("<p>Your order name is "+cookieName+"!</p>");
+
+			//passes the JSON stringified info into a cookie
+			setCookie(cookieName, str, ttl);
+			
+			//gets all cookies
+			//var cookiesObj = getCookies();
+			
+			//displays all the cookies by name
+/*			document.write("<p>Display ALL cookies: ");
+			for(var name in cookiesObj){
+				document.write("<br>"+name+" cookie = "+cookiesObj[name]);
+			}
+			document.write("</p>");
+*/				
+			//gets a cookie by name 
+			var cookie=getCookie(cookieName);
+			
+			//displays the cookie
+			//document.write("<p>Display the "+cookieName+" cookie: "+cookie+"</p>");
+				
+			//separates the cookie values
+			var cookObj = JSON.parse(cookie);
+			
+			//displays the cookie values
+/*			document.write("</br>Here is your survey info from the "+cookieName+" cookie: </br>");
+			for(var name in cookObj){
+				document.write(name+"="+cookObj[name]+"<br/>");
+			}
+*/			document.write("<p>Here is your "+cookieName+" order information you supplied:</p>");
+			for(var name in cookObj){
+				document.write(name+"="+cookObj[name]+"<br/>");
+			}
+			
+			//displays the Zodiac property from the cookie
+			//var cookProp = cookObj["Zodiac"];
+			//document.write("<p>Your zodiac sign is "+cookProp+"!</p>");
+			
+		</script>
+        
+        
+		
+	</body>
+</html>

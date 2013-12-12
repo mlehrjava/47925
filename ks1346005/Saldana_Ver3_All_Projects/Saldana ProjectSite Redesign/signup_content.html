@@ -1,0 +1,431 @@
+<!-- Ref: http://www.colorpicker.com/color-chart/-->
+
+<!-- http://www.tizag.com/javascriptT/javascriptform.php -->
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<style type="text/css">
+body {
+	font-family:verdana,arial,sans-serif;
+	font-size:10pt;
+	margin:30px;
+	background-color:#C19A6B;
+	}
+</style>
+
+<style type="text/css" xml:space="preserve">
+	BODY, P,TD{ font-family: Arial,Verdana,Helvetica, sans-serif; font-size: 10pt }
+	A{font-family: Arial,Verdana,Helvetica, sans-serif;}
+	B {	font-family : Arial, Helvetica, sans-serif;	font-size : 12px;	font-weight : bold;}
+	.error_strings{ font-family:Verdana; font-size:14px; color:#660000;}
+</style>
+<script language="JavaScript" src="gen_validatorv4.js" type="text/javascript" xml:space="preserve"></script>
+<script>
+				
+				//http://www.tizag.com/javascriptT/javascriptform.php
+				//http://enacit1.epfl.ch/tutorials/JavaScript/forms.html
+												
+				function formReset()
+				{
+					document.getElementById("myForm").reset();
+				}
+				
+                //Date
+				function displayDate(){
+                    document.getElementById("date").innerHTML=Date();
+                }
+				function displayResult()
+				{
+					alert(document.getElementById("myTable").tBodies.length);
+				}
+				
+				//First name
+                function validateFName(){
+                    var x=document.forms["myForm"]["fname"].value;
+                    var re = new RegExp(/^\s*[A-Z][a-z]{2,10}\s*$/);
+                    var m = re.exec(x);
+                    if (m==null){
+                        alert("First name must be filled out properly!!!\n\nEx. Joe");
+                        return false;
+                    }else{
+                        return true;
+                    }
+                }
+				
+                //Last name
+				function validateLName(){
+                    var x=document.forms["myForm"]["lname"].value;
+                    var re = new RegExp(/^\s*[A-Z][a-z]{2,10}\s*$/);
+                    var m = re.exec(x);
+                    if (m==null){
+                        alert("Last name must be filled out properly!!!\n\n\Ex. Smith");
+                        return false;
+                    }else{
+                        return true;
+                    }
+                }
+				//Age
+				function validateAge(){
+        			var x=document.forms["myForm"]["age"].value;
+                    var re = new RegExp(/^[0-9]+$/);
+                    var m = re.exec(x);
+                    if (m==null){
+                        alert("Age must be filled out properly!!!");
+    			        	return false;
+        			}else{
+            				return true;
+        			}
+    			}
+				//Street Address /^[\w\s.-]+\d+,\s*[\w\s.-]+$/
+				function validateSAddress(){
+        			var x=document.forms["myForm"]["saddress"].value;
+                    var re = new RegExp(/[a-zA-Z0-9 ]+/);
+                    var m = re.exec(x);
+                    if (m==null){
+                        alert("Street address must be filled out properly!!!\n\nEx. 123 Main st.");
+    			        	return false;
+        			}else{
+            				return true;
+        			}
+    			}
+				
+				//Apt Number
+				/*
+				function validateAptNumber(){
+        			var x=document.forms["myForm"]["aptnumber"].value;
+                    var re = new RegExp(/^[0-9]+$/);
+                    var m = re.exec(x);
+                    if (m==null){
+                        alert("Apt number must be filled out properly!!!");
+    			        	return false;
+        			}else{
+            				return true;
+        			}
+    			}
+				*/
+				
+				//City
+				function validateCity(){
+                    var x=document.forms["myForm"]["city"].value;
+                    var re = new RegExp(/^\s*[A-Z][a-z]{2,10}\s*$/);
+                    var m = re.exec(x);
+                    if (m==null){
+                        alert("City name must be filled out properly!!!\n\n\Ex. Riverside");
+                        return false;
+                    }else{
+                        return true;
+                    }
+                }
+        			
+				
+				//Zip code 							                 
+                function validateZCode(){
+                    var x=document.forms["myForm"]["zcode"].value;
+                    <!--var re = new RegExp(/^\s*\d{5}\s*$/);-->
+                    var re = new RegExp(/^\d{5}$/);
+					var m = re.exec(x);
+                    if (m==null){
+                        alert("Zip code must be filled out properly!!!\n\nEx. 90001");
+                        return false;
+                    }else{
+                        return true;
+					}
+				}
+				//Phone Number -->http://www.w3resource.com/javascript/form/phone-no-validation.php
+				function validatePNumber(){
+                    var x=document.forms["myForm"]["pnumber"].value;
+                    var re = new RegExp(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/);
+					var m = re.exec(x);
+                    if (m==null){
+                        alert("Phone Number must be filled out properly!!!\n\nEx. 123-456-7890");
+                        return false;
+                    }else{
+                        return true;
+					}
+				}
+				
+				//Email
+				function validateEMail(){
+					var x=document.forms["myForm"]["email"].value;
+					var atpos=x.indexOf("@");
+					var dotpos=x.lastIndexOf(".");
+					if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length){
+			  			alert("Not a valid e-mail address!!!\n\nEx. joesmith@yahoo.com");
+  						return false;
+					}else{
+                        return true;	
+  					}
+				}			
+                function validateForm(){
+                    if(!validateFName())return false;
+                    if(!validateLName())return false;
+					if(!validateAge())return false;
+					if(!validateSAddress())return false;
+					//if(!validateAptNumber())return false;
+					if(!validateCity())return false;
+					if(!validateZCode())return false;
+					if(!validatePNumber())return false;
+					if(!validateEMail())return false;
+                    return true;
+                }
+</script>
+<!-- Validation for file upload
+<script language="JavaScript" type="text/javascript"
+    xml:space="preserve">//<![CDATA[
+  var frmvalidator  = new Validator("myform");
+  frmvalidator.EnableOnPageErrorDisplaySingleBox();
+  frmvalidator.EnableMsgsTogether();
+  
+  frmvalidator.addValidation("Attachment","file_extn=doc;pdf;txt","Allowed files types are: doc;pdf;txt");
+  frmvalidator.addValidation("Attachment","req_file","File upload is required");
+//]]></script>
+-->
+
+<!--
+<script>
+function formReset()
+{
+document.getElementById("myform").reset();
+}
+</script>
+-->
+
+<!--
+<script>
+function formSubmit()
+{
+document.getElementById("frm1").submit();
+}
+
+</script>
+
+<script>
+function displayResult()
+{
+alert(document.getElementById("myTable").tBodies.length);
+}
+</script>
+-->
+
+</head>
+
+<body>
+
+<h1>Sign Up!</h1>
+<!--
+<h3>___________________________</h3>
+<h2>Location:</h2>
+
+
+<h3>68225 Ramon Road at Whispering Palms Cathedral City</h3>
+</p>
+
+<h2>Phone Number: <h3>760-568 0961</h3></h2>
+-->
+<!--
+<ul>
+<li><a href="http://www.code-generator.net" target="_blank">Code Generator</a></li>
+	<li><a href="http://www.zappyhost.com" target="_blank">ZappyHost</a></li>
+	<li><a href="http://www.natural-environment.com" target="_blank">Natural Environment</a></li>
+	<li><a href="http://www.great-workout.com" target="_blank">Great Workout</a></li>
+</ul>
+-->
+
+<!--
+	<li><a href="white.html" target="content">Load white page</a></li>
+	<li><a href="green.html" target="content">Load green page</a></li>
+-->
+
+
+
+
+<h3>___________________________</h3>
+</p>
+
+<h2>Class Schedule and Cost:</h2>
+
+<!--
+<script>
+function displayResult()
+{
+alert(document.getElementById("myTable").tBodies.length);
+}
+</script>
+-->
+
+<table width="918" border="1" id="myTable">
+	<tbody>
+  		<tr>
+    		<td></td>
+    		<td><div align="center">age</div></td>
+    		<td><div align="center">days</div></td>
+		    <td width="80"><div align="center">time</div></td>
+		    <td width="80"><div align="center">time</div></td>
+		    <td width="97"><div align="center">cost</div></td>
+		    <td width="115"><div align="center">cost</div></td>
+  		</tr>
+	</tbody>
+	<tbody>
+  		<tr>
+    		<td width="88"><div align="center">Kids</div></td>
+		    <td width="190"><div align="center">Ages: 4 years or older</div></td>
+		    <td width="209"><div align="center">Tuesday's and Thursday's</div></td>
+		    <td><div align="center">5 - 6 PM</div></td>
+		    <td><div align="center">6 - 7 PM</div></td>
+		    <td><div align="center">*One hour:</div></td>
+	    <td><div align="center">*Two hours:</div></td>
+  		</tr>
+	</tbody>
+	<tbody>
+  		<tr>
+		    <td><div align="center">***Adults</div></td>
+		    <td><div align="center">Ages: 18 years or older </div></td>
+		    <td><div align="center">Tuesday's and Thursday's</div></td>
+		  	<td><div align="center">7 - 8 PM</div></td>
+		    <td><div align="center"></div></td>
+		    <td><div align="center">**$99.00</div></td>
+  		</tr>
+	</tbody>
+
+</table>
+<br>
+<h3>Note:</h3><p>*Parents choice, either a one hour class or a Two Hour Class.  <strong>No extra cost to attend the TWO hour Classes.</strong></p>
+<p>**Veterans 3 Months Free.</p>
+<p>*** Free Uniform/Free Trial Class/No Contracts.</p>
+
+<h2><em>Ask about family Special Family Rates</em></h2>
+
+
+</p>
+<h3>___________________________</h3>
+</p>
+
+<h2>Registration:</h2>
+<h3><em>Please enter your information below:</em></h3>
+
+<!--
+<form id="myForm">
+-->
+<form id="myForm" form action="signup_UsingGetAndLocalStorage.html" onsubmit="return validateForm()" method="get">
+<!--<form id="myForm" action="signup_UsingGetAndLocalStorage.html" method="get">--> <!--method="post">-->
+<!--<form id="myForm" form action="FormValidated.html" onsubmit="return validateForm()" method="get">-->
+ 
+            Today's Date:<div id="date"><script>displayDate();</script></p>
+           
+            <p><br/><label for='Terms_radio_0'>Male</label>
+   			<input type='radio' name="female" id='Terms_radio_0' value='Disagree'/><label for='Terms_radio_1'>&nbsp;&nbsp;&nbsp;&nbsp;Female</label>
+    		<input type='radio' name="male" id='Terms_radio_' value='Agree'/>
+			</p>
+            
+            First name: <input type="text" name="fname"><br/></p>
+            Last  name: <input type="text" name="lname"><br/></p>
+            Age: <input type="number" name="age"><br></p>
+            Address: <input type="text" name="saddress">  Apt: <input type="number" name="aptnumber"><br></p>
+			City: <input type="text" name="city"><br></p>
+			Zip code: <input type="number" name="zcode"><br/></p>
+            Ph. Number: <input type="number" name="pnumber"><br></p>
+			E-mail: <input type="text" name="email"><br></p>
+            
+            <!--<input type="submit" value="Submit">-->
+        <!--</form>-->
+<!--
+<form id="frm1" action="form_action.asp">
+First name: <input type="text" name="fname"><br></p>
+Last name: <input type="text" name="lname"><br></p>
+Age: <input type="number" name="age"><br></p>
+Address: <input type="text" name="adress"><br></p>
+City: <input type="text" name="city"><br></p>
+Ph. Number: <input type="number" name="Phone Number"><br></p>
+E-mail: <input type="text" name="e-mail"><br></p>
+<!--</form> <!--</script>-->
+
+<!------------------------------------->
+
+	<p><br/><label for='Terms_radio_0'>5 - 6 PM
+  	<input type='radio' name="5-6_kids" id='Terms_radio_2' value='Agree'/>
+  	(kids one hour)</label>
+    <input type='radio' name="6-7_kids" id='Terms_radio_0' value='Agree'/><label for='Terms_radio_1'>6 - 7(kids one hour)</label>
+    <input type='radio' name="5-7_kids" id='Terms_radio_0' value='Agree'/><label for='Terms_radio_1'>5 - 7(kids two hour)</label>
+	<input type='radio' name="adult" id='Terms_radio_0' value='Agree'/><label for='Terms_radio_1'>Adult</label>
+		<!--<TD><INPUT TYPE="radio" NAME="adult"  VALUE="adult" onClick="" CHECKED>Adult</TD>-->
+	<TD><INPUT TYPE="radio" NAME="veteran"  VALUE="veteran"   onClick="">Veteran</TD>   
+    
+    <!--
+    <input type='radio' name='Terms' id='Terms_radio_0' value=    
+'Agree'/><label for='Terms_radio_1'>Adult</label>
+	<input type='radio' name='Terms' id='Terms_radio_0' value=    
+'Agree'/><label for='Terms_radio_1'>Veteran</label>
+<!--</form>-->
+  
+  <h3><em>File Upload</em>:</h3>
+  <ul>
+  <li>This file upload is mandatory for children under 18 years of age</li>
+  <li>Allowed file types are: <strong>doc, pdf, txt</strong></li>
+  </ul>
+    <!--<form action="" name="myform">-->
+     <!--id="myform">-->
+      <table cellspacing="2" cellpadding="2" border="0">
+        <tr>
+          <td align="right">
+            Attachment
+          </td>
+          <td>
+            <input type='file' name='Attachment' id='Attachment' size='20'/>
+          </td>
+        </tr>      
+        <tr>
+          <td align="right"></td>
+          <td>
+            <div id="myform_errorloc" class="error_strings">
+            </div>
+          </td>
+        </tr>        
+        <tr>
+          <td align="right"></td>
+          <td>
+            <!--<input type="submit" value="Submit" />-->
+          </td>
+        </tr>
+      </table>
+    <!--</form>-->
+<!--
+<script language="JavaScript" type="text/javascript"
+    xml:space="preserve">//<![CDATA[
+  var frmvalidator  = new Validator("myform");
+  frmvalidator.EnableOnPageErrorDisplaySingleBox();
+  frmvalidator.EnableMsgsTogether();
+  
+  frmvalidator.addValidation("Attachment","file_extn=doc;pdf;txt","Allowed files types are: doc;pdf;txt");
+  frmvalidator.addValidation("Attachment","req_file","File upload is required");
+//]]></script>
+-->
+
+    <input type='radio' name='Terms' id='Terms_radio_0' value='Agree'/><label for='Terms_radio_0'>Credit Card</label>
+    <input type='radio' name='Terms' id='Terms_radio_0' value='Agree'/><label for='Terms_radio_1'>Personal Check</label>
+    <input type='radio' name='Terms' id='Terms_radio_0' value='Agree'/><label for='Terms_radio_1'>PayPal</label></p>
+<!--</form>-->
+
+	<form action="" name="mailing list">
+	<input type="CHECKBOX" name="mailListBox" checked>Add me to the mailing List.
+<!--</form>-->
+	<br></p>
+
+	<input type="button" onClick="formReset()" value="Reset form"></p>
+
+	<input type="submit" value="Submit">
+	</form>
+
+<!--<input type="button" onClick="formSubmit()" value="Submit form">
+</form>-->
+
+</body>
+</html>
+
+
+
+
+
