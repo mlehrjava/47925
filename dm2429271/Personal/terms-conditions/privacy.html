@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from timetracker.co.in/terms-conditions/privacy.php by HTTrack Website Copier/3.x [XR&CO'2013], Wed, 11 Dec 2013 23:55:05 GMT -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Time Tracker: Privacy Policy</title>
+<link type="text/css" rel="stylesheet" href="style.css" />
+<script type="text/javascript" src="../_script/jq.js"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-40496375-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<script>
+var start_interval;
+var winwidth = Number($(document).width());
+var alertPosition;
+
+function alertBox (a) {
+	$("#popup").prepend("<div id=\"modal\"> </div>");
+	$("#popup").prepend("<div id=\"alertBox\"> </div>");
+	$("#alertBox").fadeOut(0, function () {
+		$("#alertBox").html('<p align="center" id="alertMsg">' + a + '</p><a href="#"><p align="center" id="alertOk">&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;</p></a>');
+		alertPosition1();
+		alertPosition = setInterval(alertPosition1, 100);
+		$("#alertOk").bind("click", removeAlert);
+		$("#alertBox").fadeIn("slow");
+	});
+}
+
+function alertPosition1 () {
+	$("#alertBox").css("left", ((winwidth/2)-200) + "px");
+}
+
+function removeAlert () {
+	clearInterval(alertPosition);
+	$("#alertBox").fadeOut("normal", function () {
+		$("#popup").html("");
+		$("#alertOk").unbind("click", removeAlert);
+	});
+}
+
+
+</script>
+</head>
+<body><div id="popup"> </div>
+<!--
+<div id="modal"> </div>
+-->
+<div id="background"> </div><br />
+<div id="wrapper"><div id="whiteback"> </div>
+
+
+<div id="headborder"> </div>
+<div id="add1"><div><p align="center"><u>Advertisement</u></p></div></div>
+<div id="add2"><div><p align="center"><u>Advertisement</u></p></div></div>
+
+
+
+
+<img src="../_images/logo.png" alt="Time Tracker Logo" id="logo"></img>
+
+
+
+
+
+  
+
+
+		<div id="nav"><div id="navback"> </div>
+		<p>&nbsp;&nbsp;<span id="home"><a href="../index.html">&nbsp;&nbsp;Home&nbsp;&nbsp;</a></span><span id="Timer"><a href="../timer/index.html">&nbsp;&nbsp;Timer&nbsp;&nbsp;</a></span><span id="comments"><a href="../comments/index.html">&nbsp;&nbsp;Comments&nbsp;&nbsp;</a></span><span id="records"><a href="../tracker/index.html">&nbsp;&nbsp;&nbsp;Pull Records&nbsp;&nbsp;</a></span><span id="login"><a href="../login/index04a3.html?submit=login">&nbsp;&nbsp;&nbsp;Login&nbsp;&nbsp;</a></span><span id="signup"><a href="../signup/index.html">&nbsp;&nbsp;&nbsp;Register&nbsp;&nbsp;</a></span></p>
+		</div>
+	
+
+
+
+<div id="signupCont"><div>
+<h1 align="center">Privacy Policy</h1>
+
+
+<p>
+We respect the privacy of our users and we are committed to protect their privacy. This policy describes the information we collect and how it is being used. If you have any questions about our privacy policy, please contact us.<br /><br />
+
+We collect limited information that the browser made available while visiting the site, and that includes the access time, cookies, and the users are on our web site. We use this information to improve our services.<br /><br />
+
+We do not want, ask for, or need your private information, so it is your responsibility and we are relying upon you to select, configure, and operate your computer and networking equipment, operating system, Internet browser, e-mail and related software, etc. to protect your privacy and security generally to the extent that you prefer and to provide us only with information that you want us to have and use without restriction<br /><br />
+
+A cookie is a small piece of data that is sent to a user's browser from a web server and is stored on with the browser locally. We only use the cookie to store your preferences.<br /><br />
+
+Connecting to TimeTracker.co.in means that you accept this policy agreement. <br />
+</p>
+
+
+
+</div></div>
+
+
+
+
+
+<div id="fotter">
+<p align="center"><a href="#">Time Tracker © 2013</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Privacy</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="../contactUs/index.html">Contact Us</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="../comments/index.html">Comments</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="terms-conditions.html">Terms &amp; Conditions</a></p>
+</div>
+
+
+
+</div>
+</body>
+<script>
+var backtime;
+
+
+
+$(document).ready(function() {
+	$(document).ready(function(e) {
+    	//alert(Number($("#signupCont").height()));
+	});
+    $("#comments").hover(function () {
+		clearInterval(backtime);
+		$("#navback").animate({left: "124px", width: "84px"}, "fast");
+	},
+	function () {
+		backtime = setInterval(moveToHome, 10);
+	});
+	
+	$("#home").hover(function () {
+		clearInterval(backtime);
+		$("#navback").animate({left: "8px", width: "52px"}, "fast");
+	},
+	function () {
+		backtime = setInterval(moveToHome, 10);
+	});
+	
+	$("#Timer").hover(function () {
+		clearInterval(backtime);
+		$("#navback").animate({left: "69px", width: "48px"}, "fast");
+	},
+	function () {
+		backtime = setInterval(moveToHome, 10);
+	});
+	
+	$("#contact").hover(function () {
+		clearInterval(backtime);
+		$("#navback").animate({left: "263px", width: "84px"}, "fast");
+	},
+	function () {
+		backtime = setInterval(moveToHome, 10);
+	});
+	$("#records").hover(function () {
+		clearInterval(backtime);
+		$("#navback").animate({left: "219px", width: "100px"}, "fast");
+	},
+	function () {
+		backtime = setInterval(moveToHome, 10);
+	});
+	$("#signup").hover(function () {
+		clearInterval(backtime);
+		$("#navback").animate({left: "390px", width: "72px"}, "fast");
+	},
+	function () {
+		backtime = setInterval(moveToHome, 10);
+	});
+	$("#login").hover(function () {
+		clearInterval(backtime);
+		$("#navback").animate({left: "330px", width: "50px"}, "fast");
+	},
+	function () {
+		backtime = setInterval(moveToHome, 10);
+	});
+});
+
+function moveToHome () {
+	$("#navback").animate({left: "-5px", width: "0px"}, "fast");
+	clearInterval(backtime);
+}
+
+function namePosition () {
+	var namePosition1 = 450 - (Number($("#name").width()))/2;
+	var logoutPosition =  Number($("#name").width()) - 90;
+	$("#name").animate({left: namePosition1}, 0);
+	$("#logout").css("left", logoutPosition);
+}
+
+namePosition();
+
+$("#name").hover(function () {
+	$("#name").animate({height: "110px", top: "11px"}, "fast");
+}, function () {
+	$("#name").animate({height: "70px",  top: "35px"}, "fast");
+});
+
+</script>
+<script>
+//$("#signupCont").css("top", "300px");
+//$("#signupCont").css("left", "230px");
+//$("#signupCont").css("width", "550px");
+//$("#signupCont").css("height", "75px");
+//$("#signupCont div h1").css("border", "0px");
+
+$("a[href=#]").click(function () {
+	return false;
+});
+
+</script>
+
+<!-- Mirrored from timetracker.co.in/terms-conditions/privacy.php by HTTrack Website Copier/3.x [XR&CO'2013], Wed, 11 Dec 2013 23:55:05 GMT -->
+</html>

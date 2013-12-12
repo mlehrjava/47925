@@ -1,0 +1,64 @@
+/*
+#66F
+#0033CC
+*/
+/*Here goes style for general tags*/
+p, td { font-family: "MS Serif", "New York", serif; font-size: 16px; }
+h1 { font-family: "MS Serif", "New York", serif; font-size: 30px; font-weight: normal; }
+h2 { font-family: Arial, Helvetica, sans-serif; font-size: 25px; line-height: 30px; font-weight: normal; }
+a { text-decoration: none; color: #000; }
+a:active { text-decoration: none; color: #000; }
+a:visited { text-decoration: none; color: #000; }
+
+/*Here goes style for wrapper*/
+body { margin: 0px; padding: 0px; }
+#wrapper { position: relative; width: 998px; height: 740px; margin: 0px auto 25px auto; border: 1px solid black; border-top: 0px; border-radius: 10px; -moz-border-radius: 10px; -ms-border-radius: 10px; -o-border-radius: 10px; -webkit-border-radius: 10px;}
+#whiteback {  position: absolute; background-color: #fff; width: 998px; height: 740px; margin: 0px; opacity: 0.85; filter: alpha(opacity=85); z-index: -4; border-radius: 10px; -moz-border-radius: 10px; -ms-border-radius: 10px; -o-border-radius: 10px; -webkit-border-radius: 10px;}
+#background { background-image:url(../_images/background.jpg); position: fixed; width: 100%; height: 100%; margin: 0px; padding: 0px; z-index: -5; top: 0px; left: 0px; background-repeat: repeat; }
+#name { position: absolute; left: 0px; top: 0px; }
+#headborder { height: 1px; width: 960px; border-bottom: 2px solid #000; position: absolute; left: 20px; top: 132px; }
+
+/*Here goes style for name and logo*/
+#logo { padding: 20px 0px 0px 20px; }
+div#name { border: 2px solid #000; height: 70px; position: absolute; left: 600px; top: 35px; border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; -webkit-border-radius: 5px; overflow: hidden; background: linear-gradient(top, #333 0%, #999 15%, #999 85%, #333 100%); background: -moz-linear-gradient(top, #333 0%, #999 15%, #999 85%, #333 100%); background: -webkit-linear-gradient(top, #333 0%, #999 15%, #999 85%, #333 100%); background: -o-linear-gradient(top, #333 0%, #999 15%, #999 85%, #333 100%);background: -ms-linear-gradient(top, #333 0%, #999 15%, #999 85%, #333 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #333), color-stop(15%, #999), color-stop(85%, #999), color-stop(100%, #333)); }
+div#name a div#editp { width: 90px; position: absolute; left: 20px; top: 70px; border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; -webkit-border-radius: 3px;border: 1px solid #000; background: linear-gradient(top, #CCC 0%, #999 50%, #CCC 100%); background: -moz-linear-gradient(top, #CCC 0%, #999 50%, #CCC 100%); background: -webkit-linear-gradient(top, #CCC 0%, #999 50%, #CCC 100%); background: -o-linear-gradient(top, #CCC 0%, #999 50%, #CCC 100%); background: -ms-linear-gradient(top, #CCC 0%, #999 50%, #CCC 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #CCC), color-stop(50%, #999), color-stop(100%, #CCC)); }
+div#name a div#editp:hover { background-color: #666; background: linear-gradient(top, #333 0%, #999 50%, #333 100%); background: -moz-linear-gradient(top, #333 0%, #999 50%, #333 100%); background: -webkit-linear-gradient(top, #333 0%, #999 50%, #333 100%); background: -o-linear-gradient(top, #333 0%, #999 50%, #333 100%); background: -ms-linear-gradient(top, #333 0%, #999 50%, #333 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #333), color-stop(50%, #999), color-stop(100%, #333)); }
+div#name a div#editp p { line-height: 0px; }
+div#name a div#logout { width: 65px; position: absolute; left: 15px; top: 70px; border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; -webkit-border-radius: 3px;border: 1px solid #000; background: linear-gradient(top, #CCC 0%, #999 50%, #CCC 100%); background: -moz-linear-gradient(top, #CCC 0%, #999 50%, #CCC 100%); background: -webkit-linear-gradient(top, #CCC 0%, #999 50%, #CCC 100%); background: -o-linear-gradient(top, #CCC 0%, #999 50%, #CCC 100%); background: -ms-linear-gradient(top, #CCC 0%, #999 50%, #CCC 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #CCC), color-stop(50%, #999), color-stop(100%, #CCC)); }
+div#name a div#logout p { line-height: 0px; }
+div#name a div#logout:hover { background-color: #666; background: linear-gradient(top, #333 0%, #999 50%, #333 100%); background: -moz-linear-gradient(top, #333 0%, #999 50%, #333 100%); background: -webkit-linear-gradient(top, #333 0%, #999 50%, #333 100%); background: -o-linear-gradient(top, #333 0%, #999 50%, #333 100%); background: -ms-linear-gradient(top, #333 0%, #999 50%, #333 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #333), color-stop(50%, #999), color-stop(100%, #333)); }
+#nameSpan { text-transform: capitalize; }
+
+#nav { width: 475px; height: 50px; background-color: #999; border: 1px solid black; border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; -webkit-border-radius: 5px; position: absolute; left: 512px; top: 45px; z-index: 0; overflow: hidden; background-image: url(../_images/nav.jpg); background-repeat: repeat-x; }
+#nav p { line-height: 50px; margin: 00px 0px; z-index: 1; font-family: Arial; font-size: 15px; font-weight: bold; }
+#nav #navback { width: 84px; height: 30px; background-color: #666; position: absolute; left: 124px; top: 9px; z-index: -1; border: 1px solid #000; border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; -webkit-border-radius: 3px; background-image: url(../_images/navback.jpg); background-repeat: repeat-x; }
+
+#nav1 { width: 338px; height: 50px; background-color: #999; border: 1px solid black; border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; -webkit-border-radius: 5px; position: absolute; left: 640px; top: 45px; z-index: 0; overflow: hidden; background-image: url(../_images/nav.jpg); background-repeat: repeat-x; }
+#nav1 p { line-height: 50px; margin: 00px 0px; z-index: 1; font-family: Arial; font-size: 15px; font-weight: bold; }
+#nav1 #navback { width: 84px; height: 30px; background-color: #666; position: absolute; left: 124px; top: 9px; z-index: -1; border: 1px solid #000; border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; -webkit-border-radius: 3px; background-image: url(../_images/navback.jpg); background-repeat: repeat-x; }
+
+/*Modal*/
+#modal { width: 100%; height: 100%; position: fixed; z-index: 1; background-color: #666; opacity: 0.6; filter: alpha(opacity=60); }
+
+/*ADDS*/
+#add1 { width: 120px; height: 480px; background-color: #FFF; position: absolute; left: 15px; top: 160px; border: 1px solid #000; }
+#add1 div { width: 110px; height: 470px; border: 1px solid #999; margin: 4px 0px 0px 4px; }
+div#add1 p { color: #999; }
+#add2 { width: 120px; height: 480px; background-color: #FFF; position: absolute; left: 865px; top: 160px; border: 1px solid #000; }
+#add2 div { width: 110px; height: 470px; border: 1px solid #999; margin: 4px 0px 0px 4px; }
+div#add2 p { color: #999; }
+
+/*Fotter*/
+#fotter { width: 700px; height: 50px; position: absolute; bottom: 15px; left: 150px; border: 1px solid #000; border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; -webkit-border-radius: 5px; background-color: #666; background: linear-gradient(top, #333 0%, #CCC 40%, #CCC 60%, #333 100%); background: -moz-linear-gradient(top, #333 0%, #CCC 40%, #CCC 60%, #333 100%); background: -webkit-linear-gradient(top, #333 0%, #CCC 40%, #CCC 60%, #333 100%); background: -o-linear-gradient(top, #333 0%, #CCC 40%, #CCC 60%, #333 100%);background: -ms-linear-gradient(top, #333 0%, #CCC 40%, #CCC 60%, #333 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #333), color-stop(40%, #CCC), color-stop(60%, #CCC), color-stop(100%, #333)); }
+#fotter p a:hover { color: #fff; border-bottom: 1px dashed #fff; }
+
+/*Here goes style for alertbox*/
+#alertBox { width: 400px; background-color: #fff; border: 1px solid #000; border-radius: 10px; -moz-border-radius: 10px; -ms-border-radius: 10px; -o-border-radius: 10px; -webkit-border-radius: 10px; position: absolute; top: 350px; z-index: 2; padding: 0px 10px 0px 10px; }
+#alertBox p#alertMsg { font-size: 24px; line-height: 22px; }
+#alertBox a p#alertOk { background-color: #66F; width: 100px; margin: 30px auto 15px auto; border: 1px solid #000; border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; -webkit-border-radius: 5px; }
+#alertBox a p#alertOk:hover { color: #fff; background-color: #0033CC;}
+
+/*Here goes style for table*/
+#signupCont { position: absolute; left: 260px; top: 300px; width: 480px; border-radius: 10px; -moz-border-radius: 10px; -ms-border-radius: 10px; -o-border-radius: 10px; -webkit-border-radius: 10px; border: 1px solid #000; background: linear-gradient(top, #333 0px, #999 20px, #999 50px, #333 70px, rgba(9,9,9,0.20) 72px); background: -webkit-linear-gradient(top, #333 0px, #999 20px, #999 50px, #333 70px, rgba(9,9,9,0.20) 72px); background: -o-linear-gradient(top, #333 0px, #999 20px, #999 50px, #333 70px, rgba(9,9,9,0.20) 72px); background: -ms-linear-gradient(top, #333 0px, #999 20px, #999 50px, #333 70px, rgba(9,9,9,0.20) 72px); background: -moz-linear-gradient(top, #333 0px, #999 20px, #999 50px, #333 70px, rgba(9,9,9,0.20) 72px); background: -webkit-gradient(linear, left top, left bottom, color-stop(0px, #333), color-stop(20px, #999), color-stop(50px, #999), color-stop(70px, #333), color-stop(72px, rgba(9,9,9,0.20))); }
+#signupCont h1 { border-bottom: 2px solid #000; padding-bottom: 15px; }
+#signupCont p { padding: 0px 25px 0px 25px; text-align: justify; font-size: 16px;}

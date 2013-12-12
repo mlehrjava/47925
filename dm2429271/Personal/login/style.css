@@ -1,0 +1,130 @@
+form p span { color: red; font-size: 0.8em; }
+.hiddenForms { display:none; visibility:hidden }
+.textError { color: red; font-size: 0.8em; }
+#loginform p { line-height: 27px; margin: 0px; margin-top: 13px; }
+p { font-family: "MS Serif", "New York", serif; font-size: 16px; }
+h1 { font-family: "MS Serif", "New York", serif; font-size: 30px; }
+h2 { font-family: Arial, Helvetica, sans-serif; font-size: 25px; line-height: 30px; font-weight: normal; }
+a { text-decoration: none; color: #000; }
+a:active { text-decoration: none; color: #000; }
+a:visited { text-decoration: none; color: #000; }
+
+body { margin: 0px; padding: 0px; }
+#wrapper { position: relative; width: 998px; height: 740px; margin: 0px auto 25px auto; border: 1px solid black; border-top: 0px; border-radius: 10px; -moz-border-radius: 10px; -ms-border-radius: 10px; -o-border-radius: 10px; -webkit-border-radius: 10px;}
+#whiteback {  position: absolute; background-color: #fff; width: 998px; height: 740px; margin: 0px; opacity: 0.85; filter: alpha(opacity=85); z-index: -4; border-radius: 10px; -moz-border-radius: 10px; -ms-border-radius: 10px; -o-border-radius: 10px; -webkit-border-radius: 10px;}
+#background { background-image:url(../_images/background.jpg); position: fixed; width: 100%; height: 100%; margin: 0px; padding: 0px; z-index: -5; top: 0px; left: 0px; background-repeat: repeat; }
+#headborder { height: 1px; width: 960px; border-bottom: 2px solid #000; position: absolute; left: 20px; top: 132px; }
+
+#logo { padding: 20px 0px 0px 20px; }
+/*#66F*/
+
+#nav { width: 397px; height: 50px; background-color: #66F; border: 1px solid black; border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; -webkit-border-radius: 5px; position: absolute; left: 590px; top: 45px; z-index: 0; overflow: hidden; background-image: url(../_images/nav.jpg); background-repeat: repeat-x; }
+#nav p { line-height: 50px; margin: 00px 0px; z-index: 1; font-family: Arial; font-size: 15px; }
+#navback { width: 0px; height: 30px; background-color: #0033CC; position: absolute; left: -5px; top: 9px; z-index: -1; border: 1px solid #000; border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; -webkit-border-radius: 3px; background-image: url(../_images/navback.jpg); background-repeat: repeat-x; }
+
+/*LOGIN FORM*/
+#modal { width: 100%; height: 100%; position: fixed; z-index: 1; background-color: #666; opacity: 0.6; filter: alpha(opacity=60); }
+#loginform { z-index: 2; width: 500px; height: 435px; background-color: #FFF; position: absolute; left: 0px; top: 160px; opacity: 0.75; filter: alpha(opacity=75); border: 1px solid #000; border-radius: 10px; -moz-border-radius: 10px; -ms-border-radius: 10px; -o-border-radius: 10px; -webkit-border-radius: 10px; }
+#loginform1 { z-index: 3; width: 500px; height: 500px; position: absolute; left: 0px; top: 160px; border-radius: 10px; -moz-border-radius: 10px; -ms-border-radius: 10px; -o-border-radius: 10px; -webkit-border-radius: 10px; }
+#loginborder { width: 470px; height: 10px; border-bottom: 2px solid #000; position: absolute; left: 14px; top: 45px; }
+#inputfeilds { width: 468px; height: 350px; background-color: #666; border: 1px solid #000; position: absolute; left: 14px; top: 67px; border-radius: 7px; -moz-border-radius: 7px; -ms-border-radius: 7px; -o-border-radius: 7px; -webkit-border-radius: 7px; }
+#username { width: 300px; height: 30px; }
+#password { width: 300px; height: 30px; }
+#loginsubmit { width: 100px; height: 50px; }
+#loginform1 a { color: #333; font-weight: bold; }
+#loginform1 a:hover { color: #fff; border-bottom: 1px dashed #fff; }
+#close { position: absolute; left: 462px; top: 4px; background-color: #666; border: 1px solid #000; border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; -webkit-border-radius: 3px; }
+#loginform1 #close a:hover { background-color: #333; color: #000; border-bottom: none; }
+#loginform1 #close a { color: #000; font-weight: bold; }
+#error { color: #F00; }
+
+
+
+/*Timer*/
+#timerCont { position: absolute; left: 150px; top: 150px; }
+#timerCont1 { width: 700px; height: 500px; border: 1px solid #000; border-radius: 10px; -moz-border-radius: 10px; -ms-border-radius: 10px; -o-border-radius: 10px; -webkit-border-radius: 10px; position: absolute; left: 0px; top: 0px; background-color: #666; opacity: 0.35; filter: alpha(opacity=35); }
+#timer { width: 700px; height: 500px; border: 1px solid #000; border-radius: 10px; -moz-border-radius: 10px; -ms-border-radius: 10px; -o-border-radius: 10px; -webkit-border-radius: 10px; position: absolute; left: 0px; top: 0px; }
+#up { width: 1px; height: 200px; border-left: 1px solid #000; position: absolute; top: 25px; left: 348px; }
+#down { width: 1px; height: 200px; border-left: 1px solid #000; position: absolute; top: 275px; left: 348px; }
+#left { width: 300px; height: 1px; border-top: 1px solid #000; position: absolute; top: 252px; left: 25px; }
+#right { width: 300px; height: 1px; border-top: 1px solid #000; position: absolute; top: 252px; left: 375px; }
+#start { width: 300px; height: 200px; background-color: #333; border: 1px solid #000; border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; -webkit-border-radius: 5px; position: absolute; left: 25px; top: 25px; }
+#resume { width: 300px; height: 200px; background-color: #333; border: 1px solid #000; border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; -webkit-border-radius: 5px; position: absolute; left: 375px; top: 25px; }
+#countdown { width: 300px; height: 200px; background-color: #333; border: 1px solid #000; border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; -webkit-border-radius: 5px; position: absolute; left: 25px; top: 275px; }
+#split { width: 300px; height: 200px; background-color: #333; border: 1px solid #000; border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; -webkit-border-radius: 5px; position: absolute; left: 375px; top: 275px; }
+#timer div p { text-align: center; font-size: 50px; line-height: 85px; }
+#start:hover { background-color: #666; }
+#resume:hover { background-color: #666; }
+#split:hover { background-color: #666; }
+#countdown:hover { background-color: #666; }
+
+
+/*ADDS*/
+#add1 { width: 120px; height: 480px; background-color: #FFF; position: absolute; left: 15px; top: 160px; border: 1px solid #000; }
+#add1 div { width: 110px; height: 470px; border: 1px solid #999; margin: 4px 0px 0px 4px; }
+div#add1 p { color: #999; }
+#add2 { width: 120px; height: 480px; background-color: #FFF; position: absolute; left: 865px; top: 160px; border: 1px solid #000; }
+#add2 div { width: 110px; height: 470px; border: 1px solid #999; margin: 4px 0px 0px 4px; }
+div#add2 p { color: #999; }
+
+/*Fotter*/
+#fotter { width: 700px; height: 50px; position: absolute; bottom: 15px; left: 150px; border: 1px solid #000; border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; -webkit-border-radius: 5px; background-color: #666; background: linear-gradient(top, #333 0%, #CCC 40%, #CCC 60%, #333 100%); background: -moz-linear-gradient(top, #333 0%, #CCC 40%, #CCC 60%, #333 100%); background: -webkit-linear-gradient(top, #333 0%, #CCC 40%, #CCC 60%, #333 100%); background: -o-linear-gradient(top, #333 0%, #CCC 40%, #CCC 60%, #333 100%);background: -ms-linear-gradient(top, #333 0%, #CCC 40%, #CCC 60%, #333 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #333), color-stop(40%, #CCC), color-stop(60%, #CCC), color-stop(100%, #333)); }
+#fotter p a:hover { color: #fff; border-bottom: 1px dashed #fff; }
+
+/*Here goes style for start time*/
+#timeback { width: 650px; height: 300px; background: #000; margin: 22px 0px 0px 22px; border-radius: 10px; -moz-border-radius: 10px; -ms-border-radius: 10px; -o-border-radius: 10px; -webkit-border-radius: 10px; border: 4px solid #999; }
+#timer div #timeback p { color: #fff; margin: 0px; line-height: 270px; font-size: 150px; }
+#startStart { width: 300px; height: 100px; margin: 30px 0px 0px 37px; font-size: 50px; }
+#startStop { width: 300px; height: 100px; margin: 30px 0px 0px 27px; font-size: 50px; }
+
+/*Here goes style for resume timer*/
+#timer div#resumetimer h1 { font-size: 60px; font-weight: normal; line-height: 50px; margin-top: 100px; }
+#timer div#resumetimer p { line-height: 55px; background-color: #666; border: 1px solid #000; width: 400px; font-size: 35px; margin: 0px auto; margin: 0px auto; text-align: left; border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; -webkit-border-radius: 5px; }
+#timer div#resumetimer a p { width: 200px; text-align: center; margin: 35px auto 0px auto; background-color: #CCC; }
+#timer div#resumetimer a p:hover { background-color: #333; color: #fff; }
+#timer div#resumetimer p input { height: 20px; }
+
+/*Here goes style for countdown timer*/
+#timer div#countdowntimer h1 { font-size: 60px; font-weight: normal; line-height: 55px; margin-top: 100px; }
+#timer div#countdowntimer p { line-height: 55px; background-color: #666; border: 1px solid #000; width: 400px; font-size: 35px; margin: 0px auto; margin: 0px auto; text-align: left; border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; -webkit-border-radius: 5px; }
+#timer div#countdowntimer a p { width: 200px; text-align: center; margin: 35px auto 0px auto; background-color: #CCC; }
+#timer div#countdowntimer a p:hover { background-color: #333; color: #fff; }
+#timer div#countdowntimer p input { height: 20px; }
+
+/*Here goes style for Register popup*/
+#register { width: 700px; height: 200px; position: absolute; top: 325px; left: 0px; z-index: 2; background-color: #fff; border: 1px solid #000; border-radius: 10px; -moz-border-radius: 10px; -ms-border-radius: 10px; -o-border-radius: 10px; -webkit-border-radius: 10px;}
+#popup #register h1 { margin-top: 40px; }
+#popup #register p { line-height: 0px; margin: 0px 0px 0px 0px; }
+#popup #register p a { color: #0000CC; font-weight: bold; }
+#popup #register p a:hover { color: #000; border-bottom: 1px dashed #000; }
+#popup #register h2 { background-color: #666; width: 150px; border: 1px solid #000; position: absolute; left: 275px; bottom: 0px; border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; -webkit-border-radius: 5px; }
+
+/*Here goes style for alertbox*/
+#alertBox { width: 400px; background-color: #fff; border: 1px solid #000; border-radius: 10px; -moz-border-radius: 10px; -ms-border-radius: 10px; -o-border-radius: 10px; -webkit-border-radius: 10px; position: absolute; top: 350px; z-index: 2; padding: 0px 10px 0px 10px; }
+#alertBox p#alertMsg { font-size: 24px; line-height: 22px; }
+#alertBox a p#alertOk { background-color: #666; width: 100px; margin: 30px auto 15px auto; border: 1px solid #000; border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; -webkit-border-radius: 5px; }
+#alertBox a p#alertOk:hover { color: #fff; background-color: #333; }
+
+/*Here goes style for split timer*/
+#splitback { width: 500px; height: 250px; background: #000; margin: 22px 0px 0px 22px; border-radius: 10px; -moz-border-radius: 10px; -ms-border-radius: 10px; -o-border-radius: 10px; -webkit-border-radius: 10px; border: 4px solid #999; }
+#timer div #splitback p { color: #fff; margin: 0px; line-height: 245px; font-size: 100px; }
+#splitStart { width: 300px; height: 90px; margin: 10px 0px 0px 37px; font-size: 50px; }
+#splitStop { width: 300px; height: 90px; margin: 10px 0px 0px 27px; font-size: 50px; }
+#splitSplit { width: 627px; height: 90px; margin: 10px 0px 0px 37px; font-size: 50px; }
+#splitlist { width: 130px; height: 240px; background: #000; margin: 0px; border-radius: 10px; -moz-border-radius: 10px; -ms-border-radius: 10px; -o-border-radius: 10px; -webkit-border-radius: 10px; border: 4px solid #999; position: absolute; top: 22px; left: 540px; overflow: hidden; padding-top: 10px; }
+#timer div #splitlist p { color: #fff; line-height: 20px; margin: 0px; font-size: 20px; }
+
+/*Here goes style with gradient*/
+#alertBox, #register { background: linear-gradient(top, #FFF 0%, #CCC 50%, #FFF 100%); background: -moz-linear-gradient(top, #FFF 0%, #CCC 50%, #FFF 100%); background: -webkit-linear-gradient(top, #FFF 0%, #CCC 50%, #FFF 100%); background: -o-linear-gradient(top, #FFF 0%, #CCC 50%, #FFF 100%); background: -ms-linear-gradient(top, #FFF 0%, #CCC 50%, #FFF 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #FFF), color-stop(50%, #CCC), color-stop(100%, #FFF)); }
+
+#alertBox a p#alertOk, #popup #register h2, #timer div#resumetimer a p, #timer div#countdowntimer a p, #loginform1 #close a { background: linear-gradient(top, #CCC 0%, #999 50%, #CCC 100%); background: -moz-linear-gradient(top, #CCC 0%, #999 50%, #CCC 100%); background: -webkit-linear-gradient(top, #CCC 0%, #999 50%, #CCC 100%); background: -o-linear-gradient(top, #CCC 0%, #999 50%, #CCC 100%); background: -ms-linear-gradient(top, #CCC 0%, #999 50%, #CCC 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #CCC), color-stop(50%, #999), color-stop(100%, #CCC)); }
+
+#alertBox a p#alertOk:hover, #popup #register h2:hover, #timer div#resumetimer a p:hover, #timer div#countdowntimer a p:hover, #loginform1 #close a:hover { background: linear-gradient(top, #333 0%, #999 50%, #333 100%); background: -moz-linear-gradient(top, #333 0%, #999 50%, #333 100%); background: -webkit-linear-gradient(top, #333 0%, #999 50%, #333 100%); background: -o-linear-gradient(top, #333 0%, #999 50%, #333 100%); background: -ms-linear-gradient(top, #333 0%, #999 50%, #333 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #333), color-stop(50%, #999), color-stop(100%, #333)); }
+
+#inputfeilds { background: linear-gradient(top, #CCC 0%, #999 7%, #999 93%, #CCC 100%); background: -moz-linear-gradient(top, #CCC 0%, #999 7%, #999 93%, #CCC 100%); background: -webkit-linear-gradient(top, #CCC 0%, #999 7%, #999 93%, #CCC 100%); background: -o-linear-gradient(top, #CCC 0%, #999 7%, #999 93%, #CCC 100%); background: -ms-linear-gradient(top, #CCC 0%, #999 7%, #999 93%, #CCC 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #CCC), color-stop(7%, #999), color-stop(93%, #999), color-stop(100%, #CCC)); }
+
+#timer div#countdowntimer p, #timer div#resumetimer p { background: linear-gradient(top, #CCC 0%, #666 10%, #666 90%, #CCC 100%); background: -moz-linear-gradient(top, #CCC 0%, #666 10%, #666 90%, #CCC 100%); background: -webkit-linear-gradient(top, #CCC 0%, #666 10%, #666 90%, #CCC 100%); background: -o-linear-gradient(top, #CCC 0%, #666 10%, #666 90%, #CCC 100%); background: -ms-linear-gradient(top, #CCC 0%, #666 10%, #666 90%, #CCC 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #CCC), color-stop(10%, #666), color-stop(90%, #666), color-stop(100%, #CCC)); }
+
+#start, #resume, #split, #countdown { background: linear-gradient(top, #CCC 0%, #666 30%, #666 70%, #CCC 100%); background: -moz-linear-gradient(top, #CCC 0%, #666 30%, #666 70%, #CCC 100%); background: -webkit-linear-gradient(top, #CCC 0%, #666 30%, #666 70%, #CCC 100%); background: -o-linear-gradient(top, #CCC 0%, #666 30%, #666 70%, #CCC 100%); background: -ms-linear-gradient(top, #CCC 0%, #666 30%, #666 70%, #CCC 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #CCC), color-stop(30%, #666), color-stop(70%, #666), color-stop(100%, #CCC)); }
+
+#start:hover, #resume:hover, #split:hover, #countdown:hover { background: linear-gradient(top, #999 0%, #333 30%, #333 70%, #999 100%); background: -moz-linear-gradient(top, #999 0%, #333 30%, #333 70%, #999 100%); background: -webkit-linear-gradient(top, #999 0%, #333 30%, #333 70%, #999 100%); background: -o-linear-gradient(top, #999 0%, #333 30%, #333 70%, #999 100%); background: -ms-linear-gradient(top, #999 0%, #333 30%, #333 70%, #999 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #999), color-stop(30%, #333), color-stop(70%, #333), color-stop(100%, #999)); }
