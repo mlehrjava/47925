@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Switch Paycheck</title>
+</head>
+<!--Andrew Ewing-->
+<body>
+<script type="text/javascript">
+	//Declare Variables
+	var payRate=10;//$/hr
+	var hrsWrkd=60;//Hours
+	var dblTime=20;//Hours at which overtime occurs
+	var trpTime=40;//hours at which triple time occurs
+	var payChk;//$
+	
+	//Calculate the paycheck
+	switch(true){
+	    case (hrsWrkd>=trpTime):{
+			payChk= hrsWrkd*payRate+
+			(hrsWrkd-dblTime)*payRate+
+			(hrsWrkd-trpTime)*payRate;
+			break;
+		}
+		case (hrsWrkd>=dblTime):{
+			payChk= hrsWrkd*payRate+
+		    (hrsWrkd-dblTime)*payRate;
+			break;
+		}
+	    default:
+			payChk=hrsWrkd*payRate;
+	}
+	
+	//Output the results
+	document.write("Pay Rate = $"+payRate+"<br/>");
+	document.write("Hours Worked = "+hrsWrkd+"<br/>")
+	document.write("Paycheck 1 = $"+payChk+"<br/>");
+</script>
+</body>
+</html>

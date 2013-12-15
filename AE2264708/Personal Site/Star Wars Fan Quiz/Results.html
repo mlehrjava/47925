@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Admin Page</title>
+<title>Results</title>
 <script type="text/javascript" src="AdminCookies.js">
 </script>
 <script type="text/javascript">
@@ -11,13 +11,31 @@
 function goToQuiz(){
 	window.location.assign("TakeTheQuiz.html")}
 </script>
-
 </head>
 
 <body>
 <center>
-	<h1>Welcome to the Admin Page!</h1>
-	<input type="button" name="view" value="View Results" onclick="results()" />
+<h2>Here are the results for every survey submitted thus far:</h2>
+<script type="text/javascript">
+		//Displays survey results
+		function displayResults(){
+			var cookiesObj=getCookies();
+			for(var name in cookiesObj){
+				document.write(name+"'s quiz answers were:<br />");
+				var cookie = cookiesObj[name];
+				var cSplit = JSON.parse(cookie);
+				//var obj = JSON.parse(cSplit);
+				for(var name in cSplit){
+					document.write(name+"="+cSplit[name]+"<br/>");
+				}
+			}
+		}
+		document.write(displayResults());
+</script>
+	<br />
+	<a href="Admin Page.html">
+    <input type="button" name="back2Admin" value="Back to Admin Page" />
+    </a>
     <input type="button" name="delete" value="Delete Results" onclick="deleteResult()" />
     <input type="button" name="toQuiz" value="Back to Quiz" onclick="goToQuiz()" />
 </center>
